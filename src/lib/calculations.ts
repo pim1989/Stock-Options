@@ -1,4 +1,14 @@
-import type { MarkUpdate, OptionLeg, Position } from "../types/domain";
+import type { MarkUpdate, OptionLeg, Position, StrategyType } from "../types/domain";
+
+/** Forma mínima necessária para calcular capital alocado — Position e Recommendation
+ * satisfazem essa forma estruturalmente, o que permite reaproveitar a mesma lógica
+ * no motor de auditoria (que audita Recommendation antes dela virar Position). */
+export interface CapitalInputs {
+  strategyType: StrategyType;
+  legs: OptionLeg[];
+  underlyingQty?: number;
+  underlyingEntryPrice?: number;
+}
 
 /** Prêmio atual de uma perna: última marcação informada, senão prêmio de entrada. */
 export function currentLegPremium(leg: OptionLeg, marks: MarkUpdate[]): number {
@@ -45,9 +55,9 @@ export function optionsNetCredit(legs: OptionLeg[]): number {
   return legs.reduce((acc, l) => acc + legEntryCashFlow(l), 0);
 }
 
-/** Capital alocado/em risco estimado para a posição (sempre finito). */
-export function capitalAlocado(position: Position): number {
-  const { strategyType, legs, underlyingQty, underlyingEntryPrice } = position;
+/** Capital alocado/em risco estimado para a estrutura (sempre finito). */
+export function capitalAlocado(input: CapitalInputs): number {
+  const { strategyType, legs, underlyingQty, underlyingEntryPrice } = input;
 
   switch (strategyType) {
     case "COVERED_CALL":

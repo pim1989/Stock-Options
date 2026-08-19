@@ -52,8 +52,47 @@ call/put) — as únicas estratégias suportadas são:
    opções encerradas, seguindo as regras da Receita Federal para renda
    variável (ver abaixo), com compensação de prejuízos, cálculo do DARF e
    alertas de vencimento (pendente, próximo do vencimento, atrasado).
-5. **Biblioteca de Opções** — glossário, guia de cada estratégia coberta,
+5. **Auditoria** — toda recomendação passa por uma auditoria antes de ficar
+   disponível para aceite, em duas camadas (ver detalhes abaixo). Uma
+   recomendação reprovada fica visível, mas sem botão de aceite, com o
+   motivo exato explicado.
+6. **Biblioteca de Opções** — glossário, guia de cada estratégia coberta,
    regras de gestão de risco e leituras recomendadas.
+
+### Como funciona a Auditoria
+
+A auditoria roda em duas camadas bem diferentes — é importante entender os
+limites de cada uma:
+
+1. **Verificação automática determinística** (`src/lib/audit.ts`) — roda no
+   seu navegador a cada carregamento da página, para cada recomendação:
+   - Valida se a **forma da estrutura** corresponde ao tipo declarado e
+     continua com risco definido (ex.: covered call precisa ter ativo
+     suficiente para cobrir a call vendida; trava de crédito precisa ter
+     crédito líquido positivo; nenhuma perna vendida pode ficar sem
+     cobertura).
+   - **Recalcula** ganho máximo, perda máxima, breakeven e capital alocado
+     diretamente a partir das pernas informadas (usando a mesma matemática
+     do gráfico de payoff) e compara com os valores divulgados na
+     recomendação.
+   - Valida consistência de datas (validade posterior à emissão, pernas não
+     vencendo antes da validade) e a presença de uma tese mínima.
+   - Qualquer divergência vira uma **reprovação**: a recomendação continua
+     visível (transparência), mas sem o botão de aceite, com o(s) motivo(s)
+     exato(s) listado(s).
+2. **Checagem cruzada com fontes públicas** (`src/data/auditBenchmark.ts`) —
+   o app roda inteiramente no navegador, sem backend, então **não varre a
+   internet sozinho em tempo real**. Essa camada é preenchida manualmente
+   (com apoio de busca) a cada revisão da safra: compara a tese e o preço de
+   referência de cada recomendação com carteiras públicas de corretoras e
+   cotações recentes, e registra o resultado com fonte, link e data. Uma
+   divergência de preço ou a ausência de confirmação pública vira um
+   **alerta** (não bloqueia o aceite, mas fica visível no card e na aba
+   Auditoria) até a próxima revisão.
+
+A aba **Auditoria** no menu mostra o relatório completo: metodologia, contagem
+de aprovadas/com alerta/reprovadas, os achados gerais da checagem cruzada
+(com links para as fontes) e o detalhamento por recomendação.
 
 ### Regras de IR aplicadas no módulo de DARF
 
@@ -103,21 +142,36 @@ npm run lint       # checagem de lint (oxlint)
 
 ```
 src/
-  types/domain.ts        modelo de dados (Recommendation, Position, Leg...)
-  data/recommendations.ts carteira recomendada (safra atual, com teses)
-  data/education.ts       glossário, guias de estratégia, referências
-  lib/calculations.ts     motor de cálculo de P&L (aberto e realizado)
-  lib/darf.ts             motor de apuração de IR / DARF
-  lib/storage.ts          persistência em localStorage + backup
-  hooks/usePortfolio.ts   estado da carteira do usuário
-  components/             modais e componentes de UI reutilizáveis
-  pages/                  Dashboard, Recommendations, Positions, TaxModule, Education
+  types/domain.ts          modelo de dados (Recommendation, Position, Leg...)
+  types/audit.ts           tipos do relatório de auditoria
+  data/recommendations.ts  carteira recomendada (safra atual, com teses)
+  data/auditBenchmark.ts   checagem cruzada com fontes públicas (por safra)
+  data/education.ts        glossário, guias de estratégia, referências
+  lib/calculations.ts      motor de cálculo de P&L (aberto e realizado)
+  lib/payoff.ts            motor de payoff (gráfico + extremos exatos)
+  lib/audit.ts             motor de auditoria determinística
+  lib/darf.ts              motor de apuração de IR / DARF
+  lib/storage.ts           persistência em localStorage + backup
+  hooks/usePortfolio.ts    estado da carteira do usuário
+  components/              modais e componentes de UI reutilizáveis
+  pages/                   Dashboard, Recommendations, Positions, TaxModule, Audit, Education
 ```
 
 ## Atualizando a carteira recomendada
 
 A safra de recomendações vive em `src/data/recommendations.ts`, com a data
 de emissão, cenário considerado e tese completa de cada estrutura. Para
-publicar uma nova safra, adicione novos itens (ou marque os antigos como
-`EXPIRADA`/`ENCERRADA_PELO_GESTOR`), sempre com o mesmo padrão: tese em
-macro/micro/técnico/riscos e ganho/perda máximos explícitos e finitos.
+publicar uma nova safra:
+
+1. Adicione os novos itens (ou marque os antigos como
+   `EXPIRADA`/`ENCERRADA_PELO_GESTOR`), sempre com o mesmo padrão: tese em
+   macro/micro/técnico/riscos e ganho/perda máximos explícitos e finitos.
+2. Atualize `CARTEIRA_REVISADA_EM` em `src/data/meta.ts`.
+3. Refaça a checagem cruzada com fontes públicas e atualize
+   `src/data/auditBenchmark.ts` (achados, fontes e
+   `AUDIT_BENCHMARK_REVIEWED_AT`) — é o que mantém a aba Auditoria honesta
+   sobre até quando a comparação externa vale.
+4. Rode `npm run build` — se algum número de ganho/perda/breakeven/capital
+   estiver errado, a auditoria reprova a recomendação e o build passa
+   normalmente, mas vale abrir a aba Auditoria localmente para conferir
+   antes de publicar.

@@ -1,13 +1,14 @@
 import type { ReactNode } from "react";
 import { formatDate } from "../lib/format";
 
-export type TabId = "dashboard" | "recomendacoes" | "operacoes" | "ir" | "educacao";
+export type TabId = "dashboard" | "recomendacoes" | "operacoes" | "ir" | "auditoria" | "educacao";
 
 const TABS: { id: TabId; label: string }[] = [
   { id: "dashboard", label: "Visão Geral" },
   { id: "recomendacoes", label: "Carteira Recomendada" },
   { id: "operacoes", label: "Minhas Operações" },
   { id: "ir", label: "Imposto de Renda" },
+  { id: "auditoria", label: "Auditoria" },
   { id: "educacao", label: "Biblioteca" },
 ];
 
@@ -15,15 +16,18 @@ export function Layout({
   active,
   onChange,
   darfBadge,
+  auditBadge,
   revisedAt,
   children,
 }: {
   active: TabId;
   onChange: (t: TabId) => void;
   darfBadge?: number;
+  auditBadge?: number;
   revisedAt?: string;
   children: ReactNode;
 }) {
+  const badges: Partial<Record<TabId, number>> = { ir: darfBadge, auditoria: auditBadge };
   return (
     <div className="min-h-screen flex flex-col">
       <header className="border-b bg-[var(--color-brand-dark)] text-white">
@@ -51,9 +55,9 @@ export function Layout({
                 }`}
               >
                 {t.label}
-                {t.id === "ir" && darfBadge ? (
+                {badges[t.id] ? (
                   <span className="absolute -top-1.5 -right-1.5 bg-[var(--color-danger)] text-white text-[10px] leading-none rounded-full w-4 h-4 flex items-center justify-center">
-                    {darfBadge}
+                    {badges[t.id]}
                   </span>
                 ) : null}
               </button>
