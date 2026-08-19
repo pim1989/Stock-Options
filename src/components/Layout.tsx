@@ -1,14 +1,13 @@
 import type { ReactNode } from "react";
 import { formatDate } from "../lib/format";
 
-export type TabId = "dashboard" | "recomendacoes" | "operacoes" | "ir" | "auditoria" | "educacao";
+export type TabId = "dashboard" | "recomendacoes" | "operacoes" | "ir" | "educacao";
 
 const TABS: { id: TabId; label: string }[] = [
   { id: "dashboard", label: "Visão Geral" },
   { id: "recomendacoes", label: "Carteira Recomendada" },
   { id: "operacoes", label: "Minhas Operações" },
   { id: "ir", label: "Imposto de Renda" },
-  { id: "auditoria", label: "Auditoria" },
   { id: "educacao", label: "Biblioteca" },
 ];
 
@@ -16,18 +15,16 @@ export function Layout({
   active,
   onChange,
   darfBadge,
-  auditBadge,
   revisedAt,
   children,
 }: {
   active: TabId;
   onChange: (t: TabId) => void;
   darfBadge?: number;
-  auditBadge?: number;
   revisedAt?: string;
   children: ReactNode;
 }) {
-  const badges: Partial<Record<TabId, number>> = { ir: darfBadge, auditoria: auditBadge };
+  const badges: Partial<Record<TabId, number>> = { ir: darfBadge };
   return (
     <div className="min-h-screen flex flex-col">
       <header className="border-b bg-[var(--color-brand-dark)] text-white">

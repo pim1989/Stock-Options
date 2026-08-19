@@ -52,47 +52,63 @@ call/put) — as únicas estratégias suportadas são:
    opções encerradas, seguindo as regras da Receita Federal para renda
    variável (ver abaixo), com compensação de prejuízos, cálculo do DARF e
    alertas de vencimento (pendente, próximo do vencimento, atrasado).
-5. **Auditoria** — toda recomendação passa por uma auditoria antes de ficar
-   disponível para aceite, em duas camadas (ver detalhes abaixo). Uma
-   recomendação reprovada fica visível, mas sem botão de aceite, com o
-   motivo exato explicado.
-6. **Biblioteca de Opções** — glossário, guia de cada estratégia coberta,
+5. **Biblioteca de Opções** — glossário, guia de cada estratégia coberta,
    regras de gestão de risco e leituras recomendadas.
 
-### Como funciona a Auditoria
+### Auditoria (roda em background, sem tela própria)
 
-A auditoria roda em duas camadas bem diferentes — é importante entender os
-limites de cada uma:
+Nenhuma recomendação chega à Carteira Recomendada sem passar por uma
+auditoria antes — mas essa auditoria não é uma funcionalidade visível do
+app: é um filtro que roda silenciosamente e um processo de curadoria por
+trás de cada safra. Duas camadas, com objetivos bem diferentes:
 
 1. **Verificação automática determinística** (`src/lib/audit.ts`) — roda no
-   seu navegador a cada carregamento da página, para cada recomendação:
+   seu navegador a cada carregamento da página e filtra `recommendations`
+   antes de renderizar qualquer card. Para cada recomendação:
    - Valida se a **forma da estrutura** corresponde ao tipo declarado e
      continua com risco definido (ex.: covered call precisa ter ativo
      suficiente para cobrir a call vendida; trava de crédito precisa ter
      crédito líquido positivo; nenhuma perna vendida pode ficar sem
      cobertura).
    - **Recalcula** ganho máximo, perda máxima, breakeven e capital alocado
-     diretamente a partir das pernas informadas (usando a mesma matemática
-     do gráfico de payoff) e compara com os valores divulgados na
-     recomendação.
+     diretamente a partir das pernas informadas (mesma matemática exata do
+     gráfico de payoff — não por amostragem) e compara com os valores
+     divulgados na recomendação.
    - Valida consistência de datas (validade posterior à emissão, pernas não
      vencendo antes da validade) e a presença de uma tese mínima.
-   - Qualquer divergência vira uma **reprovação**: a recomendação continua
-     visível (transparência), mas sem o botão de aceite, com o(s) motivo(s)
-     exato(s) listado(s).
-2. **Checagem cruzada com fontes públicas** (`src/data/auditBenchmark.ts`) —
-   o app roda inteiramente no navegador, sem backend, então **não varre a
-   internet sozinho em tempo real**. Essa camada é preenchida manualmente
-   (com apoio de busca) a cada revisão da safra: compara a tese e o preço de
-   referência de cada recomendação com carteiras públicas de corretoras e
-   cotações recentes, e registra o resultado com fonte, link e data. Uma
-   divergência de preço ou a ausência de confirmação pública vira um
-   **alerta** (não bloqueia o aceite, mas fica visível no card e na aba
-   Auditoria) até a próxima revisão.
+   - Qualquer divergência **reprova silenciosamente** a recomendação: ela
+     simplesmente não aparece — sem banner, sem aba, sem explicação na
+     tela. Isso é código puro, cego a interpretação de mercado: pega bugs
+     de digitação/matemática, não julga se a tese é boa.
+2. **Revisão de mérito da tese** (`src/data/auditBenchmark.ts` e os
+   comentários no topo de `src/data/recommendations.ts`) — o app roda
+   inteiramente no navegador, sem backend, então não existe como "varrer a
+   internet sozinho em tempo real" para julgar se uma tese ainda faz
+   sentido. Essa camada é o trabalho de curadoria feito a cada revisão da
+   safra (com apoio de busca), cobrindo o que uma checagem de matemática
+   nunca pega:
+   - **Ciclo de mercado** — o Ibovespa está em bull de longo prazo ou bear?
+     Em qual fase da correção/tendência?
+   - **Ciclo de commodity** (petróleo, minério) — o driver da tese é
+     estrutural ou um pico de curto prazo que tende a reverter?
+   - **Geopolítica e calendário eleitoral** — guerra, eleições e outros
+     eventos que caem dentro da janela de validade da estrutura.
+   - **Valuation** — P/L, P/VP, dividend yield e ROE do ativo-objeto,
+     cruzados com o padrão histórico da própria empresa/setor.
+   - **Convergência com o mercado** — a tese bate com o que carteiras
+     recomendadas públicas de corretoras estão dizendo sobre o mesmo ativo?
+   - **Literatura de opções** — a estrutura escolhida é mesmo a ferramenta
+     certa para o objetivo declarado (renda vs. proteção vs. direcional
+     com risco limitado), como ensinam as referências listadas na
+     Biblioteca?
 
-A aba **Auditoria** no menu mostra o relatório completo: metodologia, contagem
-de aprovadas/com alerta/reprovadas, os achados gerais da checagem cruzada
-(com links para as fontes) e o detalhamento por recomendação.
+   Uma recomendação que não se sustenta sob essa revisão é corrigida (tese,
+   estrutura ou preços) ou descartada **antes** de entrar em
+   `recommendations.ts` — não é publicada com um aviso. A safra atual já
+   passou por essa correção uma vez: a primeira leitura usava cotações
+   desatualizadas (até 33% de erro no caso da VALE3); os preços de
+   referência, strikes e prêmios de todas as 6 recomendações foram
+   recalculados antes de publicar.
 
 ### Regras de IR aplicadas no módulo de DARF
 
@@ -154,7 +170,7 @@ src/
   lib/storage.ts           persistência em localStorage + backup
   hooks/usePortfolio.ts    estado da carteira do usuário
   components/              modais e componentes de UI reutilizáveis
-  pages/                   Dashboard, Recommendations, Positions, TaxModule, Audit, Education
+  pages/                   Dashboard, Recommendations, Positions, TaxModule, Education
 ```
 
 ## Atualizando a carteira recomendada
@@ -163,15 +179,20 @@ A safra de recomendações vive em `src/data/recommendations.ts`, com a data
 de emissão, cenário considerado e tese completa de cada estrutura. Para
 publicar uma nova safra:
 
-1. Adicione os novos itens (ou marque os antigos como
-   `EXPIRADA`/`ENCERRADA_PELO_GESTOR`), sempre com o mesmo padrão: tese em
-   macro/micro/técnico/riscos e ganho/perda máximos explícitos e finitos.
-2. Atualize `CARTEIRA_REVISADA_EM` em `src/data/meta.ts`.
-3. Refaça a checagem cruzada com fontes públicas e atualize
-   `src/data/auditBenchmark.ts` (achados, fontes e
-   `AUDIT_BENCHMARK_REVIEWED_AT`) — é o que mantém a aba Auditoria honesta
-   sobre até quando a comparação externa vale.
-4. Rode `npm run build` — se algum número de ganho/perda/breakeven/capital
-   estiver errado, a auditoria reprova a recomendação e o build passa
-   normalmente, mas vale abrir a aba Auditoria localmente para conferir
-   antes de publicar.
+1. Confirme as cotações atuais dos ativos-objeto por múltiplas fontes antes
+   de calibrar strikes e prêmios — a checagem cruzada de preço é a parte
+   mais fácil de errar (já aconteceu nesta safra, ver acima).
+2. Refaça a revisão de mérito (ciclo de mercado, commodity, geopolítica,
+   calendário eleitoral, valuation) e atualize `src/data/auditBenchmark.ts`
+   e `AUDIT_BENCHMARK_REVIEWED_AT` com os achados e fontes.
+3. Adicione os novos itens em `src/data/recommendations.ts` (ou marque os
+   antigos como `EXPIRADA`/`ENCERRADA_PELO_GESTOR`), sempre com o mesmo
+   padrão: tese em macro/micro/técnico/riscos e ganho/perda máximos
+   explícitos e finitos.
+4. Atualize `CARTEIRA_REVISADA_EM` em `src/data/meta.ts`.
+5. Rode `npm run build`. Se algum número de ganho/perda/breakeven/capital
+   estiver errado, o filtro silencioso de `lib/audit.ts` vai excluir a
+   recomendação da tela sem avisar — para conferir antes de publicar, rode
+   um script rápido chamando `auditPortfolio(recommendations)` (veja o
+   histórico de commits para um exemplo) e confirme `passed: true` em
+   todas.

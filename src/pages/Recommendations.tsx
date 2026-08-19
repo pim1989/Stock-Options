@@ -3,13 +3,12 @@ import { recommendations } from "../data/recommendations";
 import type { Recommendation } from "../types/domain";
 import { STRATEGY_LABELS } from "../types/domain";
 import { Badge } from "../components/StatCard";
-import { formatBRL, formatDate } from "../lib/format";
+import { formatBRL, formatDate, todayISO } from "../lib/format";
 import { AcceptRecommendationModal } from "../components/AcceptRecommendationModal";
 import { PayoffChart } from "../components/PayoffChart";
 import type { PortfolioApi } from "../hooks/usePortfolio";
 import { CARTEIRA_REVISADA_EM } from "../data/meta";
-import { auditPortfolio } from "../lib/audit";
-import type { AuditReport } from "../lib/audit";
+import { auditRecommendation } from "../lib/audit";
 
 const RISK_COLOR: Record<Recommendation["riskProfile"], "green" | "amber" | "red"> = {
   CONSERVADOR: "green",
@@ -28,9 +27,11 @@ export function Recommendations({ portfolio }: { portfolio: PortfolioApi }) {
   const [selected, setSelected] = useState<Recommendation | null>(null);
   const { dismissedRecs, dismissRecommendation, acceptedRecommendationIds, addPosition } = portfolio;
 
-  const visible = recommendations.filter((r) => !dismissedRecs.has(r.id));
-  const reports = auditPortfolio(recommendations);
-  const reportById = new Map<string, AuditReport>(reports.map((r) => [r.recommendationId, r]));
+  // Toda recomendação passa por auditoria (estrutura, matemática e coerência de datas)
+  // antes de poder aparecer aqui — roda em background, sem UI própria. Ver src/lib/audit.ts.
+  const visible = recommendations.filter(
+    (r) => !dismissedRecs.has(r.id) && auditRecommendation(r).passed
+  );
 
   return (
     <div className="space-y-6">
@@ -42,24 +43,16 @@ export function Recommendations({ portfolio }: { portfolio: PortfolioApi }) {
           registre aqui para começar o acompanhamento de resultado.
         </p>
         <p className="text-xs text-[var(--color-muted)] mt-1">
-          Última revisão desta safra: <strong>{formatDate(CARTEIRA_REVISADA_EM)}</strong>. Toda
-          recomendação abaixo passou pela <strong>auditoria</strong> (aba "Auditoria" no menu)
-          antes de ficar disponível para aceite.
+          Última revisão desta safra: <strong>{formatDate(CARTEIRA_REVISADA_EM)}</strong>.
         </p>
       </div>
 
       <div className="grid md:grid-cols-2 gap-4">
         {visible.map((rec) => {
           const accepted = acceptedRecommendationIds.has(rec.id);
-          const report = reportById.get(rec.id)!;
-          const blocked = !report.passed;
-          const expired = report.findings.some((f) => f.code === "expirada");
-          const alerts = report.findings.filter((f) => f.severity === "ALERTA");
+          const expired = rec.validUntil < todayISO();
           return (
-            <div
-              key={rec.id}
-              className={`card p-4 flex flex-col ${blocked ? "border-[var(--color-danger)]" : ""} ${expired ? "opacity-80" : ""}`}
-            >
+            <div key={rec.id} className={`card p-4 flex flex-col ${expired ? "opacity-80" : ""}`}>
               <div className="flex items-start justify-between gap-2">
                 <div>
                   <div className="font-semibold">
@@ -70,34 +63,16 @@ export function Recommendations({ portfolio }: { portfolio: PortfolioApi }) {
                   </div>
                 </div>
                 <div className="flex flex-col items-end gap-1">
-                  {blocked && <Badge color="red">Reprovada na auditoria</Badge>}
-                  {!blocked && expired && <Badge color="red">Expirada</Badge>}
+                  {expired && <Badge color="red">Expirada</Badge>}
                   <Badge color={RISK_COLOR[rec.riskProfile]}>{rec.riskProfile}</Badge>
                   <Badge color="blue">{DIRECTION_LABEL[rec.direction]}</Badge>
                 </div>
               </div>
 
-              {blocked && (
-                <div className="text-xs bg-[var(--color-danger-light)] text-[var(--color-danger)] rounded-md px-2 py-1.5 mt-2 space-y-1">
-                  <p className="font-semibold">
-                    Esta recomendação foi reprovada na auditoria e não está disponível para
-                    aceite. Motivo(s):
-                  </p>
-                  <ul className="list-disc pl-4">
-                    {report.findings
-                      .filter((f) => f.severity === "FALHA")
-                      .map((f, i) => (
-                        <li key={i}>{f.message}</li>
-                      ))}
-                  </ul>
-                </div>
-              )}
-
-              {!blocked && alerts.length > 0 && (
-                <div className="text-xs bg-amber-50 text-amber-800 rounded-md px-2 py-1.5 mt-2 space-y-1">
-                  {alerts.map((f, i) => (
-                    <p key={i}>⚠ {f.message}</p>
-                  ))}
+              {expired && (
+                <div className="text-xs bg-[var(--color-danger-light)] text-[var(--color-danger)] rounded-md px-2 py-1.5 mt-2">
+                  A validade indicada para esta recomendação já passou ({formatDate(rec.validUntil)}).
+                  O cenário pode ter mudado — não monte sem reavaliar a tese e cotar preços atuais.
                 </div>
               )}
 
@@ -147,13 +122,6 @@ export function Recommendations({ portfolio }: { portfolio: PortfolioApi }) {
               <div className="flex gap-2 mt-3">
                 {accepted ? (
                   <Badge color="green">✓ Já montada — veja em Minhas Operações</Badge>
-                ) : blocked ? (
-                  <button
-                    onClick={() => dismissRecommendation(rec.id)}
-                    className="px-3 py-1.5 text-sm rounded-md border"
-                  >
-                    Dispensar
-                  </button>
                 ) : (
                   <>
                     <button
