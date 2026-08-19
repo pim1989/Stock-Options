@@ -31,11 +31,20 @@ call/put) — as únicas estratégias suportadas são:
    microeconômico, técnico e riscos), calibradas a partir de cenário real de
    mercado (Selic, câmbio, commodities, geopolítica, ciclo eleitoral,
    resultados corporativos). Cada recomendação mostra ganho máximo, perda
-   máxima e capital necessário — nunca um valor desconhecido.
+   máxima, capital necessário e um **gráfico de payoff** (resultado no
+   vencimento x preço do ativo). Toda recomendação exibe sua **data de
+   emissão** e **validade**, e a tela mostra a **data da última revisão**
+   de toda a safra — se a validade já passou, o card é marcado como
+   "Expirada" com um aviso para reavaliar antes de montar.
 2. **Aceite e acompanhamento** — ao aceitar uma recomendação (ou registrar
    uma operação manual), você informa os preços reais obtidos na corretora.
    A partir da data de montagem, o app calcula o resultado (P&L) da operação
-   a cada atualização de marcação que você fizer, até o encerramento.
+   a cada atualização de marcação que você fizer, até o encerramento. Como
+   prêmios e cotações variam frente ao que foi sugerido, qualquer operação
+   aberta pode ser **ajustada depois** (botão "Ajustar prêmios/valores") —
+   strikes, prêmios, quantidades e preço do ativo — sem perder o histórico
+   de marcações já registrado. Cada operação aberta também tem seu próprio
+   gráfico de payoff, calculado com os valores reais da montagem.
 3. **Visão Geral** — cards de capital alocado, P&L aberto, P&L realizado
    acumulado e número de operações, além de gráficos de evolução do
    resultado, P&L por operação aberta e alocação de capital por ativo.

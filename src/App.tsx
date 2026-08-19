@@ -7,6 +7,7 @@ import { TaxModule } from "./pages/TaxModule";
 import { Education } from "./pages/Education";
 import { usePortfolio } from "./hooks/usePortfolio";
 import { buildDarfAlerts, computeMonthlyTax } from "./lib/darf";
+import { CARTEIRA_REVISADA_EM } from "./data/meta";
 
 export default function App() {
   const [tab, setTab] = useState<TabId>("dashboard");
@@ -17,7 +18,7 @@ export default function App() {
   const pendingCount = darfAlerts.filter((a) => a.level === "ATRASADO" || a.level === "PROXIMO").length;
 
   return (
-    <Layout active={tab} onChange={setTab} darfBadge={pendingCount}>
+    <Layout active={tab} onChange={setTab} darfBadge={pendingCount} revisedAt={CARTEIRA_REVISADA_EM}>
       {tab === "dashboard" && <Dashboard positions={portfolio.positions} darfAlerts={darfAlerts} />}
       {tab === "recomendacoes" && <Recommendations portfolio={portfolio} />}
       {tab === "operacoes" && <Positions portfolio={portfolio} />}

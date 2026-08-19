@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { formatDate } from "../lib/format";
 
 export type TabId = "dashboard" | "recomendacoes" | "operacoes" | "ir" | "educacao";
 
@@ -14,11 +15,13 @@ export function Layout({
   active,
   onChange,
   darfBadge,
+  revisedAt,
   children,
 }: {
   active: TabId;
   onChange: (t: TabId) => void;
   darfBadge?: number;
+  revisedAt?: string;
   children: ReactNode;
 }) {
   return (
@@ -65,6 +68,14 @@ export function Layout({
           recomendação formal de investimento (não substitui um analista CNPI ou seu
           contador). Estruturas sempre com risco definido — nunca venda de opção a
           descoberto. Cotações de referência, confira preços reais antes de operar.
+          {revisedAt && (
+            <>
+              {" "}
+              <strong>Carteira recomendada revisada em {formatDate(revisedAt)}.</strong> Cada
+              recomendação também mostra sua própria validade — não monte uma estrutura
+              expirada sem reavaliar o cenário.
+            </>
+          )}
         </div>
       </div>
 

@@ -30,24 +30,27 @@ function emptyLeg(id: string): OptionLeg {
 }
 
 export function ManualPositionModal({
+  initial,
   onClose,
   onConfirm,
 }: {
+  initial?: Position;
   onClose: () => void;
   onConfirm: (position: Omit<Position, "id" | "marks">) => void;
 }) {
-  const [ticker, setTicker] = useState("");
-  const [companyName, setCompanyName] = useState("");
-  const [strategyType, setStrategyType] = useState<StrategyType>("COVERED_CALL");
-  const [riskProfile, setRiskProfile] = useState<RiskProfile>("MODERADO");
-  const [acceptedDate, setAcceptedDate] = useState(todayISO());
-  const [brokerName, setBrokerName] = useState("");
-  const [requiresUnderlying, setRequiresUnderlying] = useState(true);
-  const [underlyingQty, setUnderlyingQty] = useState(100);
-  const [underlyingEntryPrice, setUnderlyingEntryPrice] = useState(0);
-  const [dayTrade, setDayTrade] = useState(false);
-  const [notes, setNotes] = useState("");
-  const [legs, setLegs] = useState<OptionLeg[]>([emptyLeg("leg-1")]);
+  const isEditing = !!initial;
+  const [ticker, setTicker] = useState(initial?.ticker ?? "");
+  const [companyName, setCompanyName] = useState(initial?.companyName ?? "");
+  const [strategyType, setStrategyType] = useState<StrategyType>(initial?.strategyType ?? "COVERED_CALL");
+  const [riskProfile, setRiskProfile] = useState<RiskProfile>(initial?.riskProfile ?? "MODERADO");
+  const [acceptedDate, setAcceptedDate] = useState(initial?.acceptedDate ?? todayISO());
+  const [brokerName, setBrokerName] = useState(initial?.brokerName ?? "");
+  const [requiresUnderlying, setRequiresUnderlying] = useState(initial?.requiresUnderlying ?? true);
+  const [underlyingQty, setUnderlyingQty] = useState(initial?.underlyingQty ?? 100);
+  const [underlyingEntryPrice, setUnderlyingEntryPrice] = useState(initial?.underlyingEntryPrice ?? 0);
+  const [dayTrade, setDayTrade] = useState(initial?.dayTrade ?? false);
+  const [notes, setNotes] = useState(initial?.notes ?? "");
+  const [legs, setLegs] = useState<OptionLeg[]>(initial?.legs ?? [emptyLeg("leg-1")]);
 
   function updateLeg(id: string, patch: Partial<OptionLeg>) {
     setLegs((prev) => prev.map((l) => (l.id === id ? { ...l, ...patch } : l)));
@@ -64,7 +67,14 @@ export function ManualPositionModal({
   const canSubmit = ticker.trim().length > 0 && legs.every((l) => l.strike > 0 && l.quantity > 0);
 
   return (
-    <Modal title="Registrar operação manual" onClose={onClose} wide>
+    <Modal title={isEditing ? `Ajustar operação — ${initial?.ticker}` : "Registrar operação manual"} onClose={onClose} wide>
+      {isEditing && (
+        <p className="text-xs text-[var(--color-muted)] mb-4">
+          Use isto quando o preço efetivamente obtido na corretora foi diferente do
+          planejado (prêmio, strike ou quantidade). O histórico de marcações e o status
+          da operação não são afetados.
+        </p>
+      )}
       <div className="grid grid-cols-2 gap-3">
         <Field label="Ticker do ativo-objeto">
           <input
@@ -239,6 +249,7 @@ export function ManualPositionModal({
           disabled={!canSubmit}
           onClick={() =>
             onConfirm({
+              recommendationId: initial?.recommendationId,
               ticker,
               companyName: companyName || ticker,
               strategyType,
@@ -249,14 +260,19 @@ export function ManualPositionModal({
               requiresUnderlying,
               underlyingQty: requiresUnderlying ? underlyingQty : undefined,
               underlyingEntryPrice: requiresUnderlying ? underlyingEntryPrice : undefined,
-              status: "ABERTA",
+              status: initial?.status ?? "ABERTA",
               dayTrade,
               notes: notes || undefined,
+              closedDate: initial?.closedDate,
+              closeReason: initial?.closeReason,
+              underlyingExitPrice: initial?.underlyingExitPrice,
+              legExitPremiums: initial?.legExitPremiums,
+              realizedResult: initial?.realizedResult,
             })
           }
           className="px-3 py-1.5 text-sm rounded-md bg-[var(--color-brand)] text-white font-medium hover:bg-[var(--color-brand-dark)] disabled:opacity-50"
         >
-          Registrar operação
+          {isEditing ? "Salvar alterações" : "Registrar operação"}
         </button>
       </div>
     </Modal>

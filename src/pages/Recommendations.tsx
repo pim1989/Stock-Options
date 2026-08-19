@@ -5,7 +5,10 @@ import { STRATEGY_LABELS } from "../types/domain";
 import { Badge } from "../components/StatCard";
 import { formatBRL, formatDate } from "../lib/format";
 import { AcceptRecommendationModal } from "../components/AcceptRecommendationModal";
+import { PayoffChart } from "../components/PayoffChart";
 import type { PortfolioApi } from "../hooks/usePortfolio";
+import { CARTEIRA_REVISADA_EM } from "../data/meta";
+import { todayISO } from "../lib/format";
 
 const RISK_COLOR: Record<Recommendation["riskProfile"], "green" | "amber" | "red"> = {
   CONSERVADOR: "green",
@@ -35,13 +38,18 @@ export function Recommendations({ portfolio }: { portfolio: PortfolioApi }) {
           cenário macro, microeconômico e técnico. Aceite e monte na sua corretora, depois
           registre aqui para começar o acompanhamento de resultado.
         </p>
+        <p className="text-xs text-[var(--color-muted)] mt-1">
+          Última revisão desta safra: <strong>{formatDate(CARTEIRA_REVISADA_EM)}</strong>. Cada
+          card abaixo mostra a data de emissão e a validade daquela recomendação específica.
+        </p>
       </div>
 
       <div className="grid md:grid-cols-2 gap-4">
         {visible.map((rec) => {
           const accepted = acceptedRecommendationIds.has(rec.id);
+          const expired = rec.validUntil < todayISO();
           return (
-            <div key={rec.id} className="card p-4 flex flex-col">
+            <div key={rec.id} className={`card p-4 flex flex-col ${expired ? "opacity-80" : ""}`}>
               <div className="flex items-start justify-between gap-2">
                 <div>
                   <div className="font-semibold">
@@ -52,15 +60,37 @@ export function Recommendations({ portfolio }: { portfolio: PortfolioApi }) {
                   </div>
                 </div>
                 <div className="flex flex-col items-end gap-1">
+                  {expired && <Badge color="red">Expirada</Badge>}
                   <Badge color={RISK_COLOR[rec.riskProfile]}>{rec.riskProfile}</Badge>
                   <Badge color="blue">{DIRECTION_LABEL[rec.direction]}</Badge>
                 </div>
               </div>
 
+              {expired && (
+                <div className="text-xs bg-[var(--color-danger-light)] text-[var(--color-danger)] rounded-md px-2 py-1.5 mt-2">
+                  A validade indicada para esta recomendação já passou ({formatDate(rec.validUntil)}).
+                  O cenário pode ter mudado — não monte sem reavaliar a tese e cotar preços atuais.
+                </div>
+              )}
+
               <div className="grid grid-cols-3 gap-2 my-3 text-xs">
                 <MiniStat label="Ganho máx." value={formatBRL(rec.maxGain)} tone="gain" />
                 <MiniStat label="Perda máx." value={formatBRL(rec.maxLoss)} tone="loss" />
                 <MiniStat label="Capital" value={formatBRL(rec.capitalAlocado)} />
+              </div>
+
+              <div className="mb-3 border border-[var(--color-border)] rounded-md p-2">
+                <div className="text-[10px] uppercase tracking-wide text-[var(--color-muted)] mb-1">
+                  Resultado no vencimento x preço de {rec.ticker}
+                </div>
+                <PayoffChart
+                  legs={rec.legs}
+                  refPrice={rec.underlyingRefPrice}
+                  requiresUnderlying={rec.requiresUnderlying}
+                  underlyingQty={rec.underlyingQtySuggested}
+                  underlyingEntryPrice={rec.underlyingRefPrice}
+                  height={150}
+                />
               </div>
 
               <div className="text-sm space-y-1.5 flex-1">

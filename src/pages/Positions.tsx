@@ -7,13 +7,16 @@ import { computeOpenPL, computeRealizedPL, currentLegPremium, currentUnderlyingP
 import { MarkModal } from "../components/MarkModal";
 import { CloseModal } from "../components/CloseModal";
 import { ManualPositionModal } from "../components/ManualPositionModal";
+import { PayoffChart } from "../components/PayoffChart";
 import type { PortfolioApi } from "../hooks/usePortfolio";
 import { exportBackup, importBackup } from "../lib/storage";
 
 export function Positions({ portfolio }: { portfolio: PortfolioApi }) {
-  const { positions, addPosition, addMark, closePosition, reopenPosition, deletePosition } = portfolio;
+  const { positions, addPosition, updatePosition, addMark, closePosition, reopenPosition, deletePosition } =
+    portfolio;
   const [markingId, setMarkingId] = useState<string | null>(null);
   const [closingId, setClosingId] = useState<string | null>(null);
+  const [editingId, setEditingId] = useState<string | null>(null);
   const [showManual, setShowManual] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -47,6 +50,7 @@ export function Positions({ portfolio }: { portfolio: PortfolioApi }) {
 
   const markingPos = positions.find((p) => p.id === markingId) ?? null;
   const closingPos = positions.find((p) => p.id === closingId) ?? null;
+  const editingPos = positions.find((p) => p.id === editingId) ?? null;
 
   return (
     <div className="space-y-6">
@@ -92,6 +96,7 @@ export function Positions({ portfolio }: { portfolio: PortfolioApi }) {
                 position={p}
                 onMark={() => setMarkingId(p.id)}
                 onCloseClick={() => setClosingId(p.id)}
+                onEdit={() => setEditingId(p.id)}
                 onDelete={() => confirm("Excluir esta operação?") && deletePosition(p.id)}
               />
             ))}
@@ -141,6 +146,17 @@ export function Positions({ portfolio }: { portfolio: PortfolioApi }) {
         />
       )}
 
+      {editingPos && (
+        <ManualPositionModal
+          initial={editingPos}
+          onClose={() => setEditingId(null)}
+          onConfirm={(data) => {
+            updatePosition(editingPos.id, data);
+            setEditingId(null);
+          }}
+        />
+      )}
+
       {showManual && (
         <ManualPositionModal
           onClose={() => setShowManual(false)}
@@ -158,18 +174,22 @@ function OpenPositionRow({
   position,
   onMark,
   onCloseClick,
+  onEdit,
   onDelete,
 }: {
   position: Position;
   onMark: () => void;
   onCloseClick: () => void;
+  onEdit: () => void;
   onDelete: () => void;
 }) {
   const pl = computeOpenPL(position);
+  const [showChart, setShowChart] = useState(false);
   const days = useMemo(
     () => Math.floor((Date.now() - new Date(position.acceptedDate).getTime()) / 86400000),
     [position.acceptedDate]
   );
+  const refPrice = currentUnderlyingPrice(position) ?? position.underlyingEntryPrice ?? position.legs[0]?.strike ?? 0;
 
   return (
     <div className="card p-4">
@@ -216,9 +236,31 @@ function OpenPositionRow({
         )}
       </div>
 
-      <div className="flex gap-2 mt-3">
+      {showChart && (
+        <div className="mt-3 border border-[var(--color-border)] rounded-md p-2">
+          <div className="text-[10px] uppercase tracking-wide text-[var(--color-muted)] mb-1">
+            Resultado no vencimento x preço de {position.ticker}
+          </div>
+          <PayoffChart
+            legs={position.legs}
+            refPrice={refPrice}
+            requiresUnderlying={position.requiresUnderlying}
+            underlyingQty={position.underlyingQty}
+            underlyingEntryPrice={position.underlyingEntryPrice}
+            height={160}
+          />
+        </div>
+      )}
+
+      <div className="flex gap-2 mt-3 flex-wrap">
         <button onClick={onMark} className="px-3 py-1.5 text-xs rounded-md border">
           Atualizar marcação
+        </button>
+        <button onClick={onEdit} className="px-3 py-1.5 text-xs rounded-md border">
+          Ajustar prêmios/valores
+        </button>
+        <button onClick={() => setShowChart((v) => !v)} className="px-3 py-1.5 text-xs rounded-md border">
+          {showChart ? "Ocultar gráfico" : "Ver gráfico"}
         </button>
         <button onClick={onCloseClick} className="px-3 py-1.5 text-xs rounded-md bg-[var(--color-brand)] text-white">
           Encerrar operação
