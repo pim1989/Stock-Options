@@ -24,6 +24,15 @@ call/put) — as únicas estratégias suportadas são:
 - **Collar** (ação + put comprada + call vendida)
 - **Travas de débito**: Bull Call Spread, Bear Put Spread
 - **Travas de crédito**: Bull Put Spread, Bear Call Spread
+- **Iron Condor** e **Iron Butterfly** (4 pernas, venda de volatilidade, crédito)
+- **Straddle** e **Strangle comprados** (2 pernas, aposta bidirecional, risco = débito pago)
+- **Jade Lizard** (3 pernas: put com caixa reservado + trava de baixa com calls)
+
+A Biblioteca do app também documenta, de propósito, um conjunto de
+estruturas mais avançadas que aparecem na literatura mas que o RCO Dash
+**não** oferece como recomendação (short straddle/strangle, ratio spread
+com calls, calendário/THL, inverse line) — cada uma com o motivo específico
+da exclusão, quase sempre ligado a alguma perna sem cobertura.
 
 ## O que o app faz
 

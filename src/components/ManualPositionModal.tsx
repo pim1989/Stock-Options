@@ -14,6 +14,11 @@ const REQUIRES_UNDERLYING_DEFAULT: Record<StrategyType, boolean> = {
   BEAR_PUT_SPREAD: false,
   BULL_PUT_SPREAD: false,
   BEAR_CALL_SPREAD: false,
+  IRON_CONDOR: false,
+  IRON_BUTTERFLY: false,
+  LONG_STRADDLE: false,
+  LONG_STRANGLE: false,
+  JADE_LIZARD: false,
 };
 
 function emptyLeg(id: string): OptionLeg {

@@ -36,7 +36,12 @@ export type StrategyType =
   | "BULL_CALL_SPREAD" // Trava de alta com calls (débito)
   | "BEAR_PUT_SPREAD" // Trava de baixa com puts (débito)
   | "BULL_PUT_SPREAD" // Trava de alta com puts (crédito, risco limitado)
-  | "BEAR_CALL_SPREAD"; // Trava de baixa com calls (crédito, risco limitado)
+  | "BEAR_CALL_SPREAD" // Trava de baixa com calls (crédito, risco limitado)
+  | "IRON_CONDOR" // 4 pernas: trava de crédito com puts + trava de crédito com calls — aposta em lateralização
+  | "IRON_BUTTERFLY" // 4 pernas: iguais ao condor, com as vendas no mesmo strike (ATM) — prêmio maior, faixa de lucro mais estreita
+  | "LONG_STRADDLE" // Compra de call + put no mesmo strike (ATM) — aposta bidirecional em movimento forte
+  | "LONG_STRANGLE" // Compra de call + put em strikes OTM diferentes — versão mais barata do straddle
+  | "JADE_LIZARD"; // Venda de put (caixa reservado) + trava de baixa com calls (crédito) — sem risco de alta se o crédito total cobrir a largura da trava
 
 export const STRATEGY_LABELS: Record<StrategyType, string> = {
   COVERED_CALL: "Venda Coberta de Call",
@@ -47,6 +52,11 @@ export const STRATEGY_LABELS: Record<StrategyType, string> = {
   BEAR_PUT_SPREAD: "Trava de Baixa com Puts",
   BULL_PUT_SPREAD: "Trava de Alta com Puts (crédito)",
   BEAR_CALL_SPREAD: "Trava de Baixa com Calls (crédito)",
+  IRON_CONDOR: "Iron Condor (crédito, lateralização)",
+  IRON_BUTTERFLY: "Iron Butterfly (crédito, estabilidade)",
+  LONG_STRADDLE: "Straddle Comprado (bidirecional)",
+  LONG_STRANGLE: "Strangle Comprado (bidirecional)",
+  JADE_LIZARD: "Jade Lizard (renda, sem risco de alta)",
 };
 
 export type RiskProfile = "CONSERVADOR" | "MODERADO" | "AGRESSIVO";

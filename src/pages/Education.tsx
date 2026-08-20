@@ -1,4 +1,4 @@
-import { glossary, references, riskRules, strategyGuides } from "../data/education";
+import { excludedStrategies, glossary, references, riskRules, strategyGuides } from "../data/education";
 
 export function Education() {
   return (
@@ -22,6 +22,22 @@ export function Education() {
                   <p key={i}>{p}</p>
                 ))}
               </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="card p-4">
+        <div className="font-medium mb-3">Estruturas que o RCO Dash conhece, mas não recomenda</div>
+        <p className="text-xs text-[var(--color-muted)] mb-3">
+          Aparecem na literatura de opções e podem fazer sentido para operadores experientes,
+          mas o app não as oferece como recomendação — cada uma tem um motivo específico,
+          quase sempre ligado a alguma perna sem cobertura.
+        </p>
+        <div className="space-y-2.5">
+          {excludedStrategies.map((s) => (
+            <div key={s.title} className="text-sm">
+              <span className="font-semibold">{s.title}:</span> <span className="text-[var(--color-muted)]">{s.reason}</span>
             </div>
           ))}
         </div>

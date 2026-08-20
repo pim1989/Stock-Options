@@ -1,6 +1,6 @@
 import type { Recommendation, StrategyType } from "../types/domain";
 import type { AuditFinding, AuditSeverity } from "../types/audit";
-import { capitalAlocado } from "./calculations";
+import { capitalAlocado, optionsNetCredit } from "./calculations";
 import { computePayoffExtremes } from "./payoff";
 import { todayISO } from "./format";
 import { externalBenchmark } from "../data/auditBenchmark";
@@ -130,6 +130,71 @@ function checkStructure(rec: Recommendation): AuditFinding[] {
       }
       break;
     }
+    case "IRON_CONDOR": {
+      const putBuy = legs.find((l) => l.type === "PUT" && l.action === "COMPRA");
+      const putSell = legs.find((l) => l.type === "PUT" && l.action === "VENDA");
+      const callSell = legs.find((l) => l.type === "CALL" && l.action === "VENDA");
+      const callBuy = legs.find((l) => l.type === "CALL" && l.action === "COMPRA");
+      if (legs.length !== 4 || !putBuy || !putSell || !callSell || !callBuy) {
+        push("FALHA", "estrutura", "Iron condor deveria ter 4 pernas: put comprada, put vendida, call vendida e call comprada.");
+      } else if (!(putBuy.strike < putSell.strike && putSell.strike < callSell.strike && callSell.strike < callBuy.strike)) {
+        push("FALHA", "strikes", "Strikes do iron condor fora de ordem — esperado: put comprada < put vendida < call vendida < call comprada.");
+      } else if (optionsNetCredit(legs) <= 0) {
+        push("FALHA", "credito", "Iron condor deveria gerar crédito líquido positivo na montagem.");
+      }
+      break;
+    }
+    case "IRON_BUTTERFLY": {
+      const putBuy = legs.find((l) => l.type === "PUT" && l.action === "COMPRA");
+      const putSell = legs.find((l) => l.type === "PUT" && l.action === "VENDA");
+      const callSell = legs.find((l) => l.type === "CALL" && l.action === "VENDA");
+      const callBuy = legs.find((l) => l.type === "CALL" && l.action === "COMPRA");
+      if (legs.length !== 4 || !putBuy || !putSell || !callSell || !callBuy) {
+        push("FALHA", "estrutura", "Iron butterfly deveria ter 4 pernas: put comprada, put vendida, call vendida e call comprada.");
+      } else if (putSell.strike !== callSell.strike) {
+        push("FALHA", "strikes", "Iron butterfly exige que a put vendida e a call vendida estejam no mesmo strike (o centro da borboleta).");
+      } else if (!(putBuy.strike < putSell.strike && callSell.strike < callBuy.strike)) {
+        push("FALHA", "strikes", "Strikes do iron butterfly fora de ordem — as pontas compradas devem ficar fora do strike central.");
+      } else if (optionsNetCredit(legs) <= 0) {
+        push("FALHA", "credito", "Iron butterfly deveria gerar crédito líquido positivo na montagem.");
+      }
+      break;
+    }
+    case "LONG_STRADDLE": {
+      const call = legs.find((l) => l.type === "CALL" && l.action === "COMPRA");
+      const put = legs.find((l) => l.type === "PUT" && l.action === "COMPRA");
+      if (legs.length !== 2 || !call || !put) {
+        push("FALHA", "estrutura", "Straddle comprado deveria ter 2 pernas: 1 call comprada + 1 put comprada.");
+      } else if (call.strike !== put.strike) {
+        push("FALHA", "strikes", "Straddle exige call e put no mesmo strike (normalmente ATM) — strikes diferentes configuram um strangle.");
+      }
+      break;
+    }
+    case "LONG_STRANGLE": {
+      const call = legs.find((l) => l.type === "CALL" && l.action === "COMPRA");
+      const put = legs.find((l) => l.type === "PUT" && l.action === "COMPRA");
+      if (legs.length !== 2 || !call || !put) {
+        push("FALHA", "estrutura", "Strangle comprado deveria ter 2 pernas: 1 call comprada + 1 put comprada.");
+      } else if (call.strike <= put.strike) {
+        push("FALHA", "strikes", "No strangle, o strike da call comprada deve ser maior que o da put comprada (ambas OTM).");
+      }
+      break;
+    }
+    case "JADE_LIZARD": {
+      const put = legs.find((l) => l.type === "PUT" && l.action === "VENDA");
+      const callSell = legs.find((l) => l.type === "CALL" && l.action === "VENDA");
+      const callBuy = legs.find((l) => l.type === "CALL" && l.action === "COMPRA");
+      if (legs.length !== 3 || !put || !callSell || !callBuy) {
+        push("FALHA", "estrutura", "Jade lizard deveria ter 3 pernas: put vendida (caixa reservado), call vendida e call comprada.");
+      } else if (requiresUnderlying) {
+        push("ALERTA", "estrutura", "Jade lizard não deveria depender de ativo-objeto em carteira — a proteção vem do caixa reservado da put e da trava de calls.");
+      } else if (!(put.strike < callSell.strike && callSell.strike < callBuy.strike)) {
+        push("FALHA", "strikes", "Strikes do jade lizard fora de ordem — esperado: put vendida < call vendida < call comprada.");
+      } else if (callSell.premium <= callBuy.premium) {
+        push("FALHA", "credito", "A trava de calls do jade lizard deveria gerar crédito líquido positivo.");
+      }
+      break;
+    }
   }
 
   if (legs.length === 2 && !sameQty) {
@@ -145,7 +210,10 @@ function checkStructure(rec: Recommendation): AuditFinding[] {
     const coberta =
       (leg.type === "CALL" && requiresUnderlying && (underlyingQtySuggested ?? 0) >= leg.quantity) ||
       legs.some((other) => other.action === "COMPRA" && other.type === leg.type) ||
-      strategyType === "CASH_SECURED_PUT";
+      strategyType === "CASH_SECURED_PUT" ||
+      // Jade lizard: a put vendida é coberta pelo caixa reservado (mesma lógica da
+      // cash-secured put), não por uma perna comprada do mesmo tipo.
+      (strategyType === "JADE_LIZARD" && leg.type === "PUT");
     if (!coberta) {
       push("FALHA", "descoberto", `Perna de venda (${leg.type} strike ${leg.strike}) sem cobertura identificada — possível exposição descoberta.`);
     }

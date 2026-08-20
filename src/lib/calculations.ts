@@ -1,4 +1,5 @@
 import type { MarkUpdate, OptionLeg, Position, StrategyType } from "../types/domain";
+import { computePayoffExtremes } from "./payoff";
 
 /** Forma mínima necessária para calcular capital alocado — Position e Recommendation
  * satisfazem essa forma estruturalmente, o que permite reaproveitar a mesma lógica
@@ -91,6 +92,16 @@ export function capitalAlocado(input: CapitalInputs): number {
       }
       return 0;
     }
+    case "IRON_CONDOR":
+    case "IRON_BUTTERFLY":
+    case "JADE_LIZARD":
+    case "LONG_STRADDLE":
+    case "LONG_STRANGLE":
+      // Estruturas de 3-4 pernas: o capital em risco é, por construção, a própria
+      // perda máxima da estrutura (sempre finita — ver lib/payoff.ts). Calculada
+      // de forma exata via os pontos de quina (strikes) e os extremos de preço,
+      // em vez de uma fórmula ad-hoc por estratégia.
+      return computePayoffExtremes(legs).maxLoss;
     default:
       return 0;
   }
