@@ -16,23 +16,55 @@ geral consolidada da carteira, e um módulo de apoio ao cálculo de IR/DARF.
 
 Toda estrutura recomendada ou registrada tem **perda máxima conhecida no
 momento da montagem**. O app nunca modela venda de opção a descoberto (naked
-call/put) — as únicas estratégias suportadas são:
+call/put). Esse é o ÚNICO critério de exclusão — sofisticação, número de
+pernas ou quão pouco comum é a estrutura nunca são motivo para tirar algo do
+usuário: se o risco é finito, a estrutura fica disponível e cabe ao usuário
+decidir se quer usá-la. Um motor de auditoria interno (`lib/audit.ts`)
+aplica isso de forma matemática, não por opinião: calcula a inclinação do
+resultado acima do maior strike envolvido (`netSlopeAboveHighestStrike` em
+`lib/payoff.ts`) — se houver mais calls vendidas do que compradas/cobertas
+por ação, a perda cresce sem limite e a estrutura é bloqueada; caso
+contrário, ela é liberada, mesmo que o ganho não tenha teto (isso é uma
+característica, não um risco — ver Ratio Backspread abaixo).
 
-- **Venda Coberta de Call** (covered call)
-- **Venda de Put com Caixa Reservado** (cash-secured put)
-- **Put de Proteção** (protective put)
-- **Collar** (ação + put comprada + call vendida)
+Estratégias suportadas hoje:
+
+- **Venda Coberta de Call** (covered call) e **Venda de Put com Caixa
+  Reservado** (cash-secured put)
+- **Put de Proteção** (protective put) e **Collar** (ação + put comprada +
+  call vendida)
 - **Travas de débito**: Bull Call Spread, Bear Put Spread
 - **Travas de crédito**: Bull Put Spread, Bear Call Spread
-- **Iron Condor** e **Iron Butterfly** (4 pernas, venda de volatilidade, crédito)
-- **Straddle** e **Strangle comprados** (2 pernas, aposta bidirecional, risco = débito pago)
-- **Jade Lizard** (3 pernas: put com caixa reservado + trava de baixa com calls)
+- **Iron Condor** e **Iron Butterfly** (4 pernas, venda de volatilidade,
+  crédito)
+- **Straddle** e **Strangle comprados** (2 pernas, aposta bidirecional,
+  risco = débito pago)
+- **Jade Lizard** (3 pernas: put com caixa reservado + trava de baixa com
+  calls)
+- **Put Ratio Spread** (2:1, crédito, perda finita porém desproporcional)
+- **Call e Put Ratio Backspread** (1:2, risco finito e ganho **sem teto**
+  na direção favorável — o app mostra "Sem teto" em vez de inventar um
+  limite falso)
+- **Booster** (venda coberta + call comprada ATM, financiada por vender o
+  dobro de calls OTM)
+- **Inverse Line — Bull** (compra sintética da ação: call comprada + put
+  vendida no mesmo strike)
+- **Trava Horizontal de Linha / Calendário** (vencimentos diferentes —
+  disponível para registro, mas sem gráfico de payoff: ver limitação
+  abaixo)
 
-A Biblioteca do app também documenta, de propósito, um conjunto de
-estruturas mais avançadas que aparecem na literatura mas que o RCO Dash
-**não** oferece como recomendação (short straddle/strangle, ratio spread
-com calls, calendário/THL, inverse line) — cada uma com o motivo específico
-da exclusão, quase sempre ligado a alguma perna sem cobertura.
+Só ficam de fora as estruturas com perna de call vendida genuinamente
+descoberta, sem exceção possível: **Short Straddle/Strangle**, **Call
+Ratio Spread** (mais vendido que comprado) e **Inverse Line — Bear**. A
+Biblioteca do app documenta essas três com o motivo exato.
+
+**Limitação conhecida, não uma exclusão de risco:** para a trava de
+calendário (pernas com vencimentos diferentes), o app não desenha o
+gráfico de payoff — o resultado no vencimento curto depende do valor a
+mercado da perna de vencimento longo, que exige um modelo de precificação
+(o app usa apenas valor intrínseco no vencimento). A estrutura continua
+disponível para registro, só o gráfico fica indisponível, com aviso
+explicando o porquê.
 
 ## O que o app faz
 

@@ -41,7 +41,13 @@ export type StrategyType =
   | "IRON_BUTTERFLY" // 4 pernas: iguais ao condor, com as vendas no mesmo strike (ATM) — prêmio maior, faixa de lucro mais estreita
   | "LONG_STRADDLE" // Compra de call + put no mesmo strike (ATM) — aposta bidirecional em movimento forte
   | "LONG_STRANGLE" // Compra de call + put em strikes OTM diferentes — versão mais barata do straddle
-  | "JADE_LIZARD"; // Venda de put (caixa reservado) + trava de baixa com calls (crédito) — sem risco de alta se o crédito total cobrir a largura da trava
+  | "JADE_LIZARD" // Venda de put (caixa reservado) + trava de baixa com calls (crédito) — sem risco de alta se o crédito total cobrir a largura da trava
+  | "PUT_RATIO_SPREAD" // Compra 1x put (strike alto) + vende 2x put (strike baixo) — perda finita (ação não vai a negativo), mas desproporcional ao crédito
+  | "CALL_RATIO_BACKSPREAD" // Vende 1x call (strike baixo) + compra 2x call (strike alto) — perda finita, ganho sem teto na alta forte
+  | "PUT_RATIO_BACKSPREAD" // Vende 1x put (strike alto) + compra 2x put (strike baixo) — perda finita, ganho grande na queda forte
+  | "BOOSTER" // Venda coberta + 1 call comprada ATM, financiada por vender o dobro de calls OTM — acelera o ganho até o strike vendido
+  | "INVERSE_LINE_BULL" // Compra sintética da ação: call comprada + put vendida (caixa reservado), mesmo strike — mesmo risco de possuir a ação
+  | "CALENDAR_SPREAD"; // Venda de opção de vencimento curto + compra da mesma opção em vencimento mais longo (mesmo strike) — THL
 
 export const STRATEGY_LABELS: Record<StrategyType, string> = {
   COVERED_CALL: "Venda Coberta de Call",
@@ -57,6 +63,12 @@ export const STRATEGY_LABELS: Record<StrategyType, string> = {
   LONG_STRADDLE: "Straddle Comprado (bidirecional)",
   LONG_STRANGLE: "Strangle Comprado (bidirecional)",
   JADE_LIZARD: "Jade Lizard (renda, sem risco de alta)",
+  PUT_RATIO_SPREAD: "Put Ratio Spread (2:1, crédito)",
+  CALL_RATIO_BACKSPREAD: "Call Ratio Backspread (1:2, convexo)",
+  PUT_RATIO_BACKSPREAD: "Put Ratio Backspread (1:2, convexo)",
+  BOOSTER: "Booster (venda coberta acelerada)",
+  INVERSE_LINE_BULL: "Inverse Line — Compra Sintética",
+  CALENDAR_SPREAD: "Trava Horizontal de Linha (Calendário)",
 };
 
 export type RiskProfile = "CONSERVADOR" | "MODERADO" | "AGRESSIVO";
@@ -88,8 +100,11 @@ export interface Recommendation {
   underlyingQtySuggested?: number;
   legs: OptionLeg[];
   thesis: Thesis;
-  maxGain: number; // por lote sugerido, em R$
-  maxLoss: number; // por lote sugerido, em R$ (sempre finito)
+  maxGain: number; // por lote sugerido, em R$ (valor de referência quando maxGainUnlimited=true — ver nota abaixo)
+  /** Estruturas convexas (ex.: ratio backspread) têm ganho sem teto na direção favorável —
+   * risco continua sempre finito (maxLoss), só o ganho não tem limite superior. */
+  maxGainUnlimited?: boolean;
+  maxLoss: number; // por lote sugerido, em R$ (sempre finito — essa garantia não muda)
   breakeven: number[];
   capitalAlocado: number; // capital necessário estimado (R$)
   status: "ATIVA" | "EXPIRADA" | "ENCERRADA_PELO_GESTOR";

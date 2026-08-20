@@ -19,6 +19,12 @@ const REQUIRES_UNDERLYING_DEFAULT: Record<StrategyType, boolean> = {
   LONG_STRADDLE: false,
   LONG_STRANGLE: false,
   JADE_LIZARD: false,
+  PUT_RATIO_SPREAD: false,
+  CALL_RATIO_BACKSPREAD: false,
+  PUT_RATIO_BACKSPREAD: false,
+  BOOSTER: true,
+  INVERSE_LINE_BULL: false,
+  CALENDAR_SPREAD: false,
 };
 
 function emptyLeg(id: string): OptionLeg {

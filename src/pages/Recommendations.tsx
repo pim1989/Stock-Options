@@ -80,7 +80,11 @@ export function Recommendations({ portfolio }: { portfolio: PortfolioApi }) {
               )}
 
               <div className="grid grid-cols-3 gap-2 my-3 text-xs">
-                <MiniStat label="Ganho máx." value={formatBRL(rec.maxGain)} tone="gain" />
+                <MiniStat
+                  label="Ganho máx."
+                  value={rec.maxGainUnlimited ? "Sem teto" : formatBRL(rec.maxGain)}
+                  tone="gain"
+                />
                 <MiniStat label="Perda máx." value={formatBRL(rec.maxLoss)} tone="loss" />
                 <MiniStat label="Capital" value={formatBRL(rec.capitalAlocado)} />
               </div>
@@ -95,6 +99,7 @@ export function Recommendations({ portfolio }: { portfolio: PortfolioApi }) {
                   requiresUnderlying={rec.requiresUnderlying}
                   underlyingQty={rec.underlyingQtySuggested}
                   underlyingEntryPrice={rec.underlyingRefPrice}
+                  maxGainUnlimited={rec.maxGainUnlimited}
                   height={150}
                 />
               </div>

@@ -58,8 +58,34 @@ export function computePayoffAtExpiry(
 
 export interface PayoffExtremes {
   maxGain: number;
+  /** true quando o ganho cresce sem limite acima do maior strike (ex.: ratio backspread) —
+   * `maxGain` nesse caso é só o valor no ponto mais distante avaliado, não um teto real. */
+  maxGainUnlimited: boolean;
   maxLoss: number;
   breakevens: number[];
+}
+
+/**
+ * Inclinação líquida do payoff para preços ACIMA do maior strike envolvido —
+ * ou seja, quanto a estrutura ganha (se positivo) ou perde (se negativo) para
+ * cada R$1 adicional de alta do ativo, uma vez que todas as opções já estão
+ * "dentro" de sua região linear.
+ *
+ * É o teste matemático exato de risco ilimitado na alta: como toda call vira
+ * uma reta de inclinação +1 (comprada) ou -1 (vendida) acima do seu strike, e
+ * o ativo-objeto (se possuído) contribui +1 por unidade, a soma dessas
+ * inclinações não pode nunca ser negativa numa estrutura seguramente coberta.
+ * Se for negativa, existe uma call vendida "sobrando" sem cobertura — venda a
+ * descoberto de verdade, risco de perda sem limite. Puts nunca geram risco
+ * ilimitado (o ativo não vai abaixo de zero), por isso não entram aqui.
+ */
+export function netSlopeAboveHighestStrike(legs: OptionLeg[], underlying?: UnderlyingPosition): number {
+  let slope = underlying?.qty ?? 0;
+  for (const leg of legs) {
+    if (leg.type !== "CALL") continue;
+    slope += (leg.action === "COMPRA" ? 1 : -1) * leg.quantity;
+  }
+  return slope;
 }
 
 /**
@@ -71,7 +97,7 @@ export interface PayoffExtremes {
  * e exato, sem depender de uma faixa de amostragem arbitrária.
  */
 export function computePayoffExtremes(legs: OptionLeg[], underlying?: UnderlyingPosition): PayoffExtremes {
-  if (legs.length === 0) return { maxGain: 0, maxLoss: 0, breakevens: [] };
+  if (legs.length === 0) return { maxGain: 0, maxGainUnlimited: false, maxLoss: 0, breakevens: [] };
 
   const strikes = legs.map((l) => l.strike);
   const upperBound = Math.max(...strikes, underlying?.entryPrice ?? 0, 1) * 5 + 1000;
@@ -80,6 +106,7 @@ export function computePayoffExtremes(legs: OptionLeg[], underlying?: Underlying
 
   const maxGain = Math.max(...evals.map((e) => e.pl));
   const maxLoss = Math.max(0, -Math.min(...evals.map((e) => e.pl)));
+  const maxGainUnlimited = netSlopeAboveHighestStrike(legs, underlying) > 0;
 
   const breakevens: number[] = [];
   for (let i = 0; i < evals.length - 1; i++) {
@@ -92,5 +119,14 @@ export function computePayoffExtremes(legs: OptionLeg[], underlying?: Underlying
     }
   }
 
-  return { maxGain, maxLoss, breakevens };
+  return { maxGain, maxGainUnlimited, maxLoss, breakevens };
+}
+
+/** true quando as pernas têm vencimentos diferentes (estrutura de calendário) —
+ * nesse caso o payoff no vencimento curto depende do valor a mercado da perna
+ * de vencimento longo, que só um modelo de precificação calcula (não o valor
+ * intrínseco no vencimento usado aqui). O gráfico de payoff não é confiável
+ * para essas estruturas — ver PayoffChart. */
+export function hasMixedExpiries(legs: OptionLeg[]): boolean {
+  return new Set(legs.map((l) => l.expiry)).size > 1;
 }

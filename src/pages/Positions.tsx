@@ -8,6 +8,7 @@ import { MarkModal } from "../components/MarkModal";
 import { CloseModal } from "../components/CloseModal";
 import { ManualPositionModal } from "../components/ManualPositionModal";
 import { PayoffChart } from "../components/PayoffChart";
+import { computePayoffExtremes } from "../lib/payoff";
 import type { PortfolioApi } from "../hooks/usePortfolio";
 import { exportBackup, importBackup } from "../lib/storage";
 
@@ -247,6 +248,14 @@ function OpenPositionRow({
             requiresUnderlying={position.requiresUnderlying}
             underlyingQty={position.underlyingQty}
             underlyingEntryPrice={position.underlyingEntryPrice}
+            maxGainUnlimited={
+              computePayoffExtremes(
+                position.legs,
+                position.requiresUnderlying && position.underlyingQty && position.underlyingEntryPrice
+                  ? { qty: position.underlyingQty, entryPrice: position.underlyingEntryPrice }
+                  : undefined
+              ).maxGainUnlimited
+            }
             height={160}
           />
         </div>

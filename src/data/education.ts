@@ -106,44 +106,63 @@ export const strategyGuides: EducationSection[] = [
       "É uma das estruturas mais sofisticadas entre as que o RCO Dash recomenda: uma forma eficiente de gerar renda combinando duas visões (levemente altista embaixo, neutra/baixista em cima) numa única montagem.",
     ],
   },
+  {
+    id: "ratio-spreads",
+    title: "Ratio Spread e Ratio Backspread (razão diferente de 1:1)",
+    paragraphs: [
+      "Uma trava comum tem 1 opção comprada para cada 1 vendida. Mudando essa proporção (ex.: 2:1), o resultado muda de figura. O Put Ratio Spread (compra 1 put de strike mais alto, vende 2 puts de strike mais baixo) vira uma trava de crédito que não precisa de movimento algum do preço para dar lucro — mas se o ativo cair com força, a unidade de put vendida sem par gera uma perda desproporcional ao crédito recebido. Continua com perda máxima FINITA (a ação não vai abaixo de zero), mas grande — dimensione com cuidado.",
+      "Já o Ratio Backspread inverte a lógica: compra-se MAIS opções do que se vende (ex.: vende 1 call, compra 2 calls de strike mais alto). Isso dá à estrutura um perfil convexo — perda máxima finita e conhecida (ocorre perto do strike vendido), mas ganho crescendo sem teto se o preço disparar na direção favorável. É a única família de estruturas nesta biblioteca em que o RCO Dash mostra 'ganho sem teto' em vez de um valor máximo — o risco continua sempre finito, só o ganho é que não tem limite superior.",
+      "No mercado brasileiro é comum ouvir 'Vaca' para o Ratio Spread e 'Boi' para o Ratio Backspread.",
+    ],
+  },
+  {
+    id: "booster",
+    title: "Booster (acelerador de venda coberta)",
+    paragraphs: [
+      "Parte de uma venda coberta comum (ação + 1 call vendida OTM) e adiciona 1 call comprada ATM, financiada por vender o dobro de calls no mesmo strike OTM. O resultado: dentro do intervalo entre os dois strikes, o ganho da alta da ação é acelerado (dobrado, no exemplo clássico) — acima do strike vendido, o ganho fica limitado como numa venda coberta normal.",
+      "Continua sempre coberto: a ação em carteira cobre a call vendida em excesso, junto com a call comprada. Exige mais gestão que uma venda coberta simples porque envolve 3 componentes (ação + 2 pernas de opção) em vez de 2.",
+    ],
+  },
+  {
+    id: "inverse-line",
+    title: "Inverse Line — Compra Sintética (Bull)",
+    paragraphs: [
+      "Combina uma call comprada com uma put vendida (com caixa reservado), no mesmo strike, para replicar o mesmo resultado de comprar a ação diretamente — sem desembolsar o preço cheio da ação de imediato. Pode ser montada a custo próximo de zero, já que os prêmios da call e da put tendem a ser parecidos.",
+      "O risco é o MESMO de possuir a ação (finito, limitado ao strike caso o ativo vá a zero) — não é uma estrutura de risco reduzido, é uma forma alternativa de montar a mesma exposição. Existe também a versão 'Bear' (sintetizar a venda da ação, com put comprada + call vendida), mas essa exigiria vender a call sem cobertura — risco ilimitado de verdade — por isso o RCO Dash só oferece a versão Bull.",
+    ],
+  },
+  {
+    id: "calendar",
+    title: "Trava Horizontal de Linha / Calendário (THL)",
+    paragraphs: [
+      "Vende uma opção de vencimento mais curto e compra a mesma opção (mesmo strike, mesmo tipo) num vencimento mais longo. É uma trava de débito, delta-neutra, vega positivo e theta positivo — ganha com a passagem do tempo e com a lateralização do preço até o vencimento curto.",
+      "Limitação importante do app: o resultado no vencimento curto depende do valor que a opção de vencimento longo AINDA teria naquela data — algo que só um modelo de precificação (tipo Black-Scholes) calcula, não o valor intrínseco no vencimento que o gráfico de payoff usa para todas as outras estruturas. Por isso, para o calendário, o RCO Dash não desenha o gráfico de payoff (mostra um aviso no lugar) e usa uma convenção conservadora para o capital em risco: o débito líquido pago para montar. A estrutura continua disponível para registro — só o gráfico fica indisponível.",
+    ],
+  },
 ];
 
 /**
- * Estratégias que aparecem na literatura de opções e que o RCO Dash
- * conhece, mas escolhe NÃO oferecer como recomendação — por envolverem
- * perna vendida sem cobertura (risco potencialmente ilimitado, contra o
- * princípio central do produto) ou por exigirem um modelo de precificação
- * (não só valor intrínseco no vencimento) que o gráfico de payoff do app
- * ainda não reproduz com fidelidade.
+ * As ÚNICAS estruturas que o RCO Dash não oferece — por terem, de fato,
+ * perda potencialmente ILIMITADA (uma perna de call vendida sem nenhuma
+ * cobertura, comprovado matematicamente pelo check de inclinação em
+ * lib/payoff.ts, não por opinião). Sofisticação, número de pernas ou
+ * quão comum é a estrutura NUNCA são motivo de exclusão aqui — cabe ao
+ * usuário decidir se uma estrutura é complexa demais para o seu gosto,
+ * não ao app decidir por ele. O único critério é: existe alguma
+ * combinação de preço no vencimento em que a perda cresce sem limite?
  */
 export const excludedStrategies: { title: string; reason: string }[] = [
   {
     title: "Short Straddle / Short Strangle",
-    reason: "Venda simultânea de call e put sem nenhuma perna de proteção — o lado da call vendida fica descoberto, com risco de perda teoricamente ilimitado se o ativo disparar. Contraria o princípio central do app.",
+    reason: "Venda simultânea de call e put sem nenhuma perna de proteção — o lado da call vendida fica descoberto, com risco de perda sem limite se o ativo disparar.",
   },
   {
-    title: "Call Ratio Spread (trava com razão diferente de 1:1)",
-    reason: "Vender mais calls do que se compra deixa uma unidade de call descoberta acima de um certo preço — mesmo problema da venda a descoberto, com risco ilimitado na alta.",
+    title: "Call Ratio Spread (mais calls vendidas do que compradas)",
+    reason: "Vender mais calls do que se compra deixa uma unidade de call descoberta acima de um certo preço — mesmo problema da venda a descoberto, com risco sem limite na alta. (A versão segura, que compra mais do que vende — o Ratio Backspread — está disponível: ver guia acima.)",
   },
   {
-    title: "Put Ratio Spread",
-    reason: "Tecnicamente tem perda máxima finita (a ação não vai abaixo de zero), mas a unidade extra de put vendida sem par gera um prejuízo desproporcional em relação ao crédito recebido — fora do perfil de risco que o RCO Dash quer padronizar.",
-  },
-  {
-    title: "Ratio Backspread",
-    reason: "Tem risco definido (mais opções compradas do que vendidas) e é uma estratégia legítima, mas exige proporções de quantidade não-uniformes entre as pernas — suporte planejado para uma versão futura do app.",
-  },
-  {
-    title: "Booster",
-    reason: "Combinação de venda coberta com trava de alta que acelera o ganho num intervalo de preço; tem risco definido, mas depende de uma relação específica entre a quantidade de ações e duas pernas de opção diferentes — suporte planejado para uma versão futura.",
-  },
-  {
-    title: "Trava Horizontal de Linha / Calendário (THL)",
-    reason: "Compra e venda da mesma opção em vencimentos diferentes. O resultado no vencimento curto depende do valor que a opção do vencimento longo AINDA teria naquela data — algo que só um modelo de precificação (tipo Black-Scholes) calcula, não o valor intrínseco no vencimento que o gráfico de payoff do app usa. Sem isso, o app não conseguiria desenhar o payoff dessa estrutura com fidelidade.",
-  },
-  {
-    title: "Inverse Line (compra/venda sintética de ação)",
-    reason: "A versão 'Bear' (sintetizar a venda da ação) combina put comprada com call vendida sem cobertura — mesmo risco ilimitado da venda a descoberto da própria ação. A versão 'Bull' até teria risco definido, mas replica apenas o mesmo risco de possuir a ação sem vantagem clara sobre comprá-la direto — baixa prioridade.",
+    title: "Inverse Line — versão Bear (venda sintética de ação)",
+    reason: "Put comprada + call vendida sem cobertura, para sintetizar a venda da ação sem possuí-la — a call fica descoberta, mesmo risco sem limite da venda a descoberto da própria ação. (A versão Bull, com risco finito, está disponível: ver guia acima.)",
   },
 ];
 

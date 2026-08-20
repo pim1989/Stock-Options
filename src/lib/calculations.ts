@@ -97,11 +97,31 @@ export function capitalAlocado(input: CapitalInputs): number {
     case "JADE_LIZARD":
     case "LONG_STRADDLE":
     case "LONG_STRANGLE":
-      // Estruturas de 3-4 pernas: o capital em risco é, por construção, a própria
-      // perda máxima da estrutura (sempre finita — ver lib/payoff.ts). Calculada
-      // de forma exata via os pontos de quina (strikes) e os extremos de preço,
-      // em vez de uma fórmula ad-hoc por estratégia.
+    case "PUT_RATIO_SPREAD":
+    case "CALL_RATIO_BACKSPREAD":
+    case "PUT_RATIO_BACKSPREAD":
+    case "INVERSE_LINE_BULL":
+      // Estruturas de 2-4 pernas com quantidades possivelmente desiguais entre
+      // elas: o capital em risco é, por construção, a própria perda máxima da
+      // estrutura (sempre finita — a prova é o check de inclinação em
+      // lib/payoff.ts, não uma fórmula ad-hoc por estratégia). Ganho pode não
+      // ter teto (ratio backspread) — isso não afeta o capital em risco.
       return computePayoffExtremes(legs).maxLoss;
+    case "BOOSTER": {
+      // Ação + call comprada + calls vendidas em dobro no mesmo strike: mesma
+      // lógica acima, mas precisa do preço/quantidade do ativo na conta.
+      const underlying =
+        underlyingQty && underlyingEntryPrice ? { qty: underlyingQty, entryPrice: underlyingEntryPrice } : undefined;
+      return computePayoffExtremes(legs, underlying).maxLoss;
+    }
+    case "CALENDAR_SPREAD": {
+      // Pernas com vencimentos diferentes: o modelo de payoff no vencimento não
+      // é confiável aqui (ver hasMixedExpiries em lib/payoff.ts). Convenção
+      // conservadora padrão da literatura: capital em risco = débito líquido
+      // pago para montar (o pior caso realista se ambas as pernas perderem
+      // todo o valor antes de se aproveitar do efeito calendário).
+      return Math.max(-optionsNetCredit(legs), 0);
+    }
     default:
       return 0;
   }

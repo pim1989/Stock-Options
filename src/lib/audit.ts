@@ -1,7 +1,7 @@
 import type { MarketDirection, Recommendation, StrategyType } from "../types/domain";
 import type { AuditFinding, AuditSeverity } from "../types/audit";
 import { capitalAlocado, optionsNetCredit } from "./calculations";
-import { computePayoffExtremes } from "./payoff";
+import { computePayoffExtremes, hasMixedExpiries, netSlopeAboveHighestStrike } from "./payoff";
 import { todayISO } from "./format";
 import { externalBenchmark } from "../data/auditBenchmark";
 
@@ -195,28 +195,104 @@ function checkStructure(rec: Recommendation): AuditFinding[] {
       }
       break;
     }
+    case "PUT_RATIO_SPREAD": {
+      const long = legs.find((l) => l.type === "PUT" && l.action === "COMPRA");
+      const short = legs.find((l) => l.type === "PUT" && l.action === "VENDA");
+      if (legs.length !== 2 || !long || !short) {
+        push("FALHA", "estrutura", "Put ratio spread deveria ter 2 pernas: 1 put comprada (strike mais alto) + 1 put vendida (strike mais baixo, quantidade maior).");
+      } else if (long.strike <= short.strike) {
+        push("FALHA", "strikes", "No put ratio spread, o strike da put comprada deve ser maior que o da put vendida.");
+      } else if (short.quantity <= long.quantity) {
+        push("FALHA", "quantidades", "Put ratio spread exige quantidade vendida maior que a comprada (é a razão diferente de 1:1 que define a estrutura).");
+      }
+      break;
+    }
+    case "CALL_RATIO_BACKSPREAD": {
+      const long = legs.find((l) => l.type === "CALL" && l.action === "COMPRA");
+      const short = legs.find((l) => l.type === "CALL" && l.action === "VENDA");
+      if (legs.length !== 2 || !long || !short) {
+        push("FALHA", "estrutura", "Call ratio backspread deveria ter 2 pernas: 1 call vendida (strike mais baixo) + 1 call comprada (strike mais alto, quantidade maior).");
+      } else if (short.strike >= long.strike) {
+        push("FALHA", "strikes", "No call ratio backspread, o strike da call vendida deve ser menor que o da call comprada.");
+      } else if (long.quantity <= short.quantity) {
+        push("FALHA", "quantidades", "Call ratio backspread exige quantidade comprada maior que a vendida — é o que garante ganho sem teto na alta e mantém o risco finito.");
+      }
+      break;
+    }
+    case "PUT_RATIO_BACKSPREAD": {
+      const long = legs.find((l) => l.type === "PUT" && l.action === "COMPRA");
+      const short = legs.find((l) => l.type === "PUT" && l.action === "VENDA");
+      if (legs.length !== 2 || !long || !short) {
+        push("FALHA", "estrutura", "Put ratio backspread deveria ter 2 pernas: 1 put vendida (strike mais alto) + 1 put comprada (strike mais baixo, quantidade maior).");
+      } else if (short.strike <= long.strike) {
+        push("FALHA", "strikes", "No put ratio backspread, o strike da put vendida deve ser maior que o da put comprada.");
+      } else if (long.quantity <= short.quantity) {
+        push("FALHA", "quantidades", "Put ratio backspread exige quantidade comprada maior que a vendida.");
+      }
+      break;
+    }
+    case "BOOSTER": {
+      const long = legs.find((l) => l.type === "CALL" && l.action === "COMPRA");
+      const short = legs.find((l) => l.type === "CALL" && l.action === "VENDA");
+      if (legs.length !== 2 || !long || !short) {
+        push("FALHA", "estrutura", "Booster deveria ter 2 pernas: 1 call comprada (ATM) + 1 call vendida (OTM, quantidade maior).");
+      } else if (long.strike >= short.strike) {
+        push("FALHA", "strikes", "No booster, o strike da call comprada deve ser menor que o da call vendida.");
+      } else if (!requiresUnderlying || !underlyingQtySuggested || underlyingQtySuggested < long.quantity) {
+        push("FALHA", "cobertura", "Booster exige ação em carteira suficiente para cobrir, junto com a call comprada, a call vendida em dobro.");
+      }
+      break;
+    }
+    case "INVERSE_LINE_BULL": {
+      const call = legs.find((l) => l.type === "CALL" && l.action === "COMPRA");
+      const put = legs.find((l) => l.type === "PUT" && l.action === "VENDA");
+      if (legs.length !== 2 || !call || !put) {
+        push("FALHA", "estrutura", "Inverse line (compra sintética) deveria ter 2 pernas: 1 call comprada + 1 put vendida.");
+      } else if (call.strike !== put.strike) {
+        push("FALHA", "strikes", "Inverse line exige call e put no mesmo strike — é isso que replica o payoff de possuir a ação.");
+      } else if (requiresUnderlying) {
+        push("ALERTA", "estrutura", "Inverse line não deveria depender de ativo-objeto em carteira — é uma alternativa a possuí-lo, não um complemento.");
+      }
+      break;
+    }
+    case "CALENDAR_SPREAD": {
+      const short = legs.find((l) => l.action === "VENDA");
+      const long = legs.find((l) => l.action === "COMPRA");
+      if (legs.length !== 2 || !short || !long) {
+        push("FALHA", "estrutura", "Calendário (THL) deveria ter 2 pernas: 1 opção vendida (vencimento curto) + 1 comprada (vencimento longo).");
+      } else if (short.strike !== long.strike || short.type !== long.type) {
+        push("FALHA", "strikes", "Calendário exige as duas pernas no mesmo strike e mesmo tipo (só o vencimento muda).");
+      } else if (short.expiry >= long.expiry) {
+        push("FALHA", "vencimento", "Na trava de calendário, a perna vendida precisa ter vencimento mais curto que a comprada.");
+      }
+      break;
+    }
   }
 
-  if (legs.length === 2 && !sameQty) {
+  const asymmetricByDesign: StrategyType[] = ["PUT_RATIO_SPREAD", "CALL_RATIO_BACKSPREAD", "PUT_RATIO_BACKSPREAD", "BOOSTER"];
+  if (legs.length === 2 && !sameQty && !asymmetricByDesign.includes(strategyType)) {
     push("ALERTA", "quantidades", "As duas pernas da trava têm quantidades diferentes — confira se é proposital (trava assimétrica).");
   }
-  if (legs.length === 2 && !sameExpiry) {
+  if (legs.length === 2 && !sameExpiry && strategyType !== "CALENDAR_SPREAD") {
     push("ALERTA", "vencimento", "As duas pernas da trava têm vencimentos diferentes.");
   }
 
-  // Barreira geral: qualquer perna vendida sem cobertura por ativo ou por outra perna comprada.
-  for (const leg of legs) {
-    if (leg.action !== "VENDA") continue;
-    const coberta =
-      (leg.type === "CALL" && requiresUnderlying && (underlyingQtySuggested ?? 0) >= leg.quantity) ||
-      legs.some((other) => other.action === "COMPRA" && other.type === leg.type) ||
-      strategyType === "CASH_SECURED_PUT" ||
-      // Jade lizard: a put vendida é coberta pelo caixa reservado (mesma lógica da
-      // cash-secured put), não por uma perna comprada do mesmo tipo.
-      (strategyType === "JADE_LIZARD" && leg.type === "PUT");
-    if (!coberta) {
-      push("FALHA", "descoberto", `Perna de venda (${leg.type} strike ${leg.strike}) sem cobertura identificada — possível exposição descoberta.`);
-    }
+  // Única barreira de risco realmente rígida do app: prova analítica (não uma opinião
+  // por tipo de estrutura) de que não existe exposição vendida em calls sem limite
+  // acima do maior strike. É a ÚNICA forma de perda genuinamente ilimitada em opções
+  // (puts nunca geram isso — o ativo não vai abaixo de zero, então toda put vendida já
+  // tem perda máxima finita por natureza, sem precisar de nenhuma perna de cobertura).
+  const underlyingForSlope =
+    requiresUnderlying && underlyingQtySuggested
+      ? { qty: underlyingQtySuggested, entryPrice: rec.underlyingRefPrice }
+      : undefined;
+  const slope = netSlopeAboveHighestStrike(legs, underlyingForSlope);
+  if (slope < 0) {
+    push(
+      "FALHA",
+      "descoberto",
+      `Exposição vendida em calls não coberta acima do maior strike (excedente de ${Math.abs(slope)} opção(ões)) — a única forma de risco genuinamente ilimitado em opções.`
+    );
   }
 
   return findings;
@@ -230,34 +306,49 @@ function checkMath(rec: Recommendation): AuditFinding[] {
       ? { qty: rec.underlyingQtySuggested, entryPrice: rec.underlyingRefPrice }
       : undefined;
 
-  const computed = computePayoffExtremes(rec.legs, underlying);
+  // Estruturas de calendário (vencimentos diferentes) não têm um payoff-no-vencimento
+  // confiável no modelo deste app (ver hasMixedExpiries) — pula a comparação de
+  // ganho/perda/breakeven calculados a partir das pernas, mas mantém as outras checagens.
+  const mixedExpiries = hasMixedExpiries(rec.legs);
+  const computed = mixedExpiries ? null : computePayoffExtremes(rec.legs, underlying);
 
-  if (!closeEnough(computed.maxGain, rec.maxGain)) {
-    findings.push({
-      code: "math-maxgain",
-      severity: "FALHA",
-      message: `Ganho máximo divulgado (R$ ${rec.maxGain.toFixed(2)}) não confere com o recalculado a partir das pernas (R$ ${computed.maxGain.toFixed(2)}).`,
-    });
-  }
-  if (!closeEnough(computed.maxLoss, rec.maxLoss)) {
-    findings.push({
-      code: "math-maxloss",
-      severity: "FALHA",
-      message: `Perda máxima divulgada (R$ ${rec.maxLoss.toFixed(2)}) não confere com a recalculada a partir das pernas (R$ ${computed.maxLoss.toFixed(2)}).`,
-    });
-  }
+  if (computed) {
+    if (computed.maxGainUnlimited !== !!rec.maxGainUnlimited) {
+      findings.push({
+        code: "math-maxgain-teto",
+        severity: "FALHA",
+        message: computed.maxGainUnlimited
+          ? "A estrutura tem ganho sem teto na alta (mais opções compradas que vendidas em calls), mas a recomendação não está marcada com maxGainUnlimited."
+          : "A recomendação está marcada como ganho sem teto (maxGainUnlimited), mas a estrutura na verdade tem um ganho máximo finito.",
+      });
+    } else if (!computed.maxGainUnlimited && !closeEnough(computed.maxGain, rec.maxGain)) {
+      findings.push({
+        code: "math-maxgain",
+        severity: "FALHA",
+        message: `Ganho máximo divulgado (R$ ${rec.maxGain.toFixed(2)}) não confere com o recalculado a partir das pernas (R$ ${computed.maxGain.toFixed(2)}).`,
+      });
+    }
 
-  const declaredBreakevens = [...rec.breakeven].sort((a, b) => a - b);
-  const computedBreakevens = [...computed.breakevens].sort((a, b) => a - b);
-  const breakevensMatch =
-    declaredBreakevens.length === computedBreakevens.length &&
-    declaredBreakevens.every((v, i) => closeEnough(v, computedBreakevens[i]));
-  if (!breakevensMatch) {
-    findings.push({
-      code: "math-breakeven",
-      severity: "FALHA",
-      message: `Breakeven divulgado (${declaredBreakevens.map((v) => v.toFixed(2)).join(", ")}) não confere com o recalculado (${computedBreakevens.map((v) => v.toFixed(2)).join(", ") || "nenhum"}).`,
-    });
+    if (!closeEnough(computed.maxLoss, rec.maxLoss)) {
+      findings.push({
+        code: "math-maxloss",
+        severity: "FALHA",
+        message: `Perda máxima divulgada (R$ ${rec.maxLoss.toFixed(2)}) não confere com a recalculada a partir das pernas (R$ ${computed.maxLoss.toFixed(2)}).`,
+      });
+    }
+
+    const declaredBreakevens = [...rec.breakeven].sort((a, b) => a - b);
+    const computedBreakevens = [...computed.breakevens].sort((a, b) => a - b);
+    const breakevensMatch =
+      declaredBreakevens.length === computedBreakevens.length &&
+      declaredBreakevens.every((v, i) => closeEnough(v, computedBreakevens[i]));
+    if (!breakevensMatch) {
+      findings.push({
+        code: "math-breakeven",
+        severity: "FALHA",
+        message: `Breakeven divulgado (${declaredBreakevens.map((v) => v.toFixed(2)).join(", ")}) não confere com o recalculado (${computedBreakevens.map((v) => v.toFixed(2)).join(", ") || "nenhum"}).`,
+      });
+    }
   }
 
   const computedCapital = capitalAlocado({
