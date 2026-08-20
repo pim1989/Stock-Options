@@ -62,6 +62,18 @@ export interface PayoffExtremes {
    * `maxGain` nesse caso é só o valor no ponto mais distante avaliado, não um teto real. */
   maxGainUnlimited: boolean;
   maxLoss: number;
+  /**
+   * Preço do ativo-objeto em que a perda máxima ocorre. `0` significa que o
+   * pior cenário é o ativo indo a zero (típico de venda coberta, cash-secured
+   * put, collar...) — um evento extremo/pouco provável, bem diferente de uma
+   * queda comum. Um valor positivo (normalmente um strike) é o preço exato
+   * que, se rompido, realiza a perda máxima — o caso típico de travas e
+   * estruturas de crédito, onde esse rompimento costuma ser bem mais
+   * plausível dentro do prazo da estrutura. Mostrar isso (e a distância em
+   * % do preço atual) é o que separa "perda máxima teórica" de "quão fácil
+   * é essa perda acontecer".
+   */
+  maxLossAtPrice: number;
   breakevens: number[];
 }
 
@@ -95,9 +107,20 @@ export function netSlopeAboveHighestStrike(legs: OptionLeg[], underlying?: Under
  * nos strikes, os extremos globais só podem ocorrer nos strikes ou nos limites
  * (preço 0 e preço muito alto) — por isso avaliar só esses pontos é suficiente
  * e exato, sem depender de uma faixa de amostragem arbitrária.
+ *
+ * @param refPrice preço de referência do ativo (ex.: cotação atual) usado
+ * apenas para desempatar `maxLossAtPrice` quando a perda máxima é um platô
+ * (mesmo valor em vários preços — comum em travas de crédito). Não afeta
+ * `maxGain`/`maxLoss`/`breakevens`.
  */
-export function computePayoffExtremes(legs: OptionLeg[], underlying?: UnderlyingPosition): PayoffExtremes {
-  if (legs.length === 0) return { maxGain: 0, maxGainUnlimited: false, maxLoss: 0, breakevens: [] };
+export function computePayoffExtremes(
+  legs: OptionLeg[],
+  underlying?: UnderlyingPosition,
+  refPrice?: number
+): PayoffExtremes {
+  if (legs.length === 0) {
+    return { maxGain: 0, maxGainUnlimited: false, maxLoss: 0, maxLossAtPrice: 0, breakevens: [] };
+  }
 
   const strikes = legs.map((l) => l.strike);
   const upperBound = Math.max(...strikes, underlying?.entryPrice ?? 0, 1) * 5 + 1000;
@@ -105,7 +128,29 @@ export function computePayoffExtremes(legs: OptionLeg[], underlying?: Underlying
   const evals = breakpoints.map((price) => ({ price, pl: payoffAt(legs, price, underlying) }));
 
   const maxGain = Math.max(...evals.map((e) => e.pl));
-  const maxLoss = Math.max(0, -Math.min(...evals.map((e) => e.pl)));
+  const worstPL = Math.min(...evals.map((e) => e.pl));
+  const maxLoss = Math.max(0, -worstPL);
+  // O pior resultado pode ocorrer em MAIS de um preço ao mesmo tempo — o caso
+  // clássico é uma trava de crédito, cuja perda máxima fica "achatada" (mesmo
+  // valor) em toda a região além do strike comprado, inclusive em preço 0.
+  // Nesse empate, o preço 0 (ação a zero, evento extremo) NÃO é o gatilho
+  // relevante — o gatilho real é a borda do platô mais próxima da cotação
+  // atual, pois é aí que a perda máxima passa a valer. Só reportamos "só se
+  // a ação for a zero" quando 0 for o ÚNICO ponto no mínimo.
+  let maxLossAtPrice = 0;
+  if (maxLoss > 0) {
+    const eps = Math.max(0.01, Math.abs(worstPL) * 1e-6);
+    const tied = evals.filter((e) => Math.abs(e.pl - worstPL) <= eps);
+    if (tied.length === 1) {
+      maxLossAtPrice = tied[0].price;
+    } else {
+      const anchor = refPrice ?? underlying?.entryPrice ?? tied[tied.length - 1].price;
+      maxLossAtPrice = tied.reduce(
+        (best, e) => (Math.abs(e.price - anchor) < Math.abs(best.price - anchor) ? e : best),
+        tied[0]
+      ).price;
+    }
+  }
   const maxGainUnlimited = netSlopeAboveHighestStrike(legs, underlying) > 0;
 
   const breakevens: number[] = [];
@@ -119,7 +164,7 @@ export function computePayoffExtremes(legs: OptionLeg[], underlying?: Underlying
     }
   }
 
-  return { maxGain, maxGainUnlimited, maxLoss, breakevens };
+  return { maxGain, maxGainUnlimited, maxLoss, maxLossAtPrice, breakevens };
 }
 
 /** true quando as pernas têm vencimentos diferentes (estrutura de calendário) —

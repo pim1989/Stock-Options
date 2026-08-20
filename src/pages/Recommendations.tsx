@@ -9,6 +9,7 @@ import { PayoffChart } from "../components/PayoffChart";
 import type { PortfolioApi } from "../hooks/usePortfolio";
 import { CARTEIRA_REVISADA_EM } from "../data/meta";
 import { auditPortfolio } from "../lib/audit";
+import { computePayoffExtremes } from "../lib/payoff";
 
 const RISK_COLOR: Record<Recommendation["riskProfile"], "green" | "amber" | "red"> = {
   CONSERVADOR: "green",
@@ -54,6 +55,17 @@ export function Recommendations({ portfolio }: { portfolio: PortfolioApi }) {
         {visible.map((rec) => {
           const accepted = acceptedRecommendationIds.has(rec.id);
           const expired = rec.validUntil < todayISO();
+          const underlyingForExtremes =
+            rec.requiresUnderlying && rec.underlyingQtySuggested
+              ? { qty: rec.underlyingQtySuggested, entryPrice: rec.underlyingRefPrice }
+              : undefined;
+          const extremes = computePayoffExtremes(rec.legs, underlyingForExtremes, rec.underlyingRefPrice);
+          const maxLossSub =
+            extremes.maxLossAtPrice <= 0
+              ? "só se a ação for a zero (evento extremo)"
+              : `se ${rec.ticker} ${extremes.maxLossAtPrice > rec.underlyingRefPrice ? "passar de" : "cair a"} ${formatBRL(
+                  extremes.maxLossAtPrice
+                )} (${(((extremes.maxLossAtPrice - rec.underlyingRefPrice) / rec.underlyingRefPrice) * 100).toFixed(1)}%)`;
           return (
             <div key={rec.id} className={`card p-4 flex flex-col ${expired ? "opacity-80" : ""}`}>
               <div className="flex items-start justify-between gap-2">
@@ -89,7 +101,7 @@ export function Recommendations({ portfolio }: { portfolio: PortfolioApi }) {
                   value={rec.maxGainUnlimited ? "Sem teto" : formatBRL(rec.maxGain)}
                   tone="gain"
                 />
-                <MiniStat label="Perda máx." value={formatBRL(rec.maxLoss)} tone="loss" />
+                <MiniStat label="Perda máx." value={formatBRL(rec.maxLoss)} tone="loss" sub={maxLossSub} />
                 <MiniStat label="Capital" value={formatBRL(rec.capitalAlocado)} />
               </div>
 
@@ -220,13 +232,24 @@ export function Recommendations({ portfolio }: { portfolio: PortfolioApi }) {
   );
 }
 
-function MiniStat({ label, value, tone }: { label: string; value: string; tone?: "gain" | "loss" }) {
+function MiniStat({
+  label,
+  value,
+  tone,
+  sub,
+}: {
+  label: string;
+  value: string;
+  tone?: "gain" | "loss";
+  sub?: string;
+}) {
   const color =
     tone === "gain" ? "text-[var(--color-gain)]" : tone === "loss" ? "text-[var(--color-loss)]" : "";
   return (
     <div className="bg-gray-50 rounded-md p-1.5 text-center">
       <div className="text-[10px] text-[var(--color-muted)]">{label}</div>
       <div className={`font-semibold ${color}`}>{value}</div>
+      {sub && <div className="text-[9px] text-[var(--color-muted)] leading-tight mt-0.5">{sub}</div>}
     </div>
   );
 }
