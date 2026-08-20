@@ -395,87 +395,25 @@ export const recommendations: Recommendation[] = [
     capitalAlocado: 1550,
     status: "ATIVA",
   },
-  {
-    id: "rec-2026-08-bova11-ironcondor",
-    ticker: "BOVA11",
-    companyName: "iShares Ibovespa (ETF)",
-    strategyType: "IRON_CONDOR",
-    direction: "LATERAL",
-    riskProfile: "MODERADO",
-    dateIssued: "2026-08-19",
-    validUntil: "2026-09-19",
-    underlyingRefPrice: 163.89,
-    requiresUnderlying: false,
-    legs: [
-      {
-        id: "leg1",
-        type: "PUT",
-        action: "COMPRA",
-        underlying: "BOVA11",
-        series: "BOVAO148 (aprox., strike 148,00, venc. 19/09/2026)",
-        strike: 148.0,
-        premium: 0.9,
-        quantity: 500,
-        expiry: "2026-09-19",
-      },
-      {
-        id: "leg2",
-        type: "PUT",
-        action: "VENDA",
-        underlying: "BOVA11",
-        series: "BOVAO156 (aprox., strike 156,00, venc. 19/09/2026)",
-        strike: 156.0,
-        premium: 2.3,
-        quantity: 500,
-        expiry: "2026-09-19",
-      },
-      {
-        id: "leg3",
-        type: "CALL",
-        action: "VENDA",
-        underlying: "BOVA11",
-        series: "BOVAJ172 (aprox., strike 172,00, venc. 19/09/2026)",
-        strike: 172.0,
-        premium: 2.1,
-        quantity: 500,
-        expiry: "2026-09-19",
-      },
-      {
-        id: "leg4",
-        type: "CALL",
-        action: "COMPRA",
-        underlying: "BOVA11",
-        series: "BOVAJ180 (aprox., strike 180,00, venc. 19/09/2026)",
-        strike: 180.0,
-        premium: 0.8,
-        quantity: 500,
-        expiry: "2026-09-19",
-      },
-    ],
-    thesis: {
-      macro: [
-        "Alternativa de RENDA à trava de baixa em BOVA11 desta mesma safra — para quem",
-        "acredita que o suporte técnico crítico do Ibovespa (168-172 mil pts, média móvel de",
-        "50 semanas) segura a correção e o índice lateraliza até o vencimento, em vez de",
-        "continuar caindo. As duas leituras (proteção vs. renda) são legítimas; escolha",
-        "conforme sua visão — não é recomendado montar as duas ao mesmo tempo sobre a mesma",
-        "carteira, pois uma parcialmente anula a outra.",
-      ].join(" "),
-      micro: "Estrutura sobre o ETF do índice (BOVA11), não sobre um papel específico. Um iron condor vende volatilidade dos dois lados (put spread + call spread), lucrando com a passagem do tempo se o índice ficar dentro da faixa 153-175 (aprox.) até 19/09.",
-      tecnico: "Strikes vendidos (156 e 172) calibrados para ficar fora da faixa de suporte/resistência mais imediata; strikes comprados (148 e 180) definem a perda máxima e mantêm a estrutura sempre coberta.",
-      riscos: [
-        "Estrutura de 4 pontas: exige liquidez nas 4 séries para montar e desmontar a um",
-        "custo razoável — se o spread de compra/venda de alguma ponta estiver muito largo,",
-        "considere reduzir o tamanho ou não montar. Perda máxima ocorre se o índice romper",
-        "com força qualquer um dos dois lados antes do vencimento (156 ou 172). Ganho",
-        "limitado ao crédito recebido — via de regra, zere a posição antes do vencimento em",
-        "vez de levar ao exercício, para não incorrer nos custos de exercício mais altos.",
-      ].join(" "),
-    },
-    maxGain: 1350,
-    maxLoss: 2650,
-    breakeven: [153.3, 174.7],
-    capitalAlocado: 2650,
-    status: "ATIVA",
-  },
 ];
+
+/**
+ * NOTA DE REVISÃO (19/08/2026, mesmo dia): esta safra chegou a incluir uma
+ * 7ª recomendação — um Iron Condor em BOVA11, apostando em lateralização —
+ * ao lado da trava de baixa acima, que aposta em continuação de queda. As
+ * duas foram publicadas juntas com um aviso pedindo para o usuário escolher
+ * uma. Isso estava errado: uma carteira recomendada não pode sustentar duas
+ * teses de direção contraditórias sobre o mesmo ativo ao mesmo tempo — o
+ * aviso empurrava para o usuário uma decisão que é justamente o trabalho
+ * desta safra resolver. A evidência técnica levantada (tendência de
+ * curto/médio prazo confirmada em baixa, pior sequência de pregões
+ * negativos desde 2023, saída de estrangeiros, rebaixamento pelo JPMorgan)
+ * sustenta melhor a leitura direcional do que a de lateralização — por
+ * isso o Iron Condor foi removido, não a trava de baixa. A capacidade de
+ * recomendar Iron Condor continua no app (ver lib/audit.ts) para uma
+ * futura safra em que não conflite com uma tese já publicada. Ver também o
+ * novo check `checkPortfolioCoherence` em lib/audit.ts, que agora reprova
+ * automaticamente qualquer par de recomendações ativas com direções
+ * incompatíveis sobre o mesmo ticker — para este erro não se repetir
+ * silenciosamente.
+ */

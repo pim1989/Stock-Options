@@ -1,4 +1,4 @@
-import type { Recommendation, StrategyType } from "../types/domain";
+import type { MarketDirection, Recommendation, StrategyType } from "../types/domain";
 import type { AuditFinding, AuditSeverity } from "../types/audit";
 import { capitalAlocado, optionsNetCredit } from "./calculations";
 import { computePayoffExtremes } from "./payoff";
@@ -341,6 +341,71 @@ export function auditRecommendation(rec: Recommendation): AuditReport {
   };
 }
 
+const DIRECTION_BUCKET: Record<MarketDirection, "BULLISH" | "BEARISH" | "NEUTRAL"> = {
+  ALTA: "BULLISH",
+  BAIXA: "BEARISH",
+  NEUTRO: "NEUTRAL",
+  LATERAL: "NEUTRAL",
+};
+
+/**
+ * Checagem entre recomendações (não dá pra fazer olhando uma de cada vez):
+ * duas recomendações ATIVAS sobre o MESMO ticker com direções de mercado
+ * incompatíveis (ex.: uma aposta em queda e outra em lateralização/alta)
+ * reprovam AMBAS. Existe porque uma carteira recomendada só pode sustentar
+ * uma tese de direção por ativo de cada vez — publicar duas teses opostas
+ * lado a lado e pedir para o usuário "escolher uma" não é uma recomendação,
+ * é empurrar a decisão. NEUTRO e LATERAL contam como a mesma leitura
+ * (nenhuma delas é uma aposta direcional), então podem conviver.
+ */
+function checkPortfolioCoherence(recs: Recommendation[]): Map<string, AuditFinding[]> {
+  const byTicker = new Map<string, Recommendation[]>();
+  for (const r of recs) {
+    if (r.status !== "ATIVA") continue;
+    if (!byTicker.has(r.ticker)) byTicker.set(r.ticker, []);
+    byTicker.get(r.ticker)!.push(r);
+  }
+
+  const extra = new Map<string, AuditFinding[]>();
+  for (const [ticker, group] of byTicker) {
+    if (group.length < 2) continue;
+    const buckets = new Set(group.map((r) => DIRECTION_BUCKET[r.direction]));
+    if (buckets.size <= 1) continue;
+
+    for (const r of group) {
+      const others = group
+        .filter((o) => o.id !== r.id)
+        .map((o) => `${o.strategyType} (${o.direction})`)
+        .join(", ");
+      const list = extra.get(r.id) ?? [];
+      list.push({
+        code: "coerencia-direcao",
+        severity: "FALHA",
+        message: `Direção (${r.direction}) conflita com outra recomendação ativa sobre ${ticker}: ${others}. Uma carteira recomendada não pode publicar duas teses de direção incompatíveis sobre o mesmo ativo ao mesmo tempo.`,
+      });
+      extra.set(r.id, list);
+    }
+  }
+  return extra;
+}
+
 export function auditPortfolio(recs: Recommendation[]): AuditReport[] {
-  return recs.map(auditRecommendation);
+  const coherence = checkPortfolioCoherence(recs);
+  return recs.map((r) => {
+    const base = auditRecommendation(r);
+    const extra = coherence.get(r.id);
+    if (!extra || extra.length === 0) return base;
+
+    const findings = [...base.findings, ...extra];
+    const severity = findings.reduce<AuditSeverity>(
+      (worst, f) => (severityRank(f.severity) > severityRank(worst) ? f.severity : worst),
+      "OK"
+    );
+    return {
+      recommendationId: r.id,
+      findings,
+      severity,
+      passed: !findings.some((f) => f.severity === "FALHA"),
+    };
+  });
 }

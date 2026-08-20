@@ -8,7 +8,7 @@ import { AcceptRecommendationModal } from "../components/AcceptRecommendationMod
 import { PayoffChart } from "../components/PayoffChart";
 import type { PortfolioApi } from "../hooks/usePortfolio";
 import { CARTEIRA_REVISADA_EM } from "../data/meta";
-import { auditRecommendation } from "../lib/audit";
+import { auditPortfolio } from "../lib/audit";
 
 const RISK_COLOR: Record<Recommendation["riskProfile"], "green" | "amber" | "red"> = {
   CONSERVADOR: "green",
@@ -27,10 +27,13 @@ export function Recommendations({ portfolio }: { portfolio: PortfolioApi }) {
   const [selected, setSelected] = useState<Recommendation | null>(null);
   const { dismissedRecs, dismissRecommendation, acceptedRecommendationIds, addPosition } = portfolio;
 
-  // Toda recomendação passa por auditoria (estrutura, matemática e coerência de datas)
-  // antes de poder aparecer aqui — roda em background, sem UI própria. Ver src/lib/audit.ts.
+  // Toda a safra passa por auditoria (estrutura, matemática, coerência de datas e
+  // coerência entre recomendações — ex.: duas teses de direção opostas sobre o
+  // mesmo ativo) antes de poder aparecer aqui — roda em background, sem UI
+  // própria. Ver src/lib/audit.ts.
+  const auditedById = new Map(auditPortfolio(recommendations).map((r) => [r.recommendationId, r]));
   const visible = recommendations.filter(
-    (r) => !dismissedRecs.has(r.id) && auditRecommendation(r).passed
+    (r) => !dismissedRecs.has(r.id) && (auditedById.get(r.id)?.passed ?? false)
   );
 
   return (

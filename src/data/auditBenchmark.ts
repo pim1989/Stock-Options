@@ -195,20 +195,4 @@ export const externalBenchmark: Record<string, BenchmarkEntry> = {
     ],
     sources: [],
   },
-  "rec-2026-08-bova11-ironcondor": {
-    findings: [
-      {
-        code: "coerencia-safra",
-        severity: "ALERTA",
-        message: "Estrutura de venda de volatilidade (aposta em lateralização) publicada ao lado de uma trava de baixa (aposta direcional) sobre o MESMO ativo-objeto na mesma safra — as duas teses são mutuamente exclusivas; isso está explícito no texto de ambas para não confundir o usuário sobre qual escolher, mas fica registrado aqui como ponto de atenção editorial.",
-      },
-      {
-        code: "literatura-estrutura",
-        severity: "OK",
-        message: "Iron condor validado contra a descrição de 'Short Iron Condor' (trava de crédito com puts + trava de crédito com calls, montagem OTM, racional de lateralização) da literatura de referência — estrutura, direção e racional conferem.",
-      },
-      literaturaNota,
-    ],
-    sources: [],
-  },
 };
