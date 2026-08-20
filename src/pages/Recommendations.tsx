@@ -79,6 +79,10 @@ export function Recommendations({ portfolio }: { portfolio: PortfolioApi }) {
                 </div>
               )}
 
+              <div className="text-xs bg-[var(--color-brand-light)] text-[var(--color-brand-dark)] rounded-md px-2 py-1.5 mt-2 font-medium">
+                {rec.ticker} agora: {formatBRL(rec.underlyingRefPrice)} (preço de referência desta safra)
+              </div>
+
               <div className="grid grid-cols-3 gap-2 my-3 text-xs">
                 <MiniStat
                   label="Ganho máx."
@@ -87,6 +91,36 @@ export function Recommendations({ portfolio }: { portfolio: PortfolioApi }) {
                 />
                 <MiniStat label="Perda máx." value={formatBRL(rec.maxLoss)} tone="loss" />
                 <MiniStat label="Capital" value={formatBRL(rec.capitalAlocado)} />
+              </div>
+
+              <div className="mb-3 text-xs">
+                <div className="text-[10px] uppercase tracking-wide text-[var(--color-muted)] mb-1">
+                  Estrutura sugerida (strike, prêmio estimado, quantidade)
+                </div>
+                <div className="space-y-1">
+                  {rec.requiresUnderlying && rec.underlyingQtySuggested && (
+                    <div className="flex justify-between bg-gray-50 rounded px-2 py-1">
+                      <span>
+                        COMPRA {rec.ticker} · {rec.underlyingQtySuggested.toLocaleString("pt-BR")} ações
+                      </span>
+                      <span>
+                        a {formatBRL(rec.underlyingRefPrice)} ≈{" "}
+                        {formatBRL(rec.underlyingRefPrice * rec.underlyingQtySuggested)}
+                      </span>
+                    </div>
+                  )}
+                  {rec.legs.map((leg) => (
+                    <div key={leg.id} className="flex justify-between bg-gray-50 rounded px-2 py-1">
+                      <span>
+                        {leg.action} {leg.type} · strike {formatBRL(leg.strike)} ·{" "}
+                        {leg.quantity.toLocaleString("pt-BR")} opções
+                      </span>
+                      <span>
+                        prêmio ≈ {formatBRL(leg.premium)} · venc. {formatDate(leg.expiry)}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               <div className="mb-3 border border-[var(--color-border)] rounded-md p-2">
@@ -124,7 +158,7 @@ export function Recommendations({ portfolio }: { portfolio: PortfolioApi }) {
               <div className="text-xs text-[var(--color-muted)] mt-3 border-t pt-2">
                 Emitida em {formatDate(rec.dateIssued)} · válida até {formatDate(rec.validUntil)} ·
                 {" "}
-                {rec.legs.length} perna(s) · ref. {rec.ticker} {formatBRL(rec.underlyingRefPrice)}
+                {rec.legs.length} perna(s)
               </div>
 
               <div className="flex gap-2 mt-3">
