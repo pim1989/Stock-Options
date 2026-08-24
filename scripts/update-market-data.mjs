@@ -86,13 +86,18 @@ async function fetchFundamentus(ticker) {
   const url = `https://www.fundamentus.com.br/detalhes.php?papel=${ticker}`;
   const res = await fetch(url, { headers: { "User-Agent": UA } });
   if (!res.ok) throw new Error(`Fundamentus HTTP ${res.status}`);
-  const html = await res.text();
+  // A página é servida em ISO-8859-1 (sem charset no header) — decodificar
+  // como UTF-8 (padrão do fetch) transforma acentos em lixo. Também: cada
+  // rótulo vem com um ícone de dica ("?") colado na frente do texto (ex.:
+  // "?Marg. Líquida"), por isso removemos esse prefixo antes de comparar.
+  const buf = await res.arrayBuffer();
+  const html = new TextDecoder("iso-8859-1").decode(buf);
   const $ = cheerio.load(html);
 
   const out = {};
   for (const [key, label] of Object.entries(FUNDAMENTUS_LABELS)) {
     const labelCell = $("td")
-      .filter((_, el) => $(el).text().trim() === label)
+      .filter((_, el) => $(el).text().trim().replace(/^\?+\s*/, "") === label)
       .first();
     const raw = labelCell.length ? labelCell.next("td").text().trim() : "";
     out[key] = parseNumberBR(raw);
