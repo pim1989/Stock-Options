@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-08-24T19:44:37.823Z",
+  "generatedAt": "2026-08-24T19:46:07.841Z",
   "quotes": {
     "PETR4": {
       "price": 42,
-      "priceAsOf": "2026-08-24T19:29:30.000Z",
+      "priceAsOf": "2026-08-24T19:31:01.000Z",
       "pl": null,
       "pvp": null,
       "dy": null,
@@ -13,8 +13,8 @@
       "stale": false
     },
     "VALE3": {
-      "price": 77.32,
-      "priceAsOf": "2026-08-24T19:29:30.000Z",
+      "price": 77.27,
+      "priceAsOf": "2026-08-24T19:31:03.000Z",
       "pl": null,
       "pvp": null,
       "dy": null,
@@ -24,8 +24,8 @@
       "stale": false
     },
     "ITUB4": {
-      "price": 38.8,
-      "priceAsOf": "2026-08-24T19:29:32.000Z",
+      "price": 38.76,
+      "priceAsOf": "2026-08-24T19:31:03.000Z",
       "pl": null,
       "pvp": null,
       "dy": null,
@@ -36,7 +36,7 @@
     },
     "WEGE3": {
       "price": 48.92,
-      "priceAsOf": "2026-08-24T19:29:32.000Z",
+      "priceAsOf": "2026-08-24T19:31:03.000Z",
       "pl": null,
       "pvp": null,
       "dy": null,
@@ -46,8 +46,8 @@
       "stale": false
     },
     "BOVA11": {
-      "price": 169.32,
-      "priceAsOf": "2026-08-24T19:29:35.000Z",
+      "price": 169.24,
+      "priceAsOf": "2026-08-24T19:31:06.000Z",
       "pl": null,
       "pvp": null,
       "dy": null,
