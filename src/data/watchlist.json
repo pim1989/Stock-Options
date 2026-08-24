@@ -1,0 +1,7 @@
+[
+  { "ticker": "PETR4", "companyName": "Petrobras PN", "isETF": false },
+  { "ticker": "VALE3", "companyName": "Vale ON", "isETF": false },
+  { "ticker": "ITUB4", "companyName": "Itaú Unibanco PN", "isETF": false },
+  { "ticker": "WEGE3", "companyName": "WEG ON", "isETF": false },
+  { "ticker": "BOVA11", "companyName": "iShares Ibovespa (ETF)", "isETF": true }
+]

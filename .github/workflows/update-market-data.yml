@@ -1,0 +1,52 @@
+name: Atualizar dados de mercado
+
+# Roda 1x por dia, antes da abertura do pregão da B3 (10h em Brasília),
+# buscando preço atual e indicadores fundamentalistas dos tickers em
+# src/data/watchlist.json e salvando em src/data/marketSnapshot.json.
+# Ver scripts/update-market-data.mjs para as fontes usadas.
+#
+# Isto NÃO gera nem altera a carteira recomendada (estruturas/teses) —
+# só atualiza números de mercado. Também dá pra disparar manualmente
+# pela aba Actions do GitHub ("Run workflow").
+on:
+  schedule:
+    # 12:00 UTC = 09:00 no horário de Brasília (UTC-3 o ano todo, sem
+    # horário de verão desde 2019).
+    - cron: "0 12 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  update-market-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Buscar preços e fundamentos atuais
+        env:
+          BRAPI_TOKEN: ${{ secrets.BRAPI_TOKEN }}
+        run: node scripts/update-market-data.mjs
+
+      - name: Commitar snapshot atualizado (se houve mudança)
+        run: |
+          if git diff --quiet -- src/data/marketSnapshot.json; then
+            echo "Sem mudanças de preço/fundamentos hoje."
+            exit 0
+          fi
+          git config user.name "rco-dash-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add src/data/marketSnapshot.json
+          git commit -m "chore: atualiza cotações e fundamentos ($(date -u +%Y-%m-%d))"
+          git push

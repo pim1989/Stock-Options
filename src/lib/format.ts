@@ -30,6 +30,18 @@ export function formatDateLong(iso: string): string {
   });
 }
 
+export function formatDateTime(iso: string): string {
+  if (!iso) return "-";
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return "-";
+  return d.toLocaleString("pt-BR", {
+    day: "2-digit",
+    month: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+}
+
 export function todayISO(): string {
   return new Date().toISOString().slice(0, 10);
 }

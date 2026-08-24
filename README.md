@@ -187,6 +187,45 @@ npm run preview   # servir o build de produção localmente
 npm run lint       # checagem de lint (oxlint)
 ```
 
+## Hospedagem e atualização automática de dados de mercado
+
+O app é 100% estático (sem backend) — pode ser hospedado em qualquer
+provedor de hospedagem estática com deploy automático a partir do GitHub
+(Vercel, Netlify, Cloudflare Pages, GitHub Pages). Basta conectar o
+repositório: cada push na branch de produção já dispara um novo deploy
+sozinho, sem passo manual.
+
+Separado disso, há uma atualização automática **só de dados de mercado**
+(preço atual + P/L, P/VP, Dividend Yield, ROE, Margem Líquida), via GitHub
+Actions:
+
+- **O quê**: `.github/workflows/update-market-data.yml` roda
+  `scripts/update-market-data.mjs`, que busca preço (Yahoo Finance, com
+  fallback pra [brapi.dev](https://brapi.dev)) e indicadores fundamentalistas
+  ([Fundamentus](https://www.fundamentus.com.br)) para os tickers em
+  `src/data/watchlist.json`, e salva em `src/data/marketSnapshot.json`. Se
+  uma fonte falhar para algum ticker, o valor anterior é mantido (marcado
+  como desatualizado) em vez de apagado — o app nunca fica sem número por
+  causa de uma falha de rede pontual.
+- **Quando**: 1x por dia, **09h (horário de Brasília), antes da abertura do
+  pregão** (10h–17h na B3) — assim o dado já está consolidado do fechamento
+  do dia anterior quando você abre o app de manhã, sem o ruído dos primeiros
+  minutos de pregão. Dá pra disparar manualmente a qualquer momento pela aba
+  *Actions* do GitHub (botão "Run workflow").
+- **O que isso NÃO faz**: não gera nem publica novas recomendações. Preço e
+  indicadores são só contexto de mercado ao vivo, mostrado ao lado do preço
+  de referência auditado de cada recomendação — a carteira em si (estruturas,
+  strikes, teses) continua sendo uma decisão editorial, revisada sob pedido,
+  nunca publicada sem passar pela auditoria (`lib/audit.ts`).
+- **Fontes gratuitas e não-oficiais**: Yahoo Finance, brapi.dev e Fundamentus
+  não são fontes oficiais da B3 — são as mesmas fontes públicas usadas por
+  boa parte das ferramentas de finanças pessoais no Brasil, mas o formato das
+  páginas pode mudar sem aviso. Se `pl`/`pvp`/`dy` vierem `null` no
+  snapshot por um tempo, é sinal de que o layout do Fundamentus mudou e o
+  script em `scripts/update-market-data.mjs` precisa de ajuste. Opcionalmente
+  dá pra cadastrar um token gratuito do brapi.dev como secret
+  `BRAPI_TOKEN` do repositório para um limite de requisições maior.
+
 ## Stack técnica
 
 - React 19 + TypeScript + Vite
@@ -204,14 +243,21 @@ src/
   data/recommendations.ts  carteira recomendada (safra atual, com teses)
   data/auditBenchmark.ts   checagem cruzada com fontes públicas (por safra)
   data/education.ts        glossário, guias de estratégia, referências
+  data/watchlist.json      tickers acompanhados pela atualização automática de mercado
+  data/marketSnapshot.json snapshot de preço/fundamentos (gerado pelo workflow, não editar à mão)
   lib/calculations.ts      motor de cálculo de P&L (aberto e realizado)
   lib/payoff.ts            motor de payoff (gráfico + extremos exatos)
   lib/audit.ts             motor de auditoria determinística
   lib/darf.ts              motor de apuração de IR / DARF
   lib/storage.ts           persistência em localStorage + backup
+  lib/marketData.ts        leitura do snapshot de mercado
   hooks/usePortfolio.ts    estado da carteira do usuário
   components/              modais e componentes de UI reutilizáveis
   pages/                   Dashboard, Recommendations, Positions, TaxModule, Education
+scripts/
+  update-market-data.mjs   busca preço/fundamentos e atualiza data/marketSnapshot.json
+.github/workflows/
+  update-market-data.yml   agenda a execução diária do script acima (09h BRT)
 ```
 
 ## Atualizando a carteira recomendada

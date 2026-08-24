@@ -3,13 +3,14 @@ import { recommendations } from "../data/recommendations";
 import type { Recommendation } from "../types/domain";
 import { STRATEGY_LABELS } from "../types/domain";
 import { Badge } from "../components/StatCard";
-import { formatBRL, formatDate, todayISO } from "../lib/format";
+import { formatBRL, formatDate, formatDateTime, todayISO } from "../lib/format";
 import { AcceptRecommendationModal } from "../components/AcceptRecommendationModal";
 import { PayoffChart } from "../components/PayoffChart";
 import type { PortfolioApi } from "../hooks/usePortfolio";
 import { CARTEIRA_REVISADA_EM } from "../data/meta";
 import { auditPortfolio } from "../lib/audit";
 import { computePayoffExtremes } from "../lib/payoff";
+import { getQuote } from "../lib/marketData";
 
 const RISK_COLOR: Record<Recommendation["riskProfile"], "green" | "amber" | "red"> = {
   CONSERVADOR: "green",
@@ -94,6 +95,8 @@ export function Recommendations({ portfolio }: { portfolio: PortfolioApi }) {
               <div className="text-xs bg-[var(--color-brand-light)] text-[var(--color-brand-dark)] rounded-md px-2 py-1.5 mt-2 font-medium">
                 {rec.ticker} agora: {formatBRL(rec.underlyingRefPrice)} (preço de referência desta safra)
               </div>
+
+              <LiveQuoteLine ticker={rec.ticker} refPrice={rec.underlyingRefPrice} />
 
               <div className="grid grid-cols-3 gap-2 my-3 text-xs">
                 <MiniStat
@@ -228,6 +231,38 @@ export function Recommendations({ portfolio }: { portfolio: PortfolioApi }) {
           }}
         />
       )}
+    </div>
+  );
+}
+
+/**
+ * Cotação e indicadores fundamentalistas atualizados automaticamente
+ * (ver src/lib/marketData.ts) — contexto de mercado ao vivo, separado do
+ * preço de referência auditado acima. Some silenciosamente se ainda não
+ * há snapshot pra este ticker (ex.: antes da primeira rodada do workflow).
+ */
+function LiveQuoteLine({ ticker, refPrice }: { ticker: string; refPrice: number }) {
+  const quote = getQuote(ticker);
+  if (!quote || typeof quote.price !== "number") return null;
+
+  const deltaPct = refPrice > 0 ? ((quote.price - refPrice) / refPrice) * 100 : 0;
+  const fundParts: string[] = [];
+  if (typeof quote.pl === "number") fundParts.push(`P/L ${quote.pl.toFixed(1)}`);
+  if (typeof quote.pvp === "number") fundParts.push(`P/VP ${quote.pvp.toFixed(2)}`);
+  if (typeof quote.dy === "number") fundParts.push(`DY ${quote.dy.toFixed(1)}%`);
+
+  return (
+    <div className="text-[10px] text-[var(--color-muted)] mt-1 flex flex-wrap gap-x-2 items-center">
+      <span>
+        Cotação ao vivo: <strong>{formatBRL(quote.price)}</strong>{" "}
+        <span className={deltaPct >= 0 ? "text-[var(--color-gain)]" : "text-[var(--color-loss)]"}>
+          ({deltaPct >= 0 ? "+" : ""}
+          {deltaPct.toFixed(1)}% vs. referência)
+        </span>
+      </span>
+      {fundParts.length > 0 && <span>· {fundParts.join(" · ")}</span>}
+      {quote.priceAsOf && <span>· atualizado {formatDateTime(quote.priceAsOf)}</span>}
+      {quote.stale && <span className="text-[var(--color-danger)]">· última busca falhou, dado pode estar desatualizado</span>}
     </div>
   );
 }
