@@ -75,12 +75,40 @@ export type RiskProfile = "CONSERVADOR" | "MODERADO" | "AGRESSIVO";
 
 export type MarketDirection = "ALTA" | "BAIXA" | "NEUTRO" | "LATERAL";
 
-/** Fundamentação (tese) de uma recomendação. */
+export type ConvictionLevel = "ALTA" | "MEDIA" | "BAIXA";
+
+/**
+ * Fundamentação (tese) de uma recomendação — estruturada como uma tese de
+ * research de verdade (sell-side/buy-side), não como um resumo genérico:
+ * uma frase-chamada testável, catalisadores com data/evento concretos, uma
+ * visão explícita de comportamento de preço, e uma condição específica que
+ * PROVARIA a tese errada — separada de "riscos" (fatores a monitorar, que
+ * não necessariamente invalidam a tese).
+ */
 export interface Thesis {
+  /** Frase única, específica e testável — o "call" da tese. Não é um
+   * resumo do resto: é a afirmação que catalysts/expectedMove sustentam
+   * e que invalidacao pode derrubar. */
+  headline: string;
+  /** Visão explícita de comportamento do preço até o vencimento (faixa,
+   * direção, nível-chave) — o que separa uma tese de um gráfico de payoff. */
+  expectedMove: string;
+  /** Eventos ou datas concretos que devem se confirmar a favor da tese —
+   * sem isso é opinião vaga, não uma tese verificável. */
+  catalysts: string[];
   macro: string;
   micro: string;
   tecnico?: string;
+  /** Fatores a monitorar — podem piorar o resultado sem necessariamente
+   * provar a tese errada (ver `invalidacao` para isso). */
   riscos: string;
+  /** Condição ESPECÍFICA que, se ocorrer, prova que a tese estava errada —
+   * o gatilho de saída, não uma lista genérica de coisas que podem dar
+   * errado. */
+  invalidacao: string;
+  /** Convicção declarada do "gestor" nesta tese — igual research de
+   * verdade, que classifica a força da recomendação, não só a direção. */
+  conviction: ConvictionLevel;
 }
 
 /** Item da carteira recomendada, publicado pelo "gestor" (RCO Dash). */

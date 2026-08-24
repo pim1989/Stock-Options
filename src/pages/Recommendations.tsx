@@ -25,6 +25,18 @@ const DIRECTION_LABEL: Record<Recommendation["direction"], string> = {
   LATERAL: "Lateral",
 };
 
+const CONVICTION_COLOR: Record<Recommendation["thesis"]["conviction"], "green" | "amber" | "gray"> = {
+  ALTA: "green",
+  MEDIA: "amber",
+  BAIXA: "gray",
+};
+
+const CONVICTION_LABEL: Record<Recommendation["thesis"]["conviction"], string> = {
+  ALTA: "Convicção alta",
+  MEDIA: "Convicção média",
+  BAIXA: "Convicção baixa",
+};
+
 export function Recommendations({ portfolio }: { portfolio: PortfolioApi }) {
   const [selected, setSelected] = useState<Recommendation | null>(null);
   const { dismissedRecs, dismissRecommendation, acceptedRecommendationIds, addPosition } = portfolio;
@@ -83,6 +95,18 @@ export function Recommendations({ portfolio }: { portfolio: PortfolioApi }) {
                   <Badge color={RISK_COLOR[rec.riskProfile]}>{rec.riskProfile}</Badge>
                   <Badge color="blue">{DIRECTION_LABEL[rec.direction]}</Badge>
                 </div>
+              </div>
+
+              <div className="mt-2 border-l-4 border-[var(--color-brand)] bg-[var(--color-brand-light)]/40 rounded-r-md pl-2.5 pr-2 py-2">
+                <div className="flex items-center justify-between gap-2 mb-1">
+                  <span className="text-[10px] uppercase tracking-wide text-[var(--color-muted)]">A tese</span>
+                  <Badge color={CONVICTION_COLOR[rec.thesis.conviction]}>{CONVICTION_LABEL[rec.thesis.conviction]}</Badge>
+                </div>
+                <p className="text-sm font-medium leading-snug">{rec.thesis.headline}</p>
+                <p className="text-xs text-[var(--color-muted)] mt-1.5">
+                  <strong className="text-[var(--color-ink)]">Visão de preço: </strong>
+                  {rec.thesis.expectedMove}
+                </p>
               </div>
 
               {expired && (
@@ -153,21 +177,45 @@ export function Recommendations({ portfolio }: { portfolio: PortfolioApi }) {
                 />
               </div>
 
-              <div className="text-sm space-y-1.5 flex-1">
-                <p>
-                  <strong>Macro:</strong> {rec.thesis.macro}
-                </p>
-                <p>
-                  <strong>Ativo:</strong> {rec.thesis.micro}
-                </p>
-                {rec.thesis.tecnico && (
+              <div className="text-sm space-y-3 flex-1">
+                <div>
+                  <div className="text-[10px] uppercase tracking-wide text-[var(--color-muted)] mb-1">
+                    Catalisadores
+                  </div>
+                  <ul className="space-y-1 list-disc list-inside marker:text-[var(--color-brand)]">
+                    {rec.thesis.catalysts.map((c, i) => (
+                      <li key={i} className="text-xs leading-snug">
+                        {c}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="space-y-1.5">
+                  <div className="text-[10px] uppercase tracking-wide text-[var(--color-muted)]">
+                    Fundamentação
+                  </div>
                   <p>
-                    <strong>Técnico:</strong> {rec.thesis.tecnico}
+                    <strong>Macro:</strong> {rec.thesis.macro}
                   </p>
-                )}
+                  <p>
+                    <strong>Ativo:</strong> {rec.thesis.micro}
+                  </p>
+                  {rec.thesis.tecnico && (
+                    <p>
+                      <strong>Técnico:</strong> {rec.thesis.tecnico}
+                    </p>
+                  )}
+                </div>
+
                 <p className="text-[var(--color-danger)]">
-                  <strong>Riscos:</strong> {rec.thesis.riscos}
+                  <strong>Riscos a monitorar:</strong> {rec.thesis.riscos}
                 </p>
+
+                <div className="text-xs bg-amber-50 text-amber-900 rounded-md px-2 py-1.5">
+                  <strong>O que invalidaria esta tese: </strong>
+                  {rec.thesis.invalidacao}
+                </div>
               </div>
 
               <div className="text-xs text-[var(--color-muted)] mt-3 border-t pt-2">

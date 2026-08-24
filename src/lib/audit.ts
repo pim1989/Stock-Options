@@ -395,6 +395,15 @@ function checkDatesAndContent(rec: Recommendation): AuditFinding[] {
     findings.push({ code: "expirada", severity: "ALERTA", message: `Validade expirou em ${rec.validUntil} — reavaliar cenário antes de montar.` });
   }
 
+  if (!rec.thesis.headline || rec.thesis.headline.length < 30) {
+    findings.push({ code: "tese-headline", severity: "FALHA", message: "Frase-chamada (headline) da tese ausente ou insuficiente — toda recomendação precisa de um 'call' específico e testável, não só parágrafos soltos." });
+  }
+  if (!rec.thesis.expectedMove || rec.thesis.expectedMove.length < 20) {
+    findings.push({ code: "tese-expected-move", severity: "FALHA", message: "Visão explícita de comportamento de preço até o vencimento ausente ou insuficiente." });
+  }
+  if (!rec.thesis.catalysts || rec.thesis.catalysts.length === 0) {
+    findings.push({ code: "tese-catalysts", severity: "FALHA", message: "Nenhum catalisador/evento concreto listado — sem isso a tese não é verificável." });
+  }
   if (!rec.thesis.macro || rec.thesis.macro.length < 40) {
     findings.push({ code: "tese-macro", severity: "FALHA", message: "Justificativa macro ausente ou insuficiente." });
   }
@@ -403,6 +412,12 @@ function checkDatesAndContent(rec: Recommendation): AuditFinding[] {
   }
   if (!rec.thesis.riscos || rec.thesis.riscos.length < 20) {
     findings.push({ code: "tese-riscos", severity: "FALHA", message: "Seção de riscos ausente ou insuficiente." });
+  }
+  if (!rec.thesis.invalidacao || rec.thesis.invalidacao.length < 20) {
+    findings.push({ code: "tese-invalidacao", severity: "FALHA", message: "Condição de invalidação da tese ausente ou insuficiente — precisa ficar explícito o que provaria a tese errada, separado dos riscos gerais." });
+  }
+  if (!rec.thesis.conviction) {
+    findings.push({ code: "tese-conviction", severity: "FALHA", message: "Nível de convicção da tese ausente." });
   }
   if (!rec.underlyingRefPrice || rec.underlyingRefPrice <= 0) {
     findings.push({ code: "preco-ref", severity: "FALHA", message: "Preço de referência do ativo ausente ou inválido." });

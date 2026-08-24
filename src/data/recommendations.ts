@@ -91,6 +91,15 @@ export const recommendations: Recommendation[] = [
       },
     ],
     thesis: {
+      headline:
+        "PETR4 segue barata mesmo após a alta puxada pela guerra — vender calls cobertas monetiza o prêmio inflado pela IV do petróleo enquanto mantém a posição para capturar dividendo.",
+      expectedMove:
+        "Lateral a levemente positivo até 19/09 — não esperamos ruptura acima de R$46,00 (strike vendido) nesse horizonte; mesmo que o Brent ceda para US$80 como projeta o Commerzbank, os múltiplos (P/L 4,1x, P/VP 1,1x) sustentam um piso bem abaixo do preço atual.",
+      catalysts: [
+        "Trajetória do Brent rumo a US$80/barril (projeção Commerzbank) — reversão do prêmio geopolítico deve comprimir a IV das opções, a favor de quem já vendeu prêmio.",
+        "Pagamento dos US$3,4 bi em dividendos anunciados no 2T26 — suporte técnico e fundamentalista ao papel durante o período da estrutura.",
+        "Vencimento 19/09/2026, antes do 1º turno das eleições (04/10) — evita o pico de volatilidade típico da semana eleitoral.",
+      ],
       macro: [
         "Petróleo Brent voltou a romper US$100/barril (23/07) com a escalada da guerra",
         "Israel-Irã, inflando o prêmio das opções de PETR4 — mas o Commerzbank projeta recuo",
@@ -111,6 +120,9 @@ export const recommendations: Recommendation[] = [
         "PETR4 pode corrigir — a trava é a favor: perda limitada ao recuo do papel, prêmio",
         "amortece a queda. Vencimento (19/09) fica antes do 1º turno das eleições (04/10).",
       ].join(" "),
+      invalidacao:
+        "Sinalização de interferência do governo na política de preços/dividendos da Petrobras, ou escalada abrupta da guerra Israel-Irã que empurre o Brent a novas máximas — nesses cenários a leitura de 'prêmio geopolítico vai ceder' fica invalidada e a estrutura deve ser reavaliada antes do vencimento.",
+      conviction: "ALTA",
     },
     maxGain: 4000,
     maxLoss: 42000,
@@ -155,6 +167,15 @@ export const recommendations: Recommendation[] = [
       },
     ],
     thesis: {
+      headline:
+        "VALE3 com valuation esticado (P/L ≈ 29x) em meio a saída de capital estrangeiro — collar de custo quase zero trava a faixa 69,00–77,00 e preserva o dividendo sem exigir aposta direcional.",
+      expectedMove:
+        "Faixa lateral entre R$69,00 e R$77,00 até 19/09 — sinais mistos (valuation esticado de um lado, piso de minério de outro) não sustentam convicção direcional forte o bastante para abrir mão da proteção.",
+      catalysts: [
+        "Fluxo de capital estrangeiro na B3 (saída de ~R$7,2 bi em agosto) — reversão do fluxo destravaria alta, mas não é o cenário-base.",
+        "Dados de demanda da China por minério (perto de mínima em 1 ano) — piora adicional pressiona o papel para o piso da faixa (69,00).",
+        "Vencimento 19/09/2026 — o dividend yield 12m (~7,7%) continua sendo capturado dentro do collar independente do desfecho.",
+      ],
       macro: [
         "Saída líquida de estrangeiros da bolsa brasileira (~R$7,2 bi em agosto) e",
         "rebaixamento de ações locais pelo JPMorgan aumentam o risco de correção de curto",
@@ -176,6 +197,9 @@ export const recommendations: Recommendation[] = [
         "cautela aqui — ideal para quem já está posicionado e quer reduzir volatilidade do",
         "book em período de saída de capital estrangeiro e ruído eleitoral.",
       ].join(" "),
+      invalidacao:
+        "Reversão clara da saída de estrangeiros combinada com recuperação da demanda chinesa por minério derrubaria a leitura de valuation esticado que justifica a estrutura neutra — nesse caso, uma estrutura mais direcional (bullish) passaria a fazer mais sentido do que o collar.",
+      conviction: "MEDIA",
     },
     maxGain: 3950,
     maxLoss: 4050,
@@ -208,6 +232,15 @@ export const recommendations: Recommendation[] = [
       },
     ],
     thesis: {
+      headline:
+        "Itaú reportou lucro recorde e capital folgado — vender put com strike no suporte técnico dá o direito de comprar o banco 7,6% mais barato (efetivo R$35,20) ou embolsar o prêmio se isso não acontecer.",
+      expectedMove:
+        "Alta a lateral até 19/09 — não esperamos ITUB4 romper o suporte de R$36,00; mesmo que rompa, o preço efetivo de entrada (R$35,20) segue abaixo do valor sugerido pelo lucro recorde e pela Basileia de 15,4%.",
+      catalysts: [
+        "Continuidade do ritmo de lucro sinalizado no guidance do 2T26 (R$12,4 bi, +7,8% a/a) — reforça a leitura de solidez que sustenta o piso.",
+        "Decisão de política monetária (Selic) — manutenção do patamar restritivo (14,00%-14,25%) sustenta a margem financeira do banco.",
+        "Vencimento 19/09/2026, antes do 1º turno das eleições (04/10) — evita a semana de maior volatilidade eleitoral.",
+      ],
       macro: [
         "Selic em patamar restritivo (14,00%-14,25%) infla o prêmio das opções (custo de",
         "carrego elevado) e favorece bancos na margem financeira. Exposição de ITUB4 ao",
@@ -225,6 +258,9 @@ export const recommendations: Recommendation[] = [
         "ações a esse preço (efetivo de 35,20 já descontado o prêmio) — risco aceitável para",
         "quem tem interesse em montar posição no banco. Reservar o caixa integral do strike.",
       ].join(" "),
+      invalidacao:
+        "Sinal de deterioração de qualidade de crédito (aumento relevante de inadimplência) ou corte inesperado de capital/JCP anunciado — quebraria a leitura de solidez que sustenta o piso em R$36,00.",
+      conviction: "ALTA",
     },
     maxGain: 800,
     maxLoss: 35200,
@@ -268,6 +304,15 @@ export const recommendations: Recommendation[] = [
       },
     ],
     thesis: {
+      headline:
+        "Correção do Ibovespa é técnica e confirmada (pior sequência desde 2023, saída de estrangeiros, rebaixamento pelo JPMorgan) dentro de um bull market de longo prazo — trava de baixa com puts em BOVA11 monetiza a continuação até o suporte, com perda travada no prêmio líquido pago.",
+      expectedMove:
+        "Continuação da correção até a faixa de suporte técnico (equivalente a ~160,00–150,00 em BOVA11) até 19/09 — não esperamos reversão em V nem rompimento abaixo do suporte histórico.",
+      catalysts: [
+        "Fluxo de saída de estrangeiros da B3 (~R$7,2 bi em agosto) — continuidade do fluxo reforça a leitura de correção em curso.",
+        "Defesa (ou rompimento) da região de 168-172 mil pontos do Ibovespa (média móvel de 50 semanas) — nível técnico-chave que a estrutura foi calibrada para capturar.",
+        "Vencimento 19/09/2026 — fica fora da janela de maior volatilidade eleitoral (1º turno em 04/10).",
+      ],
       macro: [
         "Ibovespa está em mercado de ALTA de longo prazo (subiu de ~140 mil em ago/2025 até",
         "topo histórico de 199.354 pts em abr/2026) mas em CORREÇÃO confirmada de curto e",
@@ -283,6 +328,9 @@ export const recommendations: Recommendation[] = [
         "seguro de carteira, não como aposta direcional isolada. Vencimento fica antes do 1º",
         "turno das eleições (04/10).",
       ].join(" "),
+      invalidacao:
+        "Reconquista de ~176-181 mil pontos pelo Ibovespa (retomada de força compradora) antes do vencimento invalidaria a leitura de correção em curso — nesse caso a estrutura deve ser encerrada antes do vencimento para limitar a perda ao mínimo possível.",
+      conviction: "MEDIA",
     },
     maxGain: 3600,
     maxLoss: 1400,
@@ -326,6 +374,15 @@ export const recommendations: Recommendation[] = [
       },
     ],
     thesis: {
+      headline:
+        "Mesma leitura fundamentalista da venda coberta (PETR4 barata, P/L 4,1x), em formato agressivo: vender put com strike abaixo do suporte técnico monetiza a IV inflada pela guerra, aceitando perda definida em troca de mais retorno sobre capital menor.",
+      expectedMove:
+        "PETR4 se mantém acima de R$40,00 até 19/09 — mesmo em cenário de correção do petróleo para US$80 (Commerzbank), os múltiplos sustentam um piso bem acima do strike vendido; só um choque adicional (fora do cenário-base) levaria o papel a romper R$37,00.",
+      catalysts: [
+        "Trajetória do Brent — reversão para US$80 (cenário-base Commerzbank) tende a normalizar a IV sem necessariamente derrubar a ação, já que os múltiplos sustentam o piso.",
+        "Resultado recorde do 2T26 e US$3,4 bi em dividendos anunciados — suporte fundamentalista ativo durante o período da estrutura.",
+        "Vencimento 19/09/2026, antes do 1º turno eleitoral (04/10).",
+      ],
       macro: "Volatilidade implícita das opções de PETR4 segue elevada por causa do prêmio de risco do petróleo (Brent > US$100 pela guerra Israel-Irã) — atrativo para vender prêmio com risco definido pela ponta comprada, mesmo com a expectativa de o prêmio geopolítico ceder ao longo do 2S26.",
       micro: "P/L ≈ 4,1x e P/VP ≈ 1,1x dão suporte fundamentalista a um piso de curto prazo bem abaixo do strike vendido; resultado recorde no 2T26 e política de dividendos agressiva (US$3,4 bi anunciados) reforçam a tese.",
       tecnico: "Strike vendido (40,00) fica ~7,4% abaixo da referência atual, abaixo do suporte técnico mais próximo.",
@@ -335,6 +392,9 @@ export const recommendations: Recommendation[] = [
         "reduza o tamanho da posição se a guerra escalar de forma abrupta ou o petróleo",
         "recuar mais rápido que o esperado, derrubando a IV e o suporte fundamentalista junto.",
       ].join(" "),
+      invalidacao:
+        "Escalada abrupta da guerra que force uma correção rápida do petróleo (em vez do recuo gradual projetado), derrubando a ação junto com a IV, ou sinal de interferência do governo na política de preços da estatal — qualquer um dos dois quebra a tese de piso fundamentalista e pede redução de posição antes do vencimento.",
+      conviction: "MEDIA",
     },
     maxGain: 550,
     maxLoss: 2450,
@@ -378,6 +438,15 @@ export const recommendations: Recommendation[] = [
       },
     ],
     thesis: {
+      headline:
+        "Única aposta desta safra no ciclo de juros, não em commodities: mercado já precifica corte de Selic em 2026, e WEGE3 (baixa exposição a petróleo, câmbio e política doméstica) tende a se beneficiar desproporcionalmente — trava de alta com calls captura essa alta com perda limitada ao prêmio pago.",
+      expectedMove:
+        "WEGE3 acima de R$50,05 (breakeven) até 17/10/2026, com potencial de capturar o ganho máximo se ultrapassar R$54,00 — movimento gradual acompanhando a curva de juros, não um catalisador único e pontual.",
+      catalysts: [
+        "Decisões do Copom ao longo do 2S26 — confirmação do início do ciclo de corte de Selic é o gatilho central desta tese.",
+        "Resultados trimestrais da WEG mostrando resiliência de margens fora do ciclo de commodities/petróleo.",
+        "ATENÇÃO: vencimento (17/10) cai na semana seguinte ao 1º turno eleitoral (04/10) — a estrutura fica exposta à volatilidade típica desse período, diferente das demais desta safra.",
+      ],
       macro: "Mercado precifica corte de Selic ainda em 2026 — ciclo de queda de juros tende a beneficiar desproporcionalmente ações de qualidade/crescimento como WEGE3. É a única estrutura desta safra apoiada no ciclo de juros, não em commodities ou petróleo.",
       micro: "WEG é pouco exposta a petróleo, câmbio direto ou ao ciclo político doméstico — bom contraponto de diversificação frente às posições em PETR4/VALE3/ITUB4 desta safra, todas mais sensíveis a commodities e Selic.",
       tecnico: "Trava de alta com vencimento mais longo (17/10) para dar tempo à tese de corte de juros se confirmar sem pressão de decaimento acelerado do prêmio.",
@@ -388,6 +457,9 @@ export const recommendations: Recommendation[] = [
         "Se a Selic não cair ou o corte for adiado, a estrutura pode expirar sem valor —",
         "perda já conhecida na montagem.",
       ].join(" "),
+      invalidacao:
+        "Adiamento do início do ciclo de corte de Selic (ou sinalização do Copom de que os juros vão ficar altos por mais tempo do que o mercado precifica hoje) invalida o racional central — a estrutura pode expirar sem valor nesse cenário, perda já conhecida e limitada na montagem.",
+      conviction: "MEDIA",
     },
     maxGain: 3950,
     maxLoss: 1550,
