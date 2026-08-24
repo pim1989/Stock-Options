@@ -21,6 +21,11 @@ export interface TickerQuote {
   dy?: number | null;
   roe?: number | null;
   margemLiquida?: number | null;
+  /** Mínima e máxima de 52 semanas (Fundamentus) — usadas como proxy de
+   * volatilidade histórica pelo motor de screening (scripts/screening-
+   * report.mjs), não exibidas diretamente na UI. */
+  min52?: number | null;
+  max52?: number | null;
   fundamentalsAsOf?: string | null;
   /** true quando a última tentativa de buscar preço falhou e este é um valor antigo mantido. */
   stale?: boolean;

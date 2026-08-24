@@ -226,6 +226,38 @@ Actions:
   dá pra cadastrar um token gratuito do brapi.dev como secret
   `BRAPI_TOKEN` do repositório para um limite de requisições maior.
 
+### Screening mecânico (background, sem tela própria)
+
+Depois de atualizar preço/fundamentos, o mesmo workflow roda
+`scripts/screening-report.mjs`, que testa **todas as 18 estratégias de
+risco definido** do app (todas exceto o calendário — ver abaixo) em
+**todos os tickers** de `src/data/watchlist.json`, e salva o resultado em
+`src/data/screeningSnapshot.json`.
+
+- **Para quê**: garantir que nenhuma combinação ticker×estratégia fica de
+  fora só por eu não ter pensado nela — o motor gera e avalia a
+  combinação inteira sempre, e o que não vira recomendação é descartado
+  *depois*, sem aparecer em nenhuma tela. A carteira recomendada visível
+  em `src/data/recommendations.ts` continua sendo um subconjunto pequeno,
+  com tese de verdade (ver seção "Atualizando a carteira recomendada").
+- **Como precifica**: como o app não tem feed de opções da B3 (grade de
+  strikes/prêmios/IV por série é dado pago), os prêmios são **estimados**
+  via Black-Scholes (`scripts/lib/pricing.mjs`), com volatilidade
+  aproximada pela faixa de 52 semanas (Fundamentus) — não é volatilidade
+  implícita real. Os strikes seguem regras fixas por tipo de estrutura
+  (ex.: covered call vende 7% OTM), as mesmas exigidas por
+  `checkStructure` em `lib/audit.ts`. Os números aqui são **ordem de
+  grandeza para triagem**, nunca preço de tela.
+- **O que isso NÃO faz**: não gera tese (headline, catalisadores,
+  invalidação, convicção) — isso continua exigindo pesquisa de verdade,
+  feita sob pedido, nunca fabricada a partir de números. O screening só
+  garante cobertura mecânica completa antes dessa etapa.
+- **Por que sem calendário**: `CALENDAR_SPREAD` exige dois vencimentos e
+  uma curva de volatilidade por prazo — não dá pra estimar isso de forma
+  confiável com só a faixa de 52 semanas, então essa estrutura fica fora
+  do screening automático (mas continua disponível pra registro manual
+  no app, como qualquer outra).
+
 ## Stack técnica
 
 - React 19 + TypeScript + Vite
@@ -243,8 +275,9 @@ src/
   data/recommendations.ts  carteira recomendada (safra atual, com teses)
   data/auditBenchmark.ts   checagem cruzada com fontes públicas (por safra)
   data/education.ts        glossário, guias de estratégia, referências
-  data/watchlist.json      tickers acompanhados pela atualização automática de mercado
+  data/watchlist.json      tickers acompanhados pela atualização automática e pelo screening
   data/marketSnapshot.json snapshot de preço/fundamentos (gerado pelo workflow, não editar à mão)
+  data/screeningSnapshot.json screening mecânico ticker×estratégia (gerado pelo workflow, não editar à mão)
   lib/calculations.ts      motor de cálculo de P&L (aberto e realizado)
   lib/payoff.ts            motor de payoff (gráfico + extremos exatos)
   lib/audit.ts             motor de auditoria determinística
@@ -256,8 +289,12 @@ src/
   pages/                   Dashboard, Recommendations, Positions, TaxModule, Education
 scripts/
   update-market-data.mjs   busca preço/fundamentos e atualiza data/marketSnapshot.json
+  screening-report.mjs     testa todas as estratégias em todos os tickers, atualiza data/screeningSnapshot.json
+  lib/pricing.mjs          precificação Black-Scholes estimada + proxy de volatilidade
+  lib/payoff.mjs           porta em JS puro do essencial de src/lib/payoff.ts
+  lib/strategies.mjs       gerador de estruturas candidatas (uma receita por tipo)
 .github/workflows/
-  update-market-data.yml   agenda a execução diária do script acima (09h BRT)
+  update-market-data.yml   agenda a execução diária dos dois scripts acima (09h BRT)
 ```
 
 ## Atualizando a carteira recomendada

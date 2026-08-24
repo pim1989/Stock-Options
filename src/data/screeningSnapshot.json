@@ -1,0 +1,3352 @@
+{
+  "generatedAt": "2026-08-24T21:49:51.176Z",
+  "params": {
+    "riskFreeRate": 0.14,
+    "expiryDays": 30,
+    "expiry": "2026-09-23",
+    "lot": 100
+  },
+  "note": "Screening mecânico com prêmios ESTIMADOS (Black-Scholes + proxy de volatilidade por faixa de 52 semanas) — não é cotação real de opções. Não substitui a tese de uma recomendação. Ver comentário no topo de screening-report.mjs.",
+  "tickers": {
+    "PETR4": {
+      "companyName": "Petrobras PN",
+      "isETF": false,
+      "price": 42.03,
+      "sigmaProxy": 0.35,
+      "candidates": [
+        {
+          "strategyType": "COVERED_CALL",
+          "legs": [
+            {
+              "id": "CALL-VENDA-1.07",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 45,
+              "premium": 0.77,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": true,
+          "underlyingQtySuggested": 100,
+          "capitalAlocado": 4126,
+          "maxGain": 374,
+          "maxGainUnlimited": false,
+          "maxLoss": 4126,
+          "maxLossAtPrice": 0,
+          "breakevens": [
+            41.26
+          ],
+          "retornoPotencial": 0.09064469219583131,
+          "riscoRetorno": 0.09064469219583131,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "CASH_SECURED_PUT",
+          "legs": [
+            {
+              "id": "PUT-VENDA-0.93",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 39,
+              "premium": 0.44,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 3856,
+          "maxGain": 44,
+          "maxGainUnlimited": false,
+          "maxLoss": 3856,
+          "maxLossAtPrice": 0,
+          "breakevens": [
+            38.56
+          ],
+          "retornoPotencial": 0.011410788381742738,
+          "riscoRetorno": 0.011410788381742738,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "PROTECTIVE_PUT",
+          "legs": [
+            {
+              "id": "PUT-COMPRA-0.93",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 39,
+              "premium": 0.44,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": true,
+          "underlyingQtySuggested": 100,
+          "capitalAlocado": 4247,
+          "maxGain": 116768,
+          "maxGainUnlimited": true,
+          "maxLoss": 347,
+          "maxLossAtPrice": 39,
+          "breakevens": [
+            42.47
+          ],
+          "retornoPotencial": null,
+          "riscoRetorno": null,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "COLLAR",
+          "legs": [
+            {
+              "id": "PUT-COMPRA-0.93",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 39,
+              "premium": 0.44,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-VENDA-1.07",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 45,
+              "premium": 0.77,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": true,
+          "underlyingQtySuggested": 100,
+          "capitalAlocado": 4170,
+          "maxGain": 330,
+          "maxGainUnlimited": false,
+          "maxLoss": 270,
+          "maxLossAtPrice": 39,
+          "breakevens": [
+            41.7
+          ],
+          "retornoPotencial": 0.07913669064748201,
+          "riscoRetorno": 1.2222222222222217,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "BULL_CALL_SPREAD",
+          "legs": [
+            {
+              "id": "CALL-COMPRA-1",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 42,
+              "premium": 1.94,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-VENDA-1.1",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 46,
+              "premium": 0.54,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 140,
+          "maxGain": 260,
+          "maxGainUnlimited": false,
+          "maxLoss": 140,
+          "maxLossAtPrice": 42,
+          "breakevens": [
+            43.4
+          ],
+          "retornoPotencial": 1.8571428571428572,
+          "riscoRetorno": 1.8571428571428572,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "BEAR_PUT_SPREAD",
+          "legs": [
+            {
+              "id": "PUT-COMPRA-1",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 42,
+              "premium": 1.43,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-VENDA-0.9",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 38,
+              "premium": 0.26,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 117,
+          "maxGain": 283,
+          "maxGainUnlimited": false,
+          "maxLoss": 117,
+          "maxLossAtPrice": 42,
+          "breakevens": [
+            40.83
+          ],
+          "retornoPotencial": 2.4188034188034186,
+          "riscoRetorno": 2.4188034188034186,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "BULL_PUT_SPREAD",
+          "legs": [
+            {
+              "id": "PUT-VENDA-0.93",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 39,
+              "premium": 0.44,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-COMPRA-0.86",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 36,
+              "premium": 0.08,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 264,
+          "maxGain": 36,
+          "maxGainUnlimited": false,
+          "maxLoss": 264,
+          "maxLossAtPrice": 36,
+          "breakevens": [
+            38.64
+          ],
+          "retornoPotencial": 0.13636363636363635,
+          "riscoRetorno": 0.13636363636363635,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "BEAR_CALL_SPREAD",
+          "legs": [
+            {
+              "id": "CALL-VENDA-1.07",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 45,
+              "premium": 0.77,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-COMPRA-1.14",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 48,
+              "premium": 0.25,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 248,
+          "maxGain": 52,
+          "maxGainUnlimited": false,
+          "maxLoss": 248,
+          "maxLossAtPrice": 48,
+          "breakevens": [
+            45.52
+          ],
+          "retornoPotencial": 0.20967741935483872,
+          "riscoRetorno": 0.20967741935483872,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "IRON_CONDOR",
+          "legs": [
+            {
+              "id": "PUT-COMPRA-0.86",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 36,
+              "premium": 0.08,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-VENDA-0.93",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 39,
+              "premium": 0.44,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-VENDA-1.07",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 45,
+              "premium": 0.77,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-COMPRA-1.14",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 48,
+              "premium": 0.25,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 212,
+          "maxGain": 88,
+          "maxGainUnlimited": false,
+          "maxLoss": 212,
+          "maxLossAtPrice": 48,
+          "breakevens": [
+            38.12,
+            45.88
+          ],
+          "retornoPotencial": 0.41509433962264153,
+          "riscoRetorno": 0.41509433962264153,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "IRON_BUTTERFLY",
+          "legs": [
+            {
+              "id": "PUT-COMPRA-0.9",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 38,
+              "premium": 0.26,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-VENDA-1",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 42,
+              "premium": 1.43,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-VENDA-1",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 42,
+              "premium": 1.94,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-COMPRA-1.1",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 46,
+              "premium": 0.54,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 143,
+          "maxGain": 257,
+          "maxGainUnlimited": false,
+          "maxLoss": 143,
+          "maxLossAtPrice": 46,
+          "breakevens": [
+            39.43,
+            44.57
+          ],
+          "retornoPotencial": 1.7972027972027973,
+          "riscoRetorno": 1.7972027972027973,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "LONG_STRADDLE",
+          "legs": [
+            {
+              "id": "CALL-COMPRA-1",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 42,
+              "premium": 1.94,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-COMPRA-1",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 42,
+              "premium": 1.43,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 337,
+          "maxGain": 116463,
+          "maxGainUnlimited": true,
+          "maxLoss": 337,
+          "maxLossAtPrice": 42,
+          "breakevens": [
+            38.63,
+            45.37
+          ],
+          "retornoPotencial": null,
+          "riscoRetorno": null,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "LONG_STRANGLE",
+          "legs": [
+            {
+              "id": "CALL-COMPRA-1.07",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 45,
+              "premium": 0.77,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-COMPRA-0.93",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 39,
+              "premium": 0.44,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 121,
+          "maxGain": 117879,
+          "maxGainUnlimited": true,
+          "maxLoss": 121,
+          "maxLossAtPrice": 45,
+          "breakevens": [
+            37.79,
+            46.21
+          ],
+          "retornoPotencial": null,
+          "riscoRetorno": null,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "JADE_LIZARD",
+          "legs": [
+            {
+              "id": "PUT-VENDA-0.9",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 38,
+              "premium": 0.26,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-VENDA-1.07",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 45,
+              "premium": 0.77,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-COMPRA-1.14",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 48,
+              "premium": 0.25,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 3722,
+          "maxGain": 78,
+          "maxGainUnlimited": false,
+          "maxLoss": 3722,
+          "maxLossAtPrice": 0,
+          "breakevens": [
+            37.22,
+            45.78
+          ],
+          "retornoPotencial": 0.02095647501343364,
+          "riscoRetorno": 0.02095647501343364,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "PUT_RATIO_SPREAD",
+          "legs": [
+            {
+              "id": "PUT-COMPRA-1",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 42,
+              "premium": 1.43,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-VENDA-0.9",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 38,
+              "premium": 0.26,
+              "quantity": 200,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 3491,
+          "maxGain": 309,
+          "maxGainUnlimited": false,
+          "maxLoss": 3491,
+          "maxLossAtPrice": 0,
+          "breakevens": [
+            34.91,
+            41.09
+          ],
+          "retornoPotencial": 0.08851331996562589,
+          "riscoRetorno": 0.08851331996562589,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "CALL_RATIO_BACKSPREAD",
+          "legs": [
+            {
+              "id": "CALL-VENDA-1",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 42,
+              "premium": 1.94,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-COMPRA-1.1",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 46,
+              "premium": 0.54,
+              "quantity": 200,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 314,
+          "maxGain": 118086,
+          "maxGainUnlimited": true,
+          "maxLoss": 314,
+          "maxLossAtPrice": 46,
+          "breakevens": [
+            42.86,
+            49.14
+          ],
+          "retornoPotencial": null,
+          "riscoRetorno": null,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "PUT_RATIO_BACKSPREAD",
+          "legs": [
+            {
+              "id": "PUT-VENDA-1",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 42,
+              "premium": 1.43,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-COMPRA-0.9",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 38,
+              "premium": 0.26,
+              "quantity": 200,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 309,
+          "maxGain": 3491,
+          "maxGainUnlimited": false,
+          "maxLoss": 309,
+          "maxLossAtPrice": 38,
+          "breakevens": [
+            34.91,
+            41.09
+          ],
+          "retornoPotencial": 11.297734627831716,
+          "riscoRetorno": 11.297734627831716,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "BOOSTER",
+          "legs": [
+            {
+              "id": "CALL-COMPRA-1",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 42,
+              "premium": 1.94,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-VENDA-1.1",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 46,
+              "premium": 0.54,
+              "quantity": 200,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": true,
+          "underlyingQtySuggested": 100,
+          "capitalAlocado": 4289,
+          "maxGain": 711,
+          "maxGainUnlimited": false,
+          "maxLoss": 4289,
+          "maxLossAtPrice": 0,
+          "breakevens": [
+            42.45
+          ],
+          "retornoPotencial": 0.16577290743763115,
+          "riscoRetorno": 0.16577290743763115,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "INVERSE_LINE_BULL",
+          "legs": [
+            {
+              "id": "CALL-COMPRA-1",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 42,
+              "premium": 1.94,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-VENDA-1",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 42,
+              "premium": 1.43,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 4251,
+          "maxGain": 116749,
+          "maxGainUnlimited": true,
+          "maxLoss": 4251,
+          "maxLossAtPrice": 0,
+          "breakevens": [
+            42.51
+          ],
+          "retornoPotencial": null,
+          "riscoRetorno": null,
+          "definedRisk": true
+        }
+      ]
+    },
+    "VALE3": {
+      "companyName": "Vale ON",
+      "isETF": false,
+      "price": 77.29,
+      "sigmaProxy": 0.35,
+      "candidates": [
+        {
+          "strategyType": "COVERED_CALL",
+          "legs": [
+            {
+              "id": "CALL-VENDA-1.07",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 83,
+              "premium": 1.36,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": true,
+          "underlyingQtySuggested": 100,
+          "capitalAlocado": 7593,
+          "maxGain": 707,
+          "maxGainUnlimited": false,
+          "maxLoss": 7593,
+          "maxLossAtPrice": 0,
+          "breakevens": [
+            75.93
+          ],
+          "retornoPotencial": 0.09311207691294612,
+          "riscoRetorno": 0.09311207691294612,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "CASH_SECURED_PUT",
+          "legs": [
+            {
+              "id": "PUT-VENDA-0.93",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 72,
+              "premium": 0.86,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 7114,
+          "maxGain": 86,
+          "maxGainUnlimited": false,
+          "maxLoss": 7114,
+          "maxLossAtPrice": 0,
+          "breakevens": [
+            71.14
+          ],
+          "retornoPotencial": 0.01208883890919314,
+          "riscoRetorno": 0.01208883890919314,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "PROTECTIVE_PUT",
+          "legs": [
+            {
+              "id": "PUT-COMPRA-0.93",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 72,
+              "premium": 0.86,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": true,
+          "underlyingQtySuggested": 100,
+          "capitalAlocado": 7815,
+          "maxGain": 130830,
+          "maxGainUnlimited": true,
+          "maxLoss": 615,
+          "maxLossAtPrice": 72,
+          "breakevens": [
+            78.15
+          ],
+          "retornoPotencial": null,
+          "riscoRetorno": null,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "COLLAR",
+          "legs": [
+            {
+              "id": "PUT-COMPRA-0.93",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 72,
+              "premium": 0.86,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-VENDA-1.07",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 83,
+              "premium": 1.36,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": true,
+          "underlyingQtySuggested": 100,
+          "capitalAlocado": 7679,
+          "maxGain": 621,
+          "maxGainUnlimited": false,
+          "maxLoss": 479,
+          "maxLossAtPrice": 72,
+          "breakevens": [
+            76.79
+          ],
+          "retornoPotencial": 0.08086990493553847,
+          "riscoRetorno": 1.2964509394572001,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "BULL_CALL_SPREAD",
+          "legs": [
+            {
+              "id": "CALL-COMPRA-1",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 77,
+              "premium": 3.69,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-VENDA-1.1",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 85,
+              "premium": 0.92,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 277,
+          "maxGain": 523,
+          "maxGainUnlimited": false,
+          "maxLoss": 277,
+          "maxLossAtPrice": 77,
+          "breakevens": [
+            79.77
+          ],
+          "retornoPotencial": 1.888086642599278,
+          "riscoRetorno": 1.888086642599278,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "BEAR_PUT_SPREAD",
+          "legs": [
+            {
+              "id": "PUT-COMPRA-1",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 77,
+              "premium": 2.52,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-VENDA-0.9",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 70,
+              "premium": 0.5,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 202,
+          "maxGain": 498,
+          "maxGainUnlimited": false,
+          "maxLoss": 202,
+          "maxLossAtPrice": 77,
+          "breakevens": [
+            74.98
+          ],
+          "retornoPotencial": 2.4653465346534658,
+          "riscoRetorno": 2.4653465346534658,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "BULL_PUT_SPREAD",
+          "legs": [
+            {
+              "id": "PUT-VENDA-0.93",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 72,
+              "premium": 0.86,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-COMPRA-0.86",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 66,
+              "premium": 0.13,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 527,
+          "maxGain": 73,
+          "maxGainUnlimited": false,
+          "maxLoss": 527,
+          "maxLossAtPrice": 66,
+          "breakevens": [
+            71.27
+          ],
+          "retornoPotencial": 0.13851992409867173,
+          "riscoRetorno": 0.13851992409867173,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "BEAR_CALL_SPREAD",
+          "legs": [
+            {
+              "id": "CALL-VENDA-1.07",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 83,
+              "premium": 1.36,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-COMPRA-1.14",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 88,
+              "premium": 0.48,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 412,
+          "maxGain": 88,
+          "maxGainUnlimited": false,
+          "maxLoss": 412,
+          "maxLossAtPrice": 88,
+          "breakevens": [
+            83.88
+          ],
+          "retornoPotencial": 0.21359223300970873,
+          "riscoRetorno": 0.21359223300970873,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "IRON_CONDOR",
+          "legs": [
+            {
+              "id": "PUT-COMPRA-0.86",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 66,
+              "premium": 0.13,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-VENDA-0.93",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 72,
+              "premium": 0.86,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-VENDA-1.07",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 83,
+              "premium": 1.36,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-COMPRA-1.14",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 88,
+              "premium": 0.48,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 439,
+          "maxGain": 161,
+          "maxGainUnlimited": false,
+          "maxLoss": 439,
+          "maxLossAtPrice": 66,
+          "breakevens": [
+            70.39,
+            84.61
+          ],
+          "retornoPotencial": 0.36674259681093396,
+          "riscoRetorno": 0.36674259681093396,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "IRON_BUTTERFLY",
+          "legs": [
+            {
+              "id": "PUT-COMPRA-0.9",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 70,
+              "premium": 0.5,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-VENDA-1",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 77,
+              "premium": 2.52,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-VENDA-1",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 77,
+              "premium": 3.69,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-COMPRA-1.1",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 85,
+              "premium": 0.92,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 321,
+          "maxGain": 479,
+          "maxGainUnlimited": false,
+          "maxLoss": 321,
+          "maxLossAtPrice": 85,
+          "breakevens": [
+            72.21,
+            81.79
+          ],
+          "retornoPotencial": 1.4922118380062304,
+          "riscoRetorno": 1.4922118380062304,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "LONG_STRADDLE",
+          "legs": [
+            {
+              "id": "CALL-COMPRA-1",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 77,
+              "premium": 3.69,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-COMPRA-1",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 77,
+              "premium": 2.52,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 621,
+          "maxGain": 130179,
+          "maxGainUnlimited": true,
+          "maxLoss": 621,
+          "maxLossAtPrice": 77,
+          "breakevens": [
+            70.79,
+            83.21
+          ],
+          "retornoPotencial": null,
+          "riscoRetorno": null,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "LONG_STRANGLE",
+          "legs": [
+            {
+              "id": "CALL-COMPRA-1.07",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 83,
+              "premium": 1.36,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-COMPRA-0.93",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 72,
+              "premium": 0.86,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 222,
+          "maxGain": 132978,
+          "maxGainUnlimited": true,
+          "maxLoss": 222,
+          "maxLossAtPrice": 72,
+          "breakevens": [
+            69.78,
+            85.22
+          ],
+          "retornoPotencial": null,
+          "riscoRetorno": null,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "JADE_LIZARD",
+          "legs": [
+            {
+              "id": "PUT-VENDA-0.9",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 70,
+              "premium": 0.5,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-VENDA-1.07",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 83,
+              "premium": 1.36,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-COMPRA-1.14",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 88,
+              "premium": 0.48,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 6862,
+          "maxGain": 138,
+          "maxGainUnlimited": false,
+          "maxLoss": 6862,
+          "maxLossAtPrice": 0,
+          "breakevens": [
+            68.62,
+            84.38
+          ],
+          "retornoPotencial": 0.020110754881958612,
+          "riscoRetorno": 0.020110754881958612,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "PUT_RATIO_SPREAD",
+          "legs": [
+            {
+              "id": "PUT-COMPRA-1",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 77,
+              "premium": 2.52,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-VENDA-0.9",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 70,
+              "premium": 0.5,
+              "quantity": 200,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 6452,
+          "maxGain": 548,
+          "maxGainUnlimited": false,
+          "maxLoss": 6452,
+          "maxLossAtPrice": 0,
+          "breakevens": [
+            64.52,
+            75.48
+          ],
+          "retornoPotencial": 0.08493490390576565,
+          "riscoRetorno": 0.08493490390576565,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "CALL_RATIO_BACKSPREAD",
+          "legs": [
+            {
+              "id": "CALL-VENDA-1",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 77,
+              "premium": 3.69,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-COMPRA-1.1",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 85,
+              "premium": 0.92,
+              "quantity": 200,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 615,
+          "maxGain": 133385,
+          "maxGainUnlimited": true,
+          "maxLoss": 615,
+          "maxLossAtPrice": 85,
+          "breakevens": [
+            78.85,
+            91.15
+          ],
+          "retornoPotencial": null,
+          "riscoRetorno": null,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "PUT_RATIO_BACKSPREAD",
+          "legs": [
+            {
+              "id": "PUT-VENDA-1",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 77,
+              "premium": 2.52,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-COMPRA-0.9",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 70,
+              "premium": 0.5,
+              "quantity": 200,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 548,
+          "maxGain": 6452,
+          "maxGainUnlimited": false,
+          "maxLoss": 548,
+          "maxLossAtPrice": 70,
+          "breakevens": [
+            64.52,
+            75.48
+          ],
+          "retornoPotencial": 11.773722627737227,
+          "riscoRetorno": 11.773722627737227,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "BOOSTER",
+          "legs": [
+            {
+              "id": "CALL-COMPRA-1",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 77,
+              "premium": 3.69,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-VENDA-1.1",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 85,
+              "premium": 0.92,
+              "quantity": 200,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": true,
+          "underlyingQtySuggested": 100,
+          "capitalAlocado": 7914,
+          "maxGain": 1386,
+          "maxGainUnlimited": false,
+          "maxLoss": 7914,
+          "maxLossAtPrice": 0,
+          "breakevens": [
+            78.07
+          ],
+          "retornoPotencial": 0.17513267626990142,
+          "riscoRetorno": 0.17513267626990142,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "INVERSE_LINE_BULL",
+          "legs": [
+            {
+              "id": "CALL-COMPRA-1",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 77,
+              "premium": 3.69,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-VENDA-1",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 77,
+              "premium": 2.52,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 7817,
+          "maxGain": 130683,
+          "maxGainUnlimited": true,
+          "maxLoss": 7817,
+          "maxLossAtPrice": 0,
+          "breakevens": [
+            78.17
+          ],
+          "retornoPotencial": null,
+          "riscoRetorno": null,
+          "definedRisk": true
+        }
+      ]
+    },
+    "ITUB4": {
+      "companyName": "Itaú Unibanco PN",
+      "isETF": false,
+      "price": 38.76,
+      "sigmaProxy": 0.35,
+      "candidates": [
+        {
+          "strategyType": "COVERED_CALL",
+          "legs": [
+            {
+              "id": "CALL-VENDA-1.07",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 41,
+              "premium": 0.86,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": true,
+          "underlyingQtySuggested": 100,
+          "capitalAlocado": 3790,
+          "maxGain": 310,
+          "maxGainUnlimited": false,
+          "maxLoss": 3790,
+          "maxLossAtPrice": 0,
+          "breakevens": [
+            37.9
+          ],
+          "retornoPotencial": 0.08179419525065969,
+          "riscoRetorno": 0.08179419525065969,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "CASH_SECURED_PUT",
+          "legs": [
+            {
+              "id": "PUT-VENDA-0.93",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 36,
+              "premium": 0.41,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 3559,
+          "maxGain": 41,
+          "maxGainUnlimited": false,
+          "maxLoss": 3559,
+          "maxLossAtPrice": 0,
+          "breakevens": [
+            35.59
+          ],
+          "retornoPotencial": 0.01152008991289688,
+          "riscoRetorno": 0.01152008991289688,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "PROTECTIVE_PUT",
+          "legs": [
+            {
+              "id": "PUT-COMPRA-0.93",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 36,
+              "premium": 0.41,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": true,
+          "underlyingQtySuggested": 100,
+          "capitalAlocado": 3917,
+          "maxGain": 115463,
+          "maxGainUnlimited": true,
+          "maxLoss": 317,
+          "maxLossAtPrice": 36,
+          "breakevens": [
+            39.17
+          ],
+          "retornoPotencial": null,
+          "riscoRetorno": null,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "COLLAR",
+          "legs": [
+            {
+              "id": "PUT-COMPRA-0.93",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 36,
+              "premium": 0.41,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-VENDA-1.07",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 41,
+              "premium": 0.86,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": true,
+          "underlyingQtySuggested": 100,
+          "capitalAlocado": 3831,
+          "maxGain": 269,
+          "maxGainUnlimited": false,
+          "maxLoss": 231,
+          "maxLossAtPrice": 36,
+          "breakevens": [
+            38.31
+          ],
+          "retornoPotencial": 0.07021665361524412,
+          "riscoRetorno": 1.1645021645021667,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "BULL_CALL_SPREAD",
+          "legs": [
+            {
+              "id": "CALL-COMPRA-1",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 39,
+              "premium": 1.65,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-VENDA-1.1",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 43,
+              "premium": 0.39,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 126,
+          "maxGain": 274,
+          "maxGainUnlimited": false,
+          "maxLoss": 126,
+          "maxLossAtPrice": 39,
+          "breakevens": [
+            40.26
+          ],
+          "retornoPotencial": 2.1746031746031744,
+          "riscoRetorno": 2.1746031746031744,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "BEAR_PUT_SPREAD",
+          "legs": [
+            {
+              "id": "PUT-COMPRA-1",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 39,
+              "premium": 1.45,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-VENDA-0.9",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 35,
+              "premium": 0.24,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 121,
+          "maxGain": 279,
+          "maxGainUnlimited": false,
+          "maxLoss": 121,
+          "maxLossAtPrice": 39,
+          "breakevens": [
+            37.79
+          ],
+          "retornoPotencial": 2.3057851239669422,
+          "riscoRetorno": 2.3057851239669422,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "BULL_PUT_SPREAD",
+          "legs": [
+            {
+              "id": "PUT-VENDA-0.93",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 36,
+              "premium": 0.41,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-COMPRA-0.86",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 33,
+              "premium": 0.06,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 265,
+          "maxGain": 35,
+          "maxGainUnlimited": false,
+          "maxLoss": 265,
+          "maxLossAtPrice": 33,
+          "breakevens": [
+            35.65
+          ],
+          "retornoPotencial": 0.1320754716981132,
+          "riscoRetorno": 0.13207547169811298,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "BEAR_CALL_SPREAD",
+          "legs": [
+            {
+              "id": "CALL-VENDA-1.07",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 41,
+              "premium": 0.86,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-COMPRA-1.14",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 44,
+              "premium": 0.26,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 240,
+          "maxGain": 60,
+          "maxGainUnlimited": false,
+          "maxLoss": 240,
+          "maxLossAtPrice": 44,
+          "breakevens": [
+            41.6
+          ],
+          "retornoPotencial": 0.25,
+          "riscoRetorno": 0.24999999999998485,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "IRON_CONDOR",
+          "legs": [
+            {
+              "id": "PUT-COMPRA-0.86",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 33,
+              "premium": 0.06,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-VENDA-0.93",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 36,
+              "premium": 0.41,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-VENDA-1.07",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 41,
+              "premium": 0.86,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-COMPRA-1.14",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 44,
+              "premium": 0.26,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 205,
+          "maxGain": 95,
+          "maxGainUnlimited": false,
+          "maxLoss": 205,
+          "maxLossAtPrice": 44,
+          "breakevens": [
+            35.05,
+            41.95
+          ],
+          "retornoPotencial": 0.46341463414630857,
+          "riscoRetorno": 0.46341463414630857,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "IRON_BUTTERFLY",
+          "legs": [
+            {
+              "id": "PUT-COMPRA-0.9",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 35,
+              "premium": 0.24,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-VENDA-1",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 39,
+              "premium": 1.45,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-VENDA-1",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 39,
+              "premium": 1.65,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-COMPRA-1.1",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 43,
+              "premium": 0.39,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 153,
+          "maxGain": 247,
+          "maxGainUnlimited": false,
+          "maxLoss": 153,
+          "maxLossAtPrice": 35,
+          "breakevens": [
+            36.53,
+            41.47
+          ],
+          "retornoPotencial": 1.6143790849673203,
+          "riscoRetorno": 1.6143790849673203,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "LONG_STRADDLE",
+          "legs": [
+            {
+              "id": "CALL-COMPRA-1",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 39,
+              "premium": 1.65,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-COMPRA-1",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 39,
+              "premium": 1.45,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 310,
+          "maxGain": 115290,
+          "maxGainUnlimited": true,
+          "maxLoss": 310,
+          "maxLossAtPrice": 39,
+          "breakevens": [
+            35.9,
+            42.1
+          ],
+          "retornoPotencial": null,
+          "riscoRetorno": null,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "LONG_STRANGLE",
+          "legs": [
+            {
+              "id": "CALL-COMPRA-1.07",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 41,
+              "premium": 0.86,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-COMPRA-0.93",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 36,
+              "premium": 0.41,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 127,
+          "maxGain": 116273,
+          "maxGainUnlimited": true,
+          "maxLoss": 127,
+          "maxLossAtPrice": 41,
+          "breakevens": [
+            34.73,
+            42.27
+          ],
+          "retornoPotencial": null,
+          "riscoRetorno": null,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "JADE_LIZARD",
+          "legs": [
+            {
+              "id": "PUT-VENDA-0.9",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 35,
+              "premium": 0.24,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-VENDA-1.07",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 41,
+              "premium": 0.86,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-COMPRA-1.14",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 44,
+              "premium": 0.26,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 3416,
+          "maxGain": 84,
+          "maxGainUnlimited": false,
+          "maxLoss": 3416,
+          "maxLossAtPrice": 0,
+          "breakevens": [
+            34.16,
+            41.84
+          ],
+          "retornoPotencial": 0.02459016393442623,
+          "riscoRetorno": 0.02459016393442623,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "PUT_RATIO_SPREAD",
+          "legs": [
+            {
+              "id": "PUT-COMPRA-1",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 39,
+              "premium": 1.45,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-VENDA-0.9",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 35,
+              "premium": 0.24,
+              "quantity": 200,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 3197,
+          "maxGain": 303,
+          "maxGainUnlimited": false,
+          "maxLoss": 3197,
+          "maxLossAtPrice": 0,
+          "breakevens": [
+            31.97,
+            38.03
+          ],
+          "retornoPotencial": 0.09477635283077884,
+          "riscoRetorno": 0.09477635283077884,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "CALL_RATIO_BACKSPREAD",
+          "legs": [
+            {
+              "id": "CALL-VENDA-1",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 39,
+              "premium": 1.65,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-COMPRA-1.1",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 43,
+              "premium": 0.39,
+              "quantity": 200,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 313,
+          "maxGain": 116887,
+          "maxGainUnlimited": true,
+          "maxLoss": 313,
+          "maxLossAtPrice": 43,
+          "breakevens": [
+            39.87,
+            46.13
+          ],
+          "retornoPotencial": null,
+          "riscoRetorno": null,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "PUT_RATIO_BACKSPREAD",
+          "legs": [
+            {
+              "id": "PUT-VENDA-1",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 39,
+              "premium": 1.45,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-COMPRA-0.9",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 35,
+              "premium": 0.24,
+              "quantity": 200,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 303,
+          "maxGain": 3197,
+          "maxGainUnlimited": false,
+          "maxLoss": 303,
+          "maxLossAtPrice": 35,
+          "breakevens": [
+            31.97,
+            38.03
+          ],
+          "retornoPotencial": 10.551155115511552,
+          "riscoRetorno": 10.551155115511552,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "BOOSTER",
+          "legs": [
+            {
+              "id": "CALL-COMPRA-1",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 39,
+              "premium": 1.65,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-VENDA-1.1",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 43,
+              "premium": 0.39,
+              "quantity": 200,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": true,
+          "underlyingQtySuggested": 100,
+          "capitalAlocado": 3963,
+          "maxGain": 737,
+          "maxGainUnlimited": false,
+          "maxLoss": 3963,
+          "maxLossAtPrice": 0,
+          "breakevens": [
+            39.32
+          ],
+          "retornoPotencial": 0.18597022457734408,
+          "riscoRetorno": 0.18597022457734408,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "INVERSE_LINE_BULL",
+          "legs": [
+            {
+              "id": "CALL-COMPRA-1",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 39,
+              "premium": 1.65,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-VENDA-1",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 39,
+              "premium": 1.45,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 3920,
+          "maxGain": 115580,
+          "maxGainUnlimited": true,
+          "maxLoss": 3920,
+          "maxLossAtPrice": 0,
+          "breakevens": [
+            39.2
+          ],
+          "retornoPotencial": null,
+          "riscoRetorno": null,
+          "definedRisk": true
+        }
+      ]
+    },
+    "WEGE3": {
+      "companyName": "WEG ON",
+      "isETF": false,
+      "price": 48.99,
+      "sigmaProxy": 0.35,
+      "candidates": [
+        {
+          "strategyType": "COVERED_CALL",
+          "legs": [
+            {
+              "id": "CALL-VENDA-1.07",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 52,
+              "premium": 1.03,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": true,
+          "underlyingQtySuggested": 100,
+          "capitalAlocado": 4796,
+          "maxGain": 404,
+          "maxGainUnlimited": false,
+          "maxLoss": 4796,
+          "maxLossAtPrice": 0,
+          "breakevens": [
+            47.96
+          ],
+          "retornoPotencial": 0.08423686405337781,
+          "riscoRetorno": 0.08423686405337781,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "CASH_SECURED_PUT",
+          "legs": [
+            {
+              "id": "PUT-VENDA-0.93",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 46,
+              "premium": 0.63,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 4537,
+          "maxGain": 63,
+          "maxGainUnlimited": false,
+          "maxLoss": 4537,
+          "maxLossAtPrice": 0,
+          "breakevens": [
+            45.37
+          ],
+          "retornoPotencial": 0.013885827639409301,
+          "riscoRetorno": 0.013885827639409301,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "PROTECTIVE_PUT",
+          "legs": [
+            {
+              "id": "PUT-COMPRA-0.93",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 46,
+              "premium": 0.63,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": true,
+          "underlyingQtySuggested": 100,
+          "capitalAlocado": 4962,
+          "maxGain": 119533,
+          "maxGainUnlimited": true,
+          "maxLoss": 362,
+          "maxLossAtPrice": 46,
+          "breakevens": [
+            49.62
+          ],
+          "retornoPotencial": null,
+          "riscoRetorno": null,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "COLLAR",
+          "legs": [
+            {
+              "id": "PUT-COMPRA-0.93",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 46,
+              "premium": 0.63,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-VENDA-1.07",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 52,
+              "premium": 1.03,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": true,
+          "underlyingQtySuggested": 100,
+          "capitalAlocado": 4859,
+          "maxGain": 341,
+          "maxGainUnlimited": false,
+          "maxLoss": 259,
+          "maxLossAtPrice": 46,
+          "breakevens": [
+            48.59
+          ],
+          "retornoPotencial": 0.07017904918707553,
+          "riscoRetorno": 1.3166023166023155,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "BULL_CALL_SPREAD",
+          "legs": [
+            {
+              "id": "CALL-COMPRA-1",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 49,
+              "premium": 2.24,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-VENDA-1.1",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 54,
+              "premium": 0.56,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 168,
+          "maxGain": 332,
+          "maxGainUnlimited": false,
+          "maxLoss": 168,
+          "maxLossAtPrice": 49,
+          "breakevens": [
+            50.68
+          ],
+          "retornoPotencial": 1.9761904761904758,
+          "riscoRetorno": 1.9761904761904758,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "BEAR_PUT_SPREAD",
+          "legs": [
+            {
+              "id": "PUT-COMPRA-1",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 49,
+              "premium": 1.69,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-VENDA-0.9",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 44,
+              "premium": 0.27,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 142,
+          "maxGain": 358,
+          "maxGainUnlimited": false,
+          "maxLoss": 142,
+          "maxLossAtPrice": 49,
+          "breakevens": [
+            47.58
+          ],
+          "retornoPotencial": 2.5211267605633805,
+          "riscoRetorno": 2.5211267605633805,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "BULL_PUT_SPREAD",
+          "legs": [
+            {
+              "id": "PUT-VENDA-0.93",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 46,
+              "premium": 0.63,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-COMPRA-0.86",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 42,
+              "premium": 0.09,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 346,
+          "maxGain": 54,
+          "maxGainUnlimited": false,
+          "maxLoss": 346,
+          "maxLossAtPrice": 42,
+          "breakevens": [
+            45.46
+          ],
+          "retornoPotencial": 0.15606936416184972,
+          "riscoRetorno": 0.15606936416184972,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "BEAR_CALL_SPREAD",
+          "legs": [
+            {
+              "id": "CALL-VENDA-1.07",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 52,
+              "premium": 1.03,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-COMPRA-1.14",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 56,
+              "premium": 0.28,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 325,
+          "maxGain": 75,
+          "maxGainUnlimited": false,
+          "maxLoss": 325,
+          "maxLossAtPrice": 56,
+          "breakevens": [
+            52.75
+          ],
+          "retornoPotencial": 0.23076923076923078,
+          "riscoRetorno": 0.23076923076923078,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "IRON_CONDOR",
+          "legs": [
+            {
+              "id": "PUT-COMPRA-0.86",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 42,
+              "premium": 0.09,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-VENDA-0.93",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 46,
+              "premium": 0.63,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-VENDA-1.07",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 52,
+              "premium": 1.03,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-COMPRA-1.14",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 56,
+              "premium": 0.28,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 271,
+          "maxGain": 129,
+          "maxGainUnlimited": false,
+          "maxLoss": 271,
+          "maxLossAtPrice": 42,
+          "breakevens": [
+            44.71,
+            53.29
+          ],
+          "retornoPotencial": 0.47601476014760147,
+          "riscoRetorno": 0.47601476014760147,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "IRON_BUTTERFLY",
+          "legs": [
+            {
+              "id": "PUT-COMPRA-0.9",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 44,
+              "premium": 0.27,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-VENDA-1",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 49,
+              "premium": 1.69,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-VENDA-1",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 49,
+              "premium": 2.24,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-COMPRA-1.1",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 54,
+              "premium": 0.56,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 190,
+          "maxGain": 310,
+          "maxGainUnlimited": false,
+          "maxLoss": 190,
+          "maxLossAtPrice": 44,
+          "breakevens": [
+            45.9,
+            52.1
+          ],
+          "retornoPotencial": 1.631578947368421,
+          "riscoRetorno": 1.631578947368421,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "LONG_STRADDLE",
+          "legs": [
+            {
+              "id": "CALL-COMPRA-1",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 49,
+              "premium": 2.24,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-COMPRA-1",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 49,
+              "premium": 1.69,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 393,
+          "maxGain": 119207,
+          "maxGainUnlimited": true,
+          "maxLoss": 393,
+          "maxLossAtPrice": 49,
+          "breakevens": [
+            45.07,
+            52.93
+          ],
+          "retornoPotencial": null,
+          "riscoRetorno": null,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "LONG_STRANGLE",
+          "legs": [
+            {
+              "id": "CALL-COMPRA-1.07",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 52,
+              "premium": 1.03,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-COMPRA-0.93",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 46,
+              "premium": 0.63,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 166,
+          "maxGain": 120634,
+          "maxGainUnlimited": true,
+          "maxLoss": 166,
+          "maxLossAtPrice": 46,
+          "breakevens": [
+            44.34,
+            53.66
+          ],
+          "retornoPotencial": null,
+          "riscoRetorno": null,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "JADE_LIZARD",
+          "legs": [
+            {
+              "id": "PUT-VENDA-0.9",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 44,
+              "premium": 0.27,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-VENDA-1.07",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 52,
+              "premium": 1.03,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-COMPRA-1.14",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 56,
+              "premium": 0.28,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 4298,
+          "maxGain": 102,
+          "maxGainUnlimited": false,
+          "maxLoss": 4298,
+          "maxLossAtPrice": 0,
+          "breakevens": [
+            42.98,
+            53.02
+          ],
+          "retornoPotencial": 0.023731968357375524,
+          "riscoRetorno": 0.023731968357375524,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "PUT_RATIO_SPREAD",
+          "legs": [
+            {
+              "id": "PUT-COMPRA-1",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 49,
+              "premium": 1.69,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-VENDA-0.9",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 44,
+              "premium": 0.27,
+              "quantity": 200,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 4015,
+          "maxGain": 385,
+          "maxGainUnlimited": false,
+          "maxLoss": 4015,
+          "maxLossAtPrice": 0,
+          "breakevens": [
+            40.15,
+            47.85
+          ],
+          "retornoPotencial": 0.0958904109589041,
+          "riscoRetorno": 0.0958904109589041,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "CALL_RATIO_BACKSPREAD",
+          "legs": [
+            {
+              "id": "CALL-VENDA-1",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 49,
+              "premium": 2.24,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-COMPRA-1.1",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 54,
+              "premium": 0.56,
+              "quantity": 200,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 388,
+          "maxGain": 121212,
+          "maxGainUnlimited": true,
+          "maxLoss": 388,
+          "maxLossAtPrice": 54,
+          "breakevens": [
+            50.12,
+            57.88
+          ],
+          "retornoPotencial": null,
+          "riscoRetorno": null,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "PUT_RATIO_BACKSPREAD",
+          "legs": [
+            {
+              "id": "PUT-VENDA-1",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 49,
+              "premium": 1.69,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-COMPRA-0.9",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 44,
+              "premium": 0.27,
+              "quantity": 200,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 385,
+          "maxGain": 4015,
+          "maxGainUnlimited": false,
+          "maxLoss": 385,
+          "maxLossAtPrice": 44,
+          "breakevens": [
+            40.15,
+            47.85
+          ],
+          "retornoPotencial": 10.428571428571429,
+          "riscoRetorno": 10.428571428571429,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "BOOSTER",
+          "legs": [
+            {
+              "id": "CALL-COMPRA-1",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 49,
+              "premium": 2.24,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-VENDA-1.1",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 54,
+              "premium": 0.56,
+              "quantity": 200,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": true,
+          "underlyingQtySuggested": 100,
+          "capitalAlocado": 5011,
+          "maxGain": 889,
+          "maxGainUnlimited": false,
+          "maxLoss": 5011,
+          "maxLossAtPrice": 0,
+          "breakevens": [
+            49.56
+          ],
+          "retornoPotencial": 0.17740969866294154,
+          "riscoRetorno": 0.17740969866294154,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "INVERSE_LINE_BULL",
+          "legs": [
+            {
+              "id": "CALL-COMPRA-1",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 49,
+              "premium": 2.24,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-VENDA-1",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 49,
+              "premium": 1.69,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 4955,
+          "maxGain": 119545,
+          "maxGainUnlimited": true,
+          "maxLoss": 4955,
+          "maxLossAtPrice": 0,
+          "breakevens": [
+            49.55
+          ],
+          "retornoPotencial": null,
+          "riscoRetorno": null,
+          "definedRisk": true
+        }
+      ]
+    },
+    "BOVA11": {
+      "companyName": "iShares Ibovespa (ETF)",
+      "isETF": true,
+      "price": 169.26,
+      "sigmaProxy": 0.35,
+      "candidates": [
+        {
+          "strategyType": "COVERED_CALL",
+          "legs": [
+            {
+              "id": "CALL-VENDA-1.07",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 180,
+              "premium": 3.45,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": true,
+          "underlyingQtySuggested": 100,
+          "capitalAlocado": 16581,
+          "maxGain": 1419,
+          "maxGainUnlimited": false,
+          "maxLoss": 16581,
+          "maxLossAtPrice": 0,
+          "breakevens": [
+            165.81
+          ],
+          "retornoPotencial": 0.08557988058621319,
+          "riscoRetorno": 0.08557988058621319,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "CASH_SECURED_PUT",
+          "legs": [
+            {
+              "id": "PUT-VENDA-0.93",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 155,
+              "premium": 1.37,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 15363,
+          "maxGain": 137,
+          "maxGainUnlimited": false,
+          "maxLoss": 15363,
+          "maxLossAtPrice": 0,
+          "breakevens": [
+            153.63
+          ],
+          "retornoPotencial": 0.008917529128425437,
+          "riscoRetorno": 0.008917529128425437,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "PROTECTIVE_PUT",
+          "legs": [
+            {
+              "id": "PUT-COMPRA-0.93",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 155,
+              "premium": 1.37,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": true,
+          "underlyingQtySuggested": 100,
+          "capitalAlocado": 17063,
+          "maxGain": 167567,
+          "maxGainUnlimited": true,
+          "maxLoss": 1563,
+          "maxLossAtPrice": 155,
+          "breakevens": [
+            170.63
+          ],
+          "retornoPotencial": null,
+          "riscoRetorno": null,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "COLLAR",
+          "legs": [
+            {
+              "id": "PUT-COMPRA-0.93",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 155,
+              "premium": 1.37,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-VENDA-1.07",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 180,
+              "premium": 3.45,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": true,
+          "underlyingQtySuggested": 100,
+          "capitalAlocado": 16718,
+          "maxGain": 1282,
+          "maxGainUnlimited": false,
+          "maxLoss": 1218,
+          "maxLossAtPrice": 155,
+          "breakevens": [
+            167.18
+          ],
+          "retornoPotencial": 0.0766838138533318,
+          "riscoRetorno": 1.0525451559934327,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "BULL_CALL_SPREAD",
+          "legs": [
+            {
+              "id": "CALL-COMPRA-1",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 170,
+              "premium": 7.37,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-VENDA-1.1",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 185,
+              "premium": 2.23,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 514,
+          "maxGain": 986,
+          "maxGainUnlimited": false,
+          "maxLoss": 514,
+          "maxLossAtPrice": 170,
+          "breakevens": [
+            175.14
+          ],
+          "retornoPotencial": 1.9182879377431907,
+          "riscoRetorno": 1.9182879377431907,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "BEAR_PUT_SPREAD",
+          "legs": [
+            {
+              "id": "PUT-COMPRA-1",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 170,
+              "premium": 6.16,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-VENDA-0.9",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 150,
+              "premium": 0.7,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 546,
+          "maxGain": 1454,
+          "maxGainUnlimited": false,
+          "maxLoss": 546,
+          "maxLossAtPrice": 170,
+          "breakevens": [
+            164.54
+          ],
+          "retornoPotencial": 2.663003663003663,
+          "riscoRetorno": 2.663003663003663,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "BULL_PUT_SPREAD",
+          "legs": [
+            {
+              "id": "PUT-VENDA-0.93",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 155,
+              "premium": 1.37,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-COMPRA-0.86",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 145,
+              "premium": 0.32,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 895,
+          "maxGain": 105,
+          "maxGainUnlimited": false,
+          "maxLoss": 895,
+          "maxLossAtPrice": 145,
+          "breakevens": [
+            153.95
+          ],
+          "retornoPotencial": 0.11731843575418995,
+          "riscoRetorno": 0.11731843575418995,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "BEAR_CALL_SPREAD",
+          "legs": [
+            {
+              "id": "CALL-VENDA-1.07",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 180,
+              "premium": 3.45,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-COMPRA-1.14",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 195,
+              "premium": 0.83,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 1238,
+          "maxGain": 262,
+          "maxGainUnlimited": false,
+          "maxLoss": 1238,
+          "maxLossAtPrice": 195,
+          "breakevens": [
+            182.62
+          ],
+          "retornoPotencial": 0.21163166397415187,
+          "riscoRetorno": 0.21163166397415187,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "IRON_CONDOR",
+          "legs": [
+            {
+              "id": "PUT-COMPRA-0.86",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 145,
+              "premium": 0.32,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-VENDA-0.93",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 155,
+              "premium": 1.37,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-VENDA-1.07",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 180,
+              "premium": 3.45,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-COMPRA-1.14",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 195,
+              "premium": 0.83,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 1133,
+          "maxGain": 367,
+          "maxGainUnlimited": false,
+          "maxLoss": 1133,
+          "maxLossAtPrice": 195,
+          "breakevens": [
+            151.33,
+            183.67
+          ],
+          "retornoPotencial": 0.32391879964695497,
+          "riscoRetorno": 0.32391879964695497,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "IRON_BUTTERFLY",
+          "legs": [
+            {
+              "id": "PUT-COMPRA-0.9",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 150,
+              "premium": 0.7,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-VENDA-1",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 170,
+              "premium": 6.16,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-VENDA-1",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 170,
+              "premium": 7.37,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-COMPRA-1.1",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 185,
+              "premium": 2.23,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 940,
+          "maxGain": 1060,
+          "maxGainUnlimited": false,
+          "maxLoss": 940,
+          "maxLossAtPrice": 150,
+          "breakevens": [
+            159.4,
+            180.6
+          ],
+          "retornoPotencial": 1.127659574468085,
+          "riscoRetorno": 1.127659574468085,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "LONG_STRADDLE",
+          "legs": [
+            {
+              "id": "CALL-COMPRA-1",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 170,
+              "premium": 7.37,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-COMPRA-1",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 170,
+              "premium": 6.16,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 1353,
+          "maxGain": 166647,
+          "maxGainUnlimited": true,
+          "maxLoss": 1353,
+          "maxLossAtPrice": 170,
+          "breakevens": [
+            156.47,
+            183.53
+          ],
+          "retornoPotencial": null,
+          "riscoRetorno": null,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "LONG_STRANGLE",
+          "legs": [
+            {
+              "id": "CALL-COMPRA-1.07",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 180,
+              "premium": 3.45,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-COMPRA-0.93",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 155,
+              "premium": 1.37,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 482,
+          "maxGain": 171518,
+          "maxGainUnlimited": true,
+          "maxLoss": 482,
+          "maxLossAtPrice": 180,
+          "breakevens": [
+            150.18,
+            184.82
+          ],
+          "retornoPotencial": null,
+          "riscoRetorno": null,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "JADE_LIZARD",
+          "legs": [
+            {
+              "id": "PUT-VENDA-0.9",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 150,
+              "premium": 0.7,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-VENDA-1.07",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 180,
+              "premium": 3.45,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-COMPRA-1.14",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 195,
+              "premium": 0.83,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 14668,
+          "maxGain": 332,
+          "maxGainUnlimited": false,
+          "maxLoss": 14668,
+          "maxLossAtPrice": 0,
+          "breakevens": [
+            146.68,
+            183.32
+          ],
+          "retornoPotencial": 0.022634305972184344,
+          "riscoRetorno": 0.022634305972184344,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "PUT_RATIO_SPREAD",
+          "legs": [
+            {
+              "id": "PUT-COMPRA-1",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 170,
+              "premium": 6.16,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-VENDA-0.9",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 150,
+              "premium": 0.7,
+              "quantity": 200,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 13476,
+          "maxGain": 1524,
+          "maxGainUnlimited": false,
+          "maxLoss": 13476,
+          "maxLossAtPrice": 0,
+          "breakevens": [
+            134.76,
+            165.24
+          ],
+          "retornoPotencial": 0.11308993766696346,
+          "riscoRetorno": 0.11308993766696346,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "CALL_RATIO_BACKSPREAD",
+          "legs": [
+            {
+              "id": "CALL-VENDA-1",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 170,
+              "premium": 7.37,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-COMPRA-1.1",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 185,
+              "premium": 2.23,
+              "quantity": 200,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 1209,
+          "maxGain": 172791,
+          "maxGainUnlimited": true,
+          "maxLoss": 1209,
+          "maxLossAtPrice": 185,
+          "breakevens": [
+            172.91,
+            197.09
+          ],
+          "retornoPotencial": null,
+          "riscoRetorno": null,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "PUT_RATIO_BACKSPREAD",
+          "legs": [
+            {
+              "id": "PUT-VENDA-1",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 170,
+              "premium": 6.16,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-COMPRA-0.9",
+              "type": "PUT",
+              "action": "COMPRA",
+              "strike": 150,
+              "premium": 0.7,
+              "quantity": 200,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 1524,
+          "maxGain": 13476,
+          "maxGainUnlimited": false,
+          "maxLoss": 1524,
+          "maxLossAtPrice": 150,
+          "breakevens": [
+            134.76,
+            165.24
+          ],
+          "retornoPotencial": 8.842519685039372,
+          "riscoRetorno": 8.842519685039372,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "BOOSTER",
+          "legs": [
+            {
+              "id": "CALL-COMPRA-1",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 170,
+              "premium": 7.37,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "CALL-VENDA-1.1",
+              "type": "CALL",
+              "action": "VENDA",
+              "strike": 185,
+              "premium": 2.23,
+              "quantity": 200,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": true,
+          "underlyingQtySuggested": 100,
+          "capitalAlocado": 17217,
+          "maxGain": 2783,
+          "maxGainUnlimited": false,
+          "maxLoss": 17217,
+          "maxLossAtPrice": 0,
+          "breakevens": [
+            171.09
+          ],
+          "retornoPotencial": 0.1616425625834931,
+          "riscoRetorno": 0.1616425625834931,
+          "definedRisk": true
+        },
+        {
+          "strategyType": "INVERSE_LINE_BULL",
+          "legs": [
+            {
+              "id": "CALL-COMPRA-1",
+              "type": "CALL",
+              "action": "COMPRA",
+              "strike": 170,
+              "premium": 7.37,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            },
+            {
+              "id": "PUT-VENDA-1",
+              "type": "PUT",
+              "action": "VENDA",
+              "strike": 170,
+              "premium": 6.16,
+              "quantity": 100,
+              "expiry": "2026-09-23"
+            }
+          ],
+          "requiresUnderlying": false,
+          "capitalAlocado": 17121,
+          "maxGain": 167879,
+          "maxGainUnlimited": true,
+          "maxLoss": 17121,
+          "maxLossAtPrice": 0,
+          "breakevens": [
+            171.21
+          ],
+          "retornoPotencial": null,
+          "riscoRetorno": null,
+          "definedRisk": true
+        }
+      ]
+    }
+  }
+}

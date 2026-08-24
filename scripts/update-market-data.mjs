@@ -80,6 +80,11 @@ const FUNDAMENTUS_LABELS = {
   dy: "Div. Yield",
   roe: "ROE",
   margemLiquida: "Marg. Líquida",
+  // Min/Max 52 semanas: usados só como proxy de volatilidade (ver
+  // scripts/lib/pricing.mjs) para o motor de screening — não é uma medida
+  // de volatilidade implícita de verdade, só uma faixa histórica.
+  min52: "Min 52 sem",
+  max52: "Max 52 sem",
 };
 
 async function fetchFundamentus(ticker) {
@@ -158,6 +163,8 @@ async function main() {
       dy: fund?.dy ?? prevQuote.dy ?? null,
       roe: fund?.roe ?? prevQuote.roe ?? null,
       margemLiquida: fund?.margemLiquida ?? prevQuote.margemLiquida ?? null,
+      min52: fund?.min52 ?? prevQuote.min52 ?? null,
+      max52: fund?.max52 ?? prevQuote.max52 ?? null,
       fundamentalsAsOf: fund ? new Date().toISOString() : prevQuote.fundamentalsAsOf ?? null,
       stale: !priceInfo,
     };

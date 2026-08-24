@@ -3,5 +3,11 @@
   { "ticker": "VALE3", "companyName": "Vale ON", "isETF": false },
   { "ticker": "ITUB4", "companyName": "Itaú Unibanco PN", "isETF": false },
   { "ticker": "WEGE3", "companyName": "WEG ON", "isETF": false },
-  { "ticker": "BOVA11", "companyName": "iShares Ibovespa (ETF)", "isETF": true }
+  { "ticker": "BOVA11", "companyName": "iShares Ibovespa (ETF)", "isETF": true },
+  { "ticker": "BBAS3", "companyName": "Banco do Brasil ON", "isETF": false },
+  { "ticker": "BBDC4", "companyName": "Bradesco PN", "isETF": false },
+  { "ticker": "B3SA3", "companyName": "B3 ON", "isETF": false },
+  { "ticker": "ABEV3", "companyName": "Ambev ON", "isETF": false },
+  { "ticker": "ITSA4", "companyName": "Itaúsa PN", "isETF": false },
+  { "ticker": "MGLU3", "companyName": "Magazine Luiza ON", "isETF": false }
 ]

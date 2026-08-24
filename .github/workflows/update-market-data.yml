@@ -1,13 +1,19 @@
 name: Atualizar dados de mercado
 
-# Roda 1x por dia, antes da abertura do pregão da B3 (10h em Brasília),
-# buscando preço atual e indicadores fundamentalistas dos tickers em
-# src/data/watchlist.json e salvando em src/data/marketSnapshot.json.
-# Ver scripts/update-market-data.mjs para as fontes usadas.
+# Roda 1x por dia, antes da abertura do pregão da B3 (10h em Brasília):
+#  1. Busca preço atual e indicadores fundamentalistas dos tickers em
+#     src/data/watchlist.json (scripts/update-market-data.mjs) e salva em
+#     src/data/marketSnapshot.json.
+#  2. Roda o screening mecânico (scripts/screening-report.mjs): testa TODAS
+#     as estratégias de risco definido do app em TODOS os tickers da
+#     watchlist, com prêmios estimados, e salva em
+#     src/data/screeningSnapshot.json — não aparece em nenhuma tela do
+#     app, é só para consulta interna na hora de revisar a carteira
+#     recomendada.
 #
 # Isto NÃO gera nem altera a carteira recomendada (estruturas/teses) —
-# só atualiza números de mercado. Também dá pra disparar manualmente
-# pela aba Actions do GitHub ("Run workflow").
+# só atualiza números de mercado e o screening mecânico. Também dá pra
+# disparar manualmente pela aba Actions do GitHub ("Run workflow").
 on:
   schedule:
     # 12:00 UTC = 09:00 no horário de Brasília (UTC-3 o ano todo, sem
@@ -39,14 +45,17 @@ jobs:
           BRAPI_TOKEN: ${{ secrets.BRAPI_TOKEN }}
         run: node scripts/update-market-data.mjs
 
-      - name: Commitar snapshot atualizado (se houve mudança)
+      - name: Rodar screening mecânico (todas as estratégias × todos os tickers)
+        run: node scripts/screening-report.mjs
+
+      - name: Commitar snapshots atualizados (se houve mudança)
         run: |
-          if git diff --quiet -- src/data/marketSnapshot.json; then
-            echo "Sem mudanças de preço/fundamentos hoje."
+          if git diff --quiet -- src/data/marketSnapshot.json src/data/screeningSnapshot.json; then
+            echo "Sem mudanças de preço/fundamentos/screening hoje."
             exit 0
           fi
           git config user.name "rco-dash-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add src/data/marketSnapshot.json
-          git commit -m "chore: atualiza cotações e fundamentos ($(date -u +%Y-%m-%d))"
+          git add src/data/marketSnapshot.json src/data/screeningSnapshot.json
+          git commit -m "chore: atualiza cotações, fundamentos e screening ($(date -u +%Y-%m-%d))"
           git push
