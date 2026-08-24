@@ -1,4 +1,60 @@
 {
-  "generatedAt": null,
-  "quotes": {}
+  "generatedAt": "2026-08-24T19:44:37.823Z",
+  "quotes": {
+    "PETR4": {
+      "price": 42,
+      "priceAsOf": "2026-08-24T19:29:30.000Z",
+      "pl": null,
+      "pvp": null,
+      "dy": null,
+      "roe": null,
+      "margemLiquida": null,
+      "fundamentalsAsOf": null,
+      "stale": false
+    },
+    "VALE3": {
+      "price": 77.32,
+      "priceAsOf": "2026-08-24T19:29:30.000Z",
+      "pl": null,
+      "pvp": null,
+      "dy": null,
+      "roe": null,
+      "margemLiquida": null,
+      "fundamentalsAsOf": null,
+      "stale": false
+    },
+    "ITUB4": {
+      "price": 38.8,
+      "priceAsOf": "2026-08-24T19:29:32.000Z",
+      "pl": null,
+      "pvp": null,
+      "dy": null,
+      "roe": null,
+      "margemLiquida": null,
+      "fundamentalsAsOf": null,
+      "stale": false
+    },
+    "WEGE3": {
+      "price": 48.92,
+      "priceAsOf": "2026-08-24T19:29:32.000Z",
+      "pl": null,
+      "pvp": null,
+      "dy": null,
+      "roe": null,
+      "margemLiquida": null,
+      "fundamentalsAsOf": null,
+      "stale": false
+    },
+    "BOVA11": {
+      "price": 169.32,
+      "priceAsOf": "2026-08-24T19:29:35.000Z",
+      "pl": null,
+      "pvp": null,
+      "dy": null,
+      "roe": null,
+      "margemLiquida": null,
+      "fundamentalsAsOf": null,
+      "stale": false
+    }
+  }
 }
