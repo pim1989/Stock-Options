@@ -37,6 +37,7 @@ jobs:
       - name: Buscar preços e fundamentos atuais
         env:
           BRAPI_TOKEN: ${{ secrets.BRAPI_TOKEN }}
+          DEBUG_FUNDAMENTUS: "true"
         run: node scripts/update-market-data.mjs
 
       - name: Commitar snapshot atualizado (se houve mudança)

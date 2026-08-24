@@ -100,6 +100,14 @@ async function fetchFundamentus(ticker) {
   // Se nenhum campo foi encontrado, o layout provavelmente mudou — melhor
   // sinalizar como falha do que salvar um objeto todo em branco.
   if (Object.values(out).every((v) => v === null)) {
+    if (process.env.DEBUG_FUNDAMENTUS) {
+      const cells = $("td")
+        .map((_, el) => $(el).text().trim())
+        .get()
+        .filter(Boolean)
+        .slice(0, 80);
+      console.warn(`[debug ${ticker}] primeiras células <td> não-vazias:`, JSON.stringify(cells));
+    }
     throw new Error("nenhum indicador reconhecido na página (layout pode ter mudado)");
   }
   return out;
