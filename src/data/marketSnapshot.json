@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-08-25T12:53:19.346Z",
+  "generatedAt": "2026-08-25T15:31:03.976Z",
   "quotes": {
     "PETR4": {
-      "price": 42.11,
-      "priceAsOf": "2026-08-24T20:05:31.000Z",
+      "price": 41.32,
+      "priceAsOf": "2026-08-25T15:15:45.000Z",
       "pl": 4.07,
       "pvp": 1.13,
       "dy": 5.5,
@@ -11,12 +11,12 @@
       "margemLiquida": 24.4,
       "min52": 27.19,
       "max52": 47.35,
-      "fundamentalsAsOf": "2026-08-25T12:53:07.877Z",
+      "fundamentalsAsOf": "2026-08-25T15:30:47.137Z",
       "stale": false
     },
     "VALE3": {
-      "price": 77.13,
-      "priceAsOf": "2026-08-24T20:05:46.000Z",
+      "price": 77.49,
+      "priceAsOf": "2026-08-25T15:15:39.000Z",
       "pl": 33.02,
       "pvp": 1.74,
       "dy": 7.3,
@@ -24,12 +24,12 @@
       "margemLiquida": 4,
       "min52": 51.13,
       "max52": 87.97,
-      "fundamentalsAsOf": "2026-08-25T12:53:08.970Z",
+      "fundamentalsAsOf": "2026-08-25T15:30:48.288Z",
       "stale": false
     },
     "ITUB4": {
-      "price": 38.73,
-      "priceAsOf": "2026-08-24T20:05:52.000Z",
+      "price": 38.79,
+      "priceAsOf": "2026-08-25T15:15:44.000Z",
       "pl": 9.16,
       "pvp": 2.06,
       "dy": 8,
@@ -37,12 +37,12 @@
       "margemLiquida": 0,
       "min52": 33.5,
       "max52": 48.67,
-      "fundamentalsAsOf": "2026-08-25T12:53:10.041Z",
+      "fundamentalsAsOf": "2026-08-25T15:30:49.422Z",
       "stale": false
     },
     "WEGE3": {
-      "price": 49.07,
-      "priceAsOf": "2026-08-24T20:05:33.000Z",
+      "price": 48.78,
+      "priceAsOf": "2026-08-25T15:15:39.000Z",
       "pl": 32.93,
       "pvp": 10.92,
       "dy": 4.1,
@@ -50,12 +50,12 @@
       "margemLiquida": 16.6,
       "min52": 34.16,
       "max52": 53.83,
-      "fundamentalsAsOf": "2026-08-25T12:53:11.117Z",
+      "fundamentalsAsOf": "2026-08-25T15:30:50.557Z",
       "stale": false
     },
     "BOVA11": {
-      "price": 169.01,
-      "priceAsOf": "2026-08-24T20:18:35.000Z",
+      "price": 169.35,
+      "priceAsOf": "2026-08-25T15:15:49.000Z",
       "pl": null,
       "pvp": null,
       "dy": null,
@@ -67,8 +67,8 @@
       "stale": false
     },
     "BBAS3": {
-      "price": 18.6,
-      "priceAsOf": "2026-08-24T20:05:52.000Z",
+      "price": 18.78,
+      "priceAsOf": "2026-08-25T15:15:49.000Z",
       "pl": 7.36,
       "pvp": 0.59,
       "dy": 3,
@@ -76,12 +76,12 @@
       "margemLiquida": 0,
       "min52": 17.8,
       "max52": 27.36,
-      "fundamentalsAsOf": "2026-08-25T12:53:13.081Z",
+      "fundamentalsAsOf": "2026-08-25T15:30:52.752Z",
       "stale": false
     },
     "BBDC4": {
-      "price": 16.27,
-      "priceAsOf": "2026-08-24T20:10:28.000Z",
+      "price": 16.41,
+      "priceAsOf": "2026-08-25T15:15:52.000Z",
       "pl": 6.96,
       "pvp": 0.98,
       "dy": 9.6,
@@ -89,12 +89,12 @@
       "margemLiquida": 0,
       "min52": 15.17,
       "max52": 21.01,
-      "fundamentalsAsOf": "2026-08-25T12:53:14.156Z",
+      "fundamentalsAsOf": "2026-08-25T15:30:53.943Z",
       "stale": false
     },
     "B3SA3": {
-      "price": 15.45,
-      "priceAsOf": "2026-08-24T20:04:00.000Z",
+      "price": 15.53,
+      "priceAsOf": "2026-08-25T15:15:53.000Z",
       "pl": 14.63,
       "pvp": 4.17,
       "dy": 5,
@@ -102,12 +102,12 @@
       "margemLiquida": 44.4,
       "min52": 11.77,
       "max52": 19.6,
-      "fundamentalsAsOf": "2026-08-25T12:53:15.237Z",
+      "fundamentalsAsOf": "2026-08-25T15:30:55.100Z",
       "stale": false
     },
     "ABEV3": {
-      "price": 15.25,
-      "priceAsOf": "2026-08-24T20:05:45.000Z",
+      "price": 15.1,
+      "priceAsOf": "2026-08-25T15:15:41.000Z",
       "pl": 14.53,
       "pvp": 2.67,
       "dy": 5.2,
@@ -115,12 +115,12 @@
       "margemLiquida": 19,
       "min52": 11.11,
       "max52": 16.91,
-      "fundamentalsAsOf": "2026-08-25T12:53:16.334Z",
+      "fundamentalsAsOf": "2026-08-25T15:30:56.241Z",
       "stale": false
     },
     "ITSA4": {
-      "price": 12.65,
-      "priceAsOf": "2026-08-24T20:05:53.000Z",
+      "price": 12.7,
+      "priceAsOf": "2026-08-25T15:15:54.000Z",
       "pl": 7.81,
       "pvp": 1.51,
       "dy": 8.9,
@@ -128,12 +128,12 @@
       "margemLiquida": 215.1,
       "min52": 9.76,
       "max52": 14.84,
-      "fundamentalsAsOf": "2026-08-25T12:53:17.415Z",
+      "fundamentalsAsOf": "2026-08-25T15:30:57.362Z",
       "stale": false
     },
     "MGLU3": {
-      "price": 4.16,
-      "priceAsOf": "2026-08-24T20:05:43.000Z",
+      "price": 4.19,
+      "priceAsOf": "2026-08-25T15:15:54.000Z",
       "pl": 36.47,
       "pvp": 0.29,
       "dy": 2,
@@ -141,7 +141,59 @@
       "margemLiquida": 0.2,
       "min52": 3.88,
       "max52": 11,
-      "fundamentalsAsOf": "2026-08-25T12:53:18.545Z",
+      "fundamentalsAsOf": "2026-08-25T15:30:58.474Z",
+      "stale": false
+    },
+    "ALOS3": {
+      "price": 26.26,
+      "priceAsOf": "2026-08-25T15:15:58.000Z",
+      "pl": 14.03,
+      "pvp": 1.02,
+      "dy": 10.9,
+      "roe": 7.3,
+      "margemLiquida": 35.6,
+      "min52": 20.48,
+      "max52": 32.08,
+      "fundamentalsAsOf": "2026-08-25T15:30:59.596Z",
+      "stale": false
+    },
+    "SBSP3": {
+      "price": 24.28,
+      "priceAsOf": "2026-08-25T15:15:53.000Z",
+      "pl": 10.46,
+      "pvp": 1.86,
+      "dy": 2.8,
+      "roe": 17.8,
+      "margemLiquida": 19.7,
+      "min52": 22.23,
+      "max52": 35.21,
+      "fundamentalsAsOf": "2026-08-25T15:31:00.723Z",
+      "stale": false
+    },
+    "VIVT3": {
+      "price": 29.51,
+      "priceAsOf": "2026-08-25T15:15:59.000Z",
+      "pl": 14.39,
+      "pvp": 1.45,
+      "dy": 8.4,
+      "roe": 10.1,
+      "margemLiquida": 10.7,
+      "min52": 29.28,
+      "max52": 41.05,
+      "fundamentalsAsOf": "2026-08-25T15:31:01.957Z",
+      "stale": false
+    },
+    "SUZB3": {
+      "price": 46.27,
+      "priceAsOf": "2026-08-25T15:15:57.000Z",
+      "pl": 7.17,
+      "pvp": 1.18,
+      "dy": 0,
+      "roe": 16.4,
+      "margemLiquida": 17.1,
+      "min52": 39.68,
+      "max52": 58.98,
+      "fundamentalsAsOf": "2026-08-25T15:31:03.176Z",
       "stale": false
     }
   }
