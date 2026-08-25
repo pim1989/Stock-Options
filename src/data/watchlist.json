@@ -9,5 +9,9 @@
   { "ticker": "B3SA3", "companyName": "B3 ON", "isETF": false },
   { "ticker": "ABEV3", "companyName": "Ambev ON", "isETF": false },
   { "ticker": "ITSA4", "companyName": "Itaúsa PN", "isETF": false },
-  { "ticker": "MGLU3", "companyName": "Magazine Luiza ON", "isETF": false }
+  { "ticker": "MGLU3", "companyName": "Magazine Luiza ON", "isETF": false },
+  { "ticker": "ALOS3", "companyName": "Allos ON", "isETF": false },
+  { "ticker": "SBSP3", "companyName": "Sabesp ON", "isETF": false },
+  { "ticker": "VIVT3", "companyName": "Telefônica Brasil (Vivo) ON", "isETF": false },
+  { "ticker": "SUZB3", "companyName": "Suzano ON", "isETF": false }
 ]
