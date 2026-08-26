@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
-import { formatDate } from "../lib/format";
+import { formatDate, formatDateTime } from "../lib/format";
+import { marketSnapshotGeneratedAt } from "../lib/marketData";
 
 export type TabId = "dashboard" | "recomendacoes" | "operacoes" | "ir" | "educacao";
 
@@ -25,6 +26,62 @@ export function Layout({
   children: ReactNode;
 }) {
   const badges: Partial<Record<TabId, number>> = { ir: darfBadge };
+  return (
+    <>
+      <MarketFreshnessBar />
+      <LayoutInner active={active} onChange={onChange} badges={badges} revisedAt={revisedAt}>
+        {children}
+      </LayoutInner>
+    </>
+  );
+}
+
+/**
+ * Indicador visível de "os dados de mercado (cotação/fundamentos) estão em
+ * dia?" — o workflow (.github/workflows/update-market-data.yml) roda 1x/dia
+ * às 9h de Brasília; se o snapshot ficar mais velho que isso (falha do
+ * workflow, ou ninguém rodou ainda), o aviso muda de cor pra deixar claro
+ * que os números podem estar desatualizados, em vez de o usuário descobrir
+ * isso só olhando data por data em cada recomendação.
+ */
+function MarketFreshnessBar() {
+  const generatedAt = marketSnapshotGeneratedAt();
+  if (!generatedAt) {
+    return (
+      <div className="bg-gray-700 text-white text-center text-[11px] py-1">
+        Dados de mercado ainda não foram carregados nesta safra.
+      </div>
+    );
+  }
+  const hoursAgo = (Date.now() - new Date(generatedAt).getTime()) / 3600000;
+  const status =
+    hoursAgo < 30
+      ? { color: "bg-[var(--color-gain)]", label: "em dia" }
+      : hoursAgo < 72
+        ? { color: "bg-amber-500", label: "desatualizando" }
+        : { color: "bg-[var(--color-danger)]", label: "desatualizado" };
+  return (
+    <div className="bg-[var(--color-ink)] text-white text-center text-[11px] py-1 flex items-center justify-center gap-1.5">
+      <span className={`inline-block w-1.5 h-1.5 rounded-full ${status.color}`} />
+      Dados de mercado (cotação/fundamentos) {status.label} — última atualização{" "}
+      {formatDateTime(generatedAt)}
+    </div>
+  );
+}
+
+function LayoutInner({
+  active,
+  onChange,
+  badges,
+  revisedAt,
+  children,
+}: {
+  active: TabId;
+  onChange: (t: TabId) => void;
+  badges: Partial<Record<TabId, number>>;
+  revisedAt?: string;
+  children: ReactNode;
+}) {
   return (
     <div className="min-h-screen flex flex-col">
       <header className="border-b bg-[var(--color-brand-dark)] text-white">
