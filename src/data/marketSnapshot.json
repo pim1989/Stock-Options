@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-06T15:11:25.755Z",
+  "generatedAt": "2026-09-07T17:33:32.449Z",
   "quotes": {
     "PETR4": {
       "price": 47.11,
@@ -11,7 +11,7 @@
       "margemLiquida": 24.4,
       "min52": 27.19,
       "max52": 48.2,
-      "fundamentalsAsOf": "2026-09-06T15:11:11.061Z",
+      "fundamentalsAsOf": "2026-09-07T17:33:17.838Z",
       "stale": false
     },
     "VALE3": {
@@ -24,7 +24,7 @@
       "margemLiquida": 4,
       "min52": 52.32,
       "max52": 87.97,
-      "fundamentalsAsOf": "2026-09-06T15:11:12.057Z",
+      "fundamentalsAsOf": "2026-09-07T17:33:18.830Z",
       "stale": false
     },
     "ITUB4": {
@@ -37,7 +37,7 @@
       "margemLiquida": 0,
       "min52": 33.67,
       "max52": 48.67,
-      "fundamentalsAsOf": "2026-09-06T15:11:13.104Z",
+      "fundamentalsAsOf": "2026-09-07T17:33:19.833Z",
       "stale": false
     },
     "WEGE3": {
@@ -50,7 +50,7 @@
       "margemLiquida": 16.6,
       "min52": 34.16,
       "max52": 53.83,
-      "fundamentalsAsOf": "2026-09-06T15:11:14.095Z",
+      "fundamentalsAsOf": "2026-09-07T17:33:20.836Z",
       "stale": false
     },
     "BOVA11": {
@@ -76,7 +76,7 @@
       "margemLiquida": 0,
       "min52": 17.7,
       "max52": 27.21,
-      "fundamentalsAsOf": "2026-09-06T15:11:15.940Z",
+      "fundamentalsAsOf": "2026-09-07T17:33:22.672Z",
       "stale": false
     },
     "BBDC4": {
@@ -89,7 +89,7 @@
       "margemLiquida": 0,
       "min52": 15.66,
       "max52": 20.99,
-      "fundamentalsAsOf": "2026-09-06T15:11:16.933Z",
+      "fundamentalsAsOf": "2026-09-07T17:33:23.657Z",
       "stale": false
     },
     "B3SA3": {
@@ -102,7 +102,7 @@
       "margemLiquida": 44.4,
       "min52": 11.77,
       "max52": 19.6,
-      "fundamentalsAsOf": "2026-09-06T15:11:17.926Z",
+      "fundamentalsAsOf": "2026-09-07T17:33:24.651Z",
       "stale": false
     },
     "ABEV3": {
@@ -115,7 +115,7 @@
       "margemLiquida": 19,
       "min52": 11.11,
       "max52": 16.91,
-      "fundamentalsAsOf": "2026-09-06T15:11:18.944Z",
+      "fundamentalsAsOf": "2026-09-07T17:33:25.690Z",
       "stale": false
     },
     "ITSA4": {
@@ -128,7 +128,7 @@
       "margemLiquida": 215.1,
       "min52": 9.83,
       "max52": 14.82,
-      "fundamentalsAsOf": "2026-09-06T15:11:19.957Z",
+      "fundamentalsAsOf": "2026-09-07T17:33:26.707Z",
       "stale": false
     },
     "MGLU3": {
@@ -141,7 +141,7 @@
       "margemLiquida": 0.2,
       "min52": 3.88,
       "max52": 11,
-      "fundamentalsAsOf": "2026-09-06T15:11:20.988Z",
+      "fundamentalsAsOf": "2026-09-07T17:33:27.698Z",
       "stale": false
     },
     "ALOS3": {
@@ -154,7 +154,7 @@
       "margemLiquida": 35.6,
       "min52": 21.43,
       "max52": 32.08,
-      "fundamentalsAsOf": "2026-09-06T15:11:21.976Z",
+      "fundamentalsAsOf": "2026-09-07T17:33:28.686Z",
       "stale": false
     },
     "SBSP3": {
@@ -167,7 +167,7 @@
       "margemLiquida": 19.7,
       "min52": 23.22,
       "max52": 35.21,
-      "fundamentalsAsOf": "2026-09-06T15:11:22.987Z",
+      "fundamentalsAsOf": "2026-09-07T17:33:29.672Z",
       "stale": false
     },
     "VIVT3": {
@@ -180,7 +180,7 @@
       "margemLiquida": 10.7,
       "min52": 29.19,
       "max52": 40.93,
-      "fundamentalsAsOf": "2026-09-06T15:11:23.972Z",
+      "fundamentalsAsOf": "2026-09-07T17:33:30.660Z",
       "stale": false
     },
     "SUZB3": {
@@ -193,7 +193,7 @@
       "margemLiquida": 17.1,
       "min52": 39.68,
       "max52": 58.98,
-      "fundamentalsAsOf": "2026-09-06T15:11:24.955Z",
+      "fundamentalsAsOf": "2026-09-07T17:33:31.649Z",
       "stale": false
     }
   }
