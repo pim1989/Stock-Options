@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-26T16:03:53.968Z",
+  "generatedAt": "2026-09-27T16:40:35.206Z",
   "params": {
     "riskFreeRate": 0.14,
     "expiryDays": 30,
-    "expiry": "2026-10-26",
+    "expiry": "2026-10-27",
     "lot": 100
   },
   "note": "Screening mecânico com prêmios ESTIMADOS (Black-Scholes + proxy de volatilidade por faixa de 52 semanas) — não é cotação real de opções. Não substitui a tese de uma recomendação. Ver comentário no topo de screening-report.mjs.",
@@ -24,7 +24,7 @@
               "strike": 51,
               "premium": 2.29,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -51,7 +51,7 @@
               "strike": 45,
               "premium": 1.71,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -77,7 +77,7 @@
               "strike": 45,
               "premium": 1.71,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -104,7 +104,7 @@
               "strike": 45,
               "premium": 1.71,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -113,7 +113,7 @@
               "strike": 51,
               "premium": 2.29,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -140,7 +140,7 @@
               "strike": 48,
               "premium": 3.54,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.1",
@@ -149,7 +149,7 @@
               "strike": 53,
               "premium": 1.67,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -175,7 +175,7 @@
               "strike": 48,
               "premium": 3,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.9",
@@ -184,7 +184,7 @@
               "strike": 43,
               "premium": 1.09,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -210,7 +210,7 @@
               "strike": 45,
               "premium": 1.71,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.86",
@@ -219,7 +219,7 @@
               "strike": 41,
               "premium": 0.65,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -245,7 +245,7 @@
               "strike": 51,
               "premium": 2.29,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -254,7 +254,7 @@
               "strike": 55,
               "premium": 1.19,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -280,7 +280,7 @@
               "strike": 41,
               "premium": 0.65,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.93",
@@ -289,7 +289,7 @@
               "strike": 45,
               "premium": 1.71,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -298,7 +298,7 @@
               "strike": 51,
               "premium": 2.29,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -307,7 +307,7 @@
               "strike": 55,
               "premium": 1.19,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -334,7 +334,7 @@
               "strike": 43,
               "premium": 1.09,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-1",
@@ -343,7 +343,7 @@
               "strike": 48,
               "premium": 3,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1",
@@ -352,7 +352,7 @@
               "strike": 48,
               "premium": 3.54,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.1",
@@ -361,7 +361,7 @@
               "strike": 53,
               "premium": 1.67,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -388,7 +388,7 @@
               "strike": 48,
               "premium": 3.54,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-1",
@@ -397,7 +397,7 @@
               "strike": 48,
               "premium": 3,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -424,7 +424,7 @@
               "strike": 51,
               "premium": 2.29,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.93",
@@ -433,7 +433,7 @@
               "strike": 45,
               "premium": 1.71,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -460,7 +460,7 @@
               "strike": 43,
               "premium": 1.09,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -469,7 +469,7 @@
               "strike": 51,
               "premium": 2.29,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -478,7 +478,7 @@
               "strike": 55,
               "premium": 1.19,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -505,7 +505,7 @@
               "strike": 48,
               "premium": 3,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.9",
@@ -514,7 +514,7 @@
               "strike": 43,
               "premium": 1.09,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -541,7 +541,7 @@
               "strike": 48,
               "premium": 3.54,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.1",
@@ -550,7 +550,7 @@
               "strike": 53,
               "premium": 1.67,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -577,7 +577,7 @@
               "strike": 48,
               "premium": 3,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.9",
@@ -586,7 +586,7 @@
               "strike": 43,
               "premium": 1.09,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -613,7 +613,7 @@
               "strike": 48,
               "premium": 3.54,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.1",
@@ -622,7 +622,7 @@
               "strike": 53,
               "premium": 1.67,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -649,7 +649,7 @@
               "strike": 48,
               "premium": 3.54,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-1",
@@ -658,7 +658,7 @@
               "strike": 48,
               "premium": 3,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -692,7 +692,7 @@
               "strike": 76,
               "premium": 2.29,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -719,7 +719,7 @@
               "strike": 66,
               "premium": 1.69,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -745,7 +745,7 @@
               "strike": 66,
               "premium": 1.69,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -772,7 +772,7 @@
               "strike": 66,
               "premium": 1.69,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -781,7 +781,7 @@
               "strike": 76,
               "premium": 2.29,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -808,7 +808,7 @@
               "strike": 71,
               "premium": 4.27,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.1",
@@ -817,7 +817,7 @@
               "strike": 78,
               "premium": 1.74,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -843,7 +843,7 @@
               "strike": 71,
               "premium": 3.69,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.9",
@@ -852,7 +852,7 @@
               "strike": 64,
               "premium": 1.15,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -878,7 +878,7 @@
               "strike": 66,
               "premium": 1.69,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.86",
@@ -887,7 +887,7 @@
               "strike": 61,
               "premium": 0.59,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -913,7 +913,7 @@
               "strike": 76,
               "premium": 2.29,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -922,7 +922,7 @@
               "strike": 81,
               "premium": 1.12,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -948,7 +948,7 @@
               "strike": 61,
               "premium": 0.59,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.93",
@@ -957,7 +957,7 @@
               "strike": 66,
               "premium": 1.69,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -966,7 +966,7 @@
               "strike": 76,
               "premium": 2.29,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -975,7 +975,7 @@
               "strike": 81,
               "premium": 1.12,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -1002,7 +1002,7 @@
               "strike": 64,
               "premium": 1.15,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-1",
@@ -1011,7 +1011,7 @@
               "strike": 71,
               "premium": 3.69,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1",
@@ -1020,7 +1020,7 @@
               "strike": 71,
               "premium": 4.27,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.1",
@@ -1029,7 +1029,7 @@
               "strike": 78,
               "premium": 1.74,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -1056,7 +1056,7 @@
               "strike": 71,
               "premium": 4.27,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-1",
@@ -1065,7 +1065,7 @@
               "strike": 71,
               "premium": 3.69,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -1092,7 +1092,7 @@
               "strike": 76,
               "premium": 2.29,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.93",
@@ -1101,7 +1101,7 @@
               "strike": 66,
               "premium": 1.69,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -1128,7 +1128,7 @@
               "strike": 64,
               "premium": 1.15,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -1137,7 +1137,7 @@
               "strike": 76,
               "premium": 2.29,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -1146,7 +1146,7 @@
               "strike": 81,
               "premium": 1.12,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -1173,7 +1173,7 @@
               "strike": 71,
               "premium": 3.69,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.9",
@@ -1182,7 +1182,7 @@
               "strike": 64,
               "premium": 1.15,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -1209,7 +1209,7 @@
               "strike": 71,
               "premium": 4.27,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.1",
@@ -1218,7 +1218,7 @@
               "strike": 78,
               "premium": 1.74,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -1245,7 +1245,7 @@
               "strike": 71,
               "premium": 3.69,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.9",
@@ -1254,7 +1254,7 @@
               "strike": 64,
               "premium": 1.15,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -1281,7 +1281,7 @@
               "strike": 71,
               "premium": 4.27,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.1",
@@ -1290,7 +1290,7 @@
               "strike": 78,
               "premium": 1.74,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -1317,7 +1317,7 @@
               "strike": 71,
               "premium": 4.27,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-1",
@@ -1326,7 +1326,7 @@
               "strike": 71,
               "premium": 3.69,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -1360,7 +1360,7 @@
               "strike": 45,
               "premium": 0.87,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -1387,7 +1387,7 @@
               "strike": 39,
               "premium": 0.46,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -1413,7 +1413,7 @@
               "strike": 39,
               "premium": 0.46,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -1440,7 +1440,7 @@
               "strike": 39,
               "premium": 0.46,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -1449,7 +1449,7 @@
               "strike": 45,
               "premium": 0.87,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -1476,7 +1476,7 @@
               "strike": 42,
               "premium": 2.06,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.1",
@@ -1485,7 +1485,7 @@
               "strike": 46,
               "premium": 0.62,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -1511,7 +1511,7 @@
               "strike": 42,
               "premium": 1.45,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.9",
@@ -1520,7 +1520,7 @@
               "strike": 38,
               "premium": 0.29,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -1546,7 +1546,7 @@
               "strike": 39,
               "premium": 0.46,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.86",
@@ -1555,7 +1555,7 @@
               "strike": 36,
               "premium": 0.09,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -1581,7 +1581,7 @@
               "strike": 45,
               "premium": 0.87,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -1590,7 +1590,7 @@
               "strike": 48,
               "premium": 0.3,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -1616,7 +1616,7 @@
               "strike": 36,
               "premium": 0.09,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.93",
@@ -1625,7 +1625,7 @@
               "strike": 39,
               "premium": 0.46,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -1634,7 +1634,7 @@
               "strike": 45,
               "premium": 0.87,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -1643,7 +1643,7 @@
               "strike": 48,
               "premium": 0.3,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -1670,7 +1670,7 @@
               "strike": 38,
               "premium": 0.29,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-1",
@@ -1679,7 +1679,7 @@
               "strike": 42,
               "premium": 1.45,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1",
@@ -1688,7 +1688,7 @@
               "strike": 42,
               "premium": 2.06,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.1",
@@ -1697,7 +1697,7 @@
               "strike": 46,
               "premium": 0.62,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -1724,7 +1724,7 @@
               "strike": 42,
               "premium": 2.06,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-1",
@@ -1733,7 +1733,7 @@
               "strike": 42,
               "premium": 1.45,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -1760,7 +1760,7 @@
               "strike": 45,
               "premium": 0.87,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.93",
@@ -1769,7 +1769,7 @@
               "strike": 39,
               "premium": 0.46,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -1796,7 +1796,7 @@
               "strike": 38,
               "premium": 0.29,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -1805,7 +1805,7 @@
               "strike": 45,
               "premium": 0.87,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -1814,7 +1814,7 @@
               "strike": 48,
               "premium": 0.3,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -1841,7 +1841,7 @@
               "strike": 42,
               "premium": 1.45,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.9",
@@ -1850,7 +1850,7 @@
               "strike": 38,
               "premium": 0.29,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -1877,7 +1877,7 @@
               "strike": 42,
               "premium": 2.06,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.1",
@@ -1886,7 +1886,7 @@
               "strike": 46,
               "premium": 0.62,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -1913,7 +1913,7 @@
               "strike": 42,
               "premium": 1.45,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.9",
@@ -1922,7 +1922,7 @@
               "strike": 38,
               "premium": 0.29,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -1949,7 +1949,7 @@
               "strike": 42,
               "premium": 2.06,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.1",
@@ -1958,7 +1958,7 @@
               "strike": 46,
               "premium": 0.62,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -1985,7 +1985,7 @@
               "strike": 42,
               "premium": 2.06,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-1",
@@ -1994,7 +1994,7 @@
               "strike": 42,
               "premium": 1.45,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -2028,7 +2028,7 @@
               "strike": 55,
               "premium": 1.36,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -2055,7 +2055,7 @@
               "strike": 47,
               "premium": 0.84,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -2081,7 +2081,7 @@
               "strike": 47,
               "premium": 0.84,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -2108,7 +2108,7 @@
               "strike": 47,
               "premium": 0.84,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -2117,7 +2117,7 @@
               "strike": 55,
               "premium": 1.36,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -2144,7 +2144,7 @@
               "strike": 51,
               "premium": 2.93,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.1",
@@ -2153,7 +2153,7 @@
               "strike": 56,
               "premium": 1.1,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -2179,7 +2179,7 @@
               "strike": 51,
               "premium": 2.28,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.9",
@@ -2188,7 +2188,7 @@
               "strike": 46,
               "premium": 0.61,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -2214,7 +2214,7 @@
               "strike": 47,
               "premium": 0.84,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.86",
@@ -2223,7 +2223,7 @@
               "strike": 44,
               "premium": 0.3,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -2249,7 +2249,7 @@
               "strike": 55,
               "premium": 1.36,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -2258,7 +2258,7 @@
               "strike": 58,
               "premium": 0.69,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -2284,7 +2284,7 @@
               "strike": 44,
               "premium": 0.3,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.93",
@@ -2293,7 +2293,7 @@
               "strike": 47,
               "premium": 0.84,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -2302,7 +2302,7 @@
               "strike": 55,
               "premium": 1.36,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -2311,7 +2311,7 @@
               "strike": 58,
               "premium": 0.69,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -2338,7 +2338,7 @@
               "strike": 46,
               "premium": 0.61,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-1",
@@ -2347,7 +2347,7 @@
               "strike": 51,
               "premium": 2.28,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1",
@@ -2356,7 +2356,7 @@
               "strike": 51,
               "premium": 2.93,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.1",
@@ -2365,7 +2365,7 @@
               "strike": 56,
               "premium": 1.1,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -2392,7 +2392,7 @@
               "strike": 51,
               "premium": 2.93,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-1",
@@ -2401,7 +2401,7 @@
               "strike": 51,
               "premium": 2.28,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -2428,7 +2428,7 @@
               "strike": 55,
               "premium": 1.36,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.93",
@@ -2437,7 +2437,7 @@
               "strike": 47,
               "premium": 0.84,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -2464,7 +2464,7 @@
               "strike": 46,
               "premium": 0.61,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -2473,7 +2473,7 @@
               "strike": 55,
               "premium": 1.36,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -2482,7 +2482,7 @@
               "strike": 58,
               "premium": 0.69,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -2509,7 +2509,7 @@
               "strike": 51,
               "premium": 2.28,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.9",
@@ -2518,7 +2518,7 @@
               "strike": 46,
               "premium": 0.61,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -2545,7 +2545,7 @@
               "strike": 51,
               "premium": 2.93,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.1",
@@ -2554,7 +2554,7 @@
               "strike": 56,
               "premium": 1.1,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -2581,7 +2581,7 @@
               "strike": 51,
               "premium": 2.28,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.9",
@@ -2590,7 +2590,7 @@
               "strike": 46,
               "premium": 0.61,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -2617,7 +2617,7 @@
               "strike": 51,
               "premium": 2.93,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.1",
@@ -2626,7 +2626,7 @@
               "strike": 56,
               "premium": 1.1,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -2653,7 +2653,7 @@
               "strike": 51,
               "premium": 2.93,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-1",
@@ -2662,7 +2662,7 @@
               "strike": 51,
               "premium": 2.28,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -2696,7 +2696,7 @@
               "strike": 195,
               "premium": 2.97,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -2723,7 +2723,7 @@
               "strike": 170,
               "premium": 2.37,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -2749,7 +2749,7 @@
               "strike": 170,
               "premium": 2.37,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -2776,7 +2776,7 @@
               "strike": 170,
               "premium": 2.37,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -2785,7 +2785,7 @@
               "strike": 195,
               "premium": 2.97,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -2812,7 +2812,7 @@
               "strike": 180,
               "premium": 8.71,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.1",
@@ -2821,7 +2821,7 @@
               "strike": 200,
               "premium": 1.94,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -2847,7 +2847,7 @@
               "strike": 180,
               "premium": 5.83,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.9",
@@ -2856,7 +2856,7 @@
               "strike": 165,
               "premium": 1.36,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -2882,7 +2882,7 @@
               "strike": 170,
               "premium": 2.37,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.86",
@@ -2891,7 +2891,7 @@
               "strike": 155,
               "premium": 0.34,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -2917,7 +2917,7 @@
               "strike": 195,
               "premium": 2.97,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -2926,7 +2926,7 @@
               "strike": 205,
               "premium": 1.23,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -2952,7 +2952,7 @@
               "strike": 155,
               "premium": 0.34,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.93",
@@ -2961,7 +2961,7 @@
               "strike": 170,
               "premium": 2.37,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -2970,7 +2970,7 @@
               "strike": 195,
               "premium": 2.97,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -2979,7 +2979,7 @@
               "strike": 205,
               "premium": 1.23,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -3006,7 +3006,7 @@
               "strike": 165,
               "premium": 1.36,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-1",
@@ -3015,7 +3015,7 @@
               "strike": 180,
               "premium": 5.83,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1",
@@ -3024,7 +3024,7 @@
               "strike": 180,
               "premium": 8.71,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.1",
@@ -3033,7 +3033,7 @@
               "strike": 200,
               "premium": 1.94,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -3060,7 +3060,7 @@
               "strike": 180,
               "premium": 8.71,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-1",
@@ -3069,7 +3069,7 @@
               "strike": 180,
               "premium": 5.83,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -3096,7 +3096,7 @@
               "strike": 195,
               "premium": 2.97,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.93",
@@ -3105,7 +3105,7 @@
               "strike": 170,
               "premium": 2.37,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -3132,7 +3132,7 @@
               "strike": 165,
               "premium": 1.36,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -3141,7 +3141,7 @@
               "strike": 195,
               "premium": 2.97,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -3150,7 +3150,7 @@
               "strike": 205,
               "premium": 1.23,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -3177,7 +3177,7 @@
               "strike": 180,
               "premium": 5.83,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.9",
@@ -3186,7 +3186,7 @@
               "strike": 165,
               "premium": 1.36,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -3213,7 +3213,7 @@
               "strike": 180,
               "premium": 8.71,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.1",
@@ -3222,7 +3222,7 @@
               "strike": 200,
               "premium": 1.94,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -3249,7 +3249,7 @@
               "strike": 180,
               "premium": 5.83,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.9",
@@ -3258,7 +3258,7 @@
               "strike": 165,
               "premium": 1.36,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -3285,7 +3285,7 @@
               "strike": 180,
               "premium": 8.71,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.1",
@@ -3294,7 +3294,7 @@
               "strike": 200,
               "premium": 1.94,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -3321,7 +3321,7 @@
               "strike": 180,
               "premium": 8.71,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-1",
@@ -3330,7 +3330,7 @@
               "strike": 180,
               "premium": 5.83,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -3364,7 +3364,7 @@
               "strike": 23,
               "premium": 0.6,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -3391,7 +3391,7 @@
               "strike": 20,
               "premium": 0.34,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -3417,7 +3417,7 @@
               "strike": 20,
               "premium": 0.34,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -3444,7 +3444,7 @@
               "strike": 20,
               "premium": 0.34,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -3453,7 +3453,7 @@
               "strike": 23,
               "premium": 0.6,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -3480,7 +3480,7 @@
               "strike": 22,
               "premium": 0.97,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.1",
@@ -3489,7 +3489,7 @@
               "strike": 24,
               "premium": 0.34,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -3515,7 +3515,7 @@
               "strike": 22,
               "premium": 1.13,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.9",
@@ -3524,7 +3524,7 @@
               "strike": 19.5,
               "premium": 0.23,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -3550,7 +3550,7 @@
               "strike": 20,
               "premium": 0.34,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.86",
@@ -3559,7 +3559,7 @@
               "strike": 18.5,
               "premium": 0.09,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -3585,7 +3585,7 @@
               "strike": 23,
               "premium": 0.6,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -3594,7 +3594,7 @@
               "strike": 25,
               "premium": 0.19,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -3620,7 +3620,7 @@
               "strike": 18.5,
               "premium": 0.09,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.93",
@@ -3629,7 +3629,7 @@
               "strike": 20,
               "premium": 0.34,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -3638,7 +3638,7 @@
               "strike": 23,
               "premium": 0.6,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -3647,7 +3647,7 @@
               "strike": 25,
               "premium": 0.19,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -3674,7 +3674,7 @@
               "strike": 19.5,
               "premium": 0.23,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-1",
@@ -3683,7 +3683,7 @@
               "strike": 22,
               "premium": 1.13,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1",
@@ -3692,7 +3692,7 @@
               "strike": 22,
               "premium": 0.97,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.1",
@@ -3701,7 +3701,7 @@
               "strike": 24,
               "premium": 0.34,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -3728,7 +3728,7 @@
               "strike": 22,
               "premium": 0.97,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-1",
@@ -3737,7 +3737,7 @@
               "strike": 22,
               "premium": 1.13,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -3764,7 +3764,7 @@
               "strike": 23,
               "premium": 0.6,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.93",
@@ -3773,7 +3773,7 @@
               "strike": 20,
               "premium": 0.34,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -3800,7 +3800,7 @@
               "strike": 19.5,
               "premium": 0.23,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -3809,7 +3809,7 @@
               "strike": 23,
               "premium": 0.6,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -3818,7 +3818,7 @@
               "strike": 25,
               "premium": 0.19,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -3845,7 +3845,7 @@
               "strike": 22,
               "premium": 1.13,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.9",
@@ -3854,7 +3854,7 @@
               "strike": 19.5,
               "premium": 0.23,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -3881,7 +3881,7 @@
               "strike": 22,
               "premium": 0.97,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.1",
@@ -3890,7 +3890,7 @@
               "strike": 24,
               "premium": 0.34,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -3917,7 +3917,7 @@
               "strike": 22,
               "premium": 1.13,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.9",
@@ -3926,7 +3926,7 @@
               "strike": 19.5,
               "premium": 0.23,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -3953,7 +3953,7 @@
               "strike": 22,
               "premium": 0.97,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.1",
@@ -3962,7 +3962,7 @@
               "strike": 24,
               "premium": 0.34,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -3989,7 +3989,7 @@
               "strike": 22,
               "premium": 0.97,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-1",
@@ -3998,7 +3998,7 @@
               "strike": 22,
               "premium": 1.13,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -4032,7 +4032,7 @@
               "strike": 19,
               "premium": 0.25,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -4059,7 +4059,7 @@
               "strike": 16.5,
               "premium": 0.09,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -4085,7 +4085,7 @@
               "strike": 16.5,
               "premium": 0.09,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -4112,7 +4112,7 @@
               "strike": 16.5,
               "premium": 0.09,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -4121,7 +4121,7 @@
               "strike": 19,
               "premium": 0.25,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -4148,7 +4148,7 @@
               "strike": 18,
               "premium": 0.63,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.1",
@@ -4157,7 +4157,7 @@
               "strike": 19.5,
               "premium": 0.15,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -4183,7 +4183,7 @@
               "strike": 18,
               "premium": 0.54,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.9",
@@ -4192,7 +4192,7 @@
               "strike": 16,
               "premium": 0.04,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -4218,7 +4218,7 @@
               "strike": 16.5,
               "premium": 0.09,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.86",
@@ -4227,7 +4227,7 @@
               "strike": 15.5,
               "premium": 0.02,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -4253,7 +4253,7 @@
               "strike": 19,
               "premium": 0.25,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -4262,7 +4262,7 @@
               "strike": 20,
               "premium": 0.08,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -4288,7 +4288,7 @@
               "strike": 15.5,
               "premium": 0.02,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.93",
@@ -4297,7 +4297,7 @@
               "strike": 16.5,
               "premium": 0.09,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -4306,7 +4306,7 @@
               "strike": 19,
               "premium": 0.25,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -4315,7 +4315,7 @@
               "strike": 20,
               "premium": 0.08,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -4342,7 +4342,7 @@
               "strike": 16,
               "premium": 0.04,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-1",
@@ -4351,7 +4351,7 @@
               "strike": 18,
               "premium": 0.54,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1",
@@ -4360,7 +4360,7 @@
               "strike": 18,
               "premium": 0.63,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.1",
@@ -4369,7 +4369,7 @@
               "strike": 19.5,
               "premium": 0.15,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -4396,7 +4396,7 @@
               "strike": 18,
               "premium": 0.63,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-1",
@@ -4405,7 +4405,7 @@
               "strike": 18,
               "premium": 0.54,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -4432,7 +4432,7 @@
               "strike": 19,
               "premium": 0.25,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.93",
@@ -4441,7 +4441,7 @@
               "strike": 16.5,
               "premium": 0.09,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -4468,7 +4468,7 @@
               "strike": 16,
               "premium": 0.04,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -4477,7 +4477,7 @@
               "strike": 19,
               "premium": 0.25,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -4486,7 +4486,7 @@
               "strike": 20,
               "premium": 0.08,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -4513,7 +4513,7 @@
               "strike": 18,
               "premium": 0.54,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.9",
@@ -4522,7 +4522,7 @@
               "strike": 16,
               "premium": 0.04,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -4549,7 +4549,7 @@
               "strike": 18,
               "premium": 0.63,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.1",
@@ -4558,7 +4558,7 @@
               "strike": 19.5,
               "premium": 0.15,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -4585,7 +4585,7 @@
               "strike": 18,
               "premium": 0.54,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.9",
@@ -4594,7 +4594,7 @@
               "strike": 16,
               "premium": 0.04,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -4621,7 +4621,7 @@
               "strike": 18,
               "premium": 0.63,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.1",
@@ -4630,7 +4630,7 @@
               "strike": 19.5,
               "premium": 0.15,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -4657,7 +4657,7 @@
               "strike": 18,
               "premium": 0.63,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-1",
@@ -4666,7 +4666,7 @@
               "strike": 18,
               "premium": 0.54,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -4700,7 +4700,7 @@
               "strike": 19,
               "premium": 0.69,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -4727,7 +4727,7 @@
               "strike": 16.5,
               "premium": 0.37,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -4753,7 +4753,7 @@
               "strike": 16.5,
               "premium": 0.37,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -4780,7 +4780,7 @@
               "strike": 16.5,
               "premium": 0.37,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -4789,7 +4789,7 @@
               "strike": 19,
               "premium": 0.69,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -4816,7 +4816,7 @@
               "strike": 18,
               "premium": 1.1,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.1",
@@ -4825,7 +4825,7 @@
               "strike": 20,
               "premium": 0.4,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -4851,7 +4851,7 @@
               "strike": 18,
               "premium": 0.94,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.9",
@@ -4860,7 +4860,7 @@
               "strike": 16,
               "premium": 0.25,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -4886,7 +4886,7 @@
               "strike": 16.5,
               "premium": 0.37,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.86",
@@ -4895,7 +4895,7 @@
               "strike": 15.5,
               "premium": 0.16,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -4921,7 +4921,7 @@
               "strike": 19,
               "premium": 0.69,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -4930,7 +4930,7 @@
               "strike": 20,
               "premium": 0.4,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -4956,7 +4956,7 @@
               "strike": 15.5,
               "premium": 0.16,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.93",
@@ -4965,7 +4965,7 @@
               "strike": 16.5,
               "premium": 0.37,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -4974,7 +4974,7 @@
               "strike": 19,
               "premium": 0.69,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -4983,7 +4983,7 @@
               "strike": 20,
               "premium": 0.4,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -5010,7 +5010,7 @@
               "strike": 16,
               "premium": 0.25,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-1",
@@ -5019,7 +5019,7 @@
               "strike": 18,
               "premium": 0.94,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1",
@@ -5028,7 +5028,7 @@
               "strike": 18,
               "premium": 1.1,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.1",
@@ -5037,7 +5037,7 @@
               "strike": 20,
               "premium": 0.4,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -5064,7 +5064,7 @@
               "strike": 18,
               "premium": 1.1,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-1",
@@ -5073,7 +5073,7 @@
               "strike": 18,
               "premium": 0.94,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -5100,7 +5100,7 @@
               "strike": 19,
               "premium": 0.69,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.93",
@@ -5109,7 +5109,7 @@
               "strike": 16.5,
               "premium": 0.37,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -5136,7 +5136,7 @@
               "strike": 16,
               "premium": 0.25,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -5145,7 +5145,7 @@
               "strike": 19,
               "premium": 0.69,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -5154,7 +5154,7 @@
               "strike": 20,
               "premium": 0.4,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -5181,7 +5181,7 @@
               "strike": 18,
               "premium": 0.94,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.9",
@@ -5190,7 +5190,7 @@
               "strike": 16,
               "premium": 0.25,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -5217,7 +5217,7 @@
               "strike": 18,
               "premium": 1.1,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.1",
@@ -5226,7 +5226,7 @@
               "strike": 20,
               "premium": 0.4,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -5253,7 +5253,7 @@
               "strike": 18,
               "premium": 0.94,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.9",
@@ -5262,7 +5262,7 @@
               "strike": 16,
               "premium": 0.25,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -5289,7 +5289,7 @@
               "strike": 18,
               "premium": 1.1,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.1",
@@ -5298,7 +5298,7 @@
               "strike": 20,
               "premium": 0.4,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -5325,7 +5325,7 @@
               "strike": 18,
               "premium": 1.1,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-1",
@@ -5334,7 +5334,7 @@
               "strike": 18,
               "premium": 0.94,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -5368,7 +5368,7 @@
               "strike": 16.5,
               "premium": 0.36,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -5395,7 +5395,7 @@
               "strike": 14,
               "premium": 0.19,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -5421,7 +5421,7 @@
               "strike": 14,
               "premium": 0.19,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -5448,7 +5448,7 @@
               "strike": 14,
               "premium": 0.19,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -5457,7 +5457,7 @@
               "strike": 16.5,
               "premium": 0.36,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -5484,7 +5484,7 @@
               "strike": 15.5,
               "premium": 0.73,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.1",
@@ -5493,7 +5493,7 @@
               "strike": 17,
               "premium": 0.24,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -5519,7 +5519,7 @@
               "strike": 15.5,
               "premium": 0.73,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.9",
@@ -5528,7 +5528,7 @@
               "strike": 14,
               "premium": 0.19,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -5554,7 +5554,7 @@
               "strike": 14,
               "premium": 0.19,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.86",
@@ -5563,7 +5563,7 @@
               "strike": 13,
               "premium": 0.05,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -5589,7 +5589,7 @@
               "strike": 16.5,
               "premium": 0.36,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -5598,7 +5598,7 @@
               "strike": 17.5,
               "premium": 0.15,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -5624,7 +5624,7 @@
               "strike": 13,
               "premium": 0.05,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.93",
@@ -5633,7 +5633,7 @@
               "strike": 14,
               "premium": 0.19,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -5642,7 +5642,7 @@
               "strike": 16.5,
               "premium": 0.36,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -5651,7 +5651,7 @@
               "strike": 17.5,
               "premium": 0.15,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -5678,7 +5678,7 @@
               "strike": 14,
               "premium": 0.19,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-1",
@@ -5687,7 +5687,7 @@
               "strike": 15.5,
               "premium": 0.73,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1",
@@ -5696,7 +5696,7 @@
               "strike": 15.5,
               "premium": 0.73,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.1",
@@ -5705,7 +5705,7 @@
               "strike": 17,
               "premium": 0.24,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -5732,7 +5732,7 @@
               "strike": 15.5,
               "premium": 0.73,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-1",
@@ -5741,7 +5741,7 @@
               "strike": 15.5,
               "premium": 0.73,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -5768,7 +5768,7 @@
               "strike": 16.5,
               "premium": 0.36,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.93",
@@ -5777,7 +5777,7 @@
               "strike": 14,
               "premium": 0.19,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -5804,7 +5804,7 @@
               "strike": 14,
               "premium": 0.19,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -5813,7 +5813,7 @@
               "strike": 16.5,
               "premium": 0.36,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -5822,7 +5822,7 @@
               "strike": 17.5,
               "premium": 0.15,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -5849,7 +5849,7 @@
               "strike": 15.5,
               "premium": 0.73,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.9",
@@ -5858,7 +5858,7 @@
               "strike": 14,
               "premium": 0.19,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -5885,7 +5885,7 @@
               "strike": 15.5,
               "premium": 0.73,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.1",
@@ -5894,7 +5894,7 @@
               "strike": 17,
               "premium": 0.24,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -5921,7 +5921,7 @@
               "strike": 15.5,
               "premium": 0.73,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.9",
@@ -5930,7 +5930,7 @@
               "strike": 14,
               "premium": 0.19,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -5957,7 +5957,7 @@
               "strike": 15.5,
               "premium": 0.73,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.1",
@@ -5966,7 +5966,7 @@
               "strike": 17,
               "premium": 0.24,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -5993,7 +5993,7 @@
               "strike": 15.5,
               "premium": 0.73,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-1",
@@ -6002,7 +6002,7 @@
               "strike": 15.5,
               "premium": 0.73,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -6037,7 +6037,7 @@
               "strike": 15,
               "premium": 0.33,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -6064,7 +6064,7 @@
               "strike": 13,
               "premium": 0.21,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -6090,7 +6090,7 @@
               "strike": 13,
               "premium": 0.21,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -6117,7 +6117,7 @@
               "strike": 13,
               "premium": 0.21,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -6126,7 +6126,7 @@
               "strike": 15,
               "premium": 0.33,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -6153,7 +6153,7 @@
               "strike": 14,
               "premium": 0.72,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.1",
@@ -6162,7 +6162,7 @@
               "strike": 15.5,
               "premium": 0.21,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -6188,7 +6188,7 @@
               "strike": 14,
               "premium": 0.57,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.9",
@@ -6197,7 +6197,7 @@
               "strike": 12.5,
               "premium": 0.11,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -6223,7 +6223,7 @@
               "strike": 13,
               "premium": 0.21,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.86",
@@ -6232,7 +6232,7 @@
               "strike": 12,
               "premium": 0.05,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -6258,7 +6258,7 @@
               "strike": 15,
               "premium": 0.33,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -6267,7 +6267,7 @@
               "strike": 16,
               "premium": 0.13,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -6293,7 +6293,7 @@
               "strike": 12,
               "premium": 0.05,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.93",
@@ -6302,7 +6302,7 @@
               "strike": 13,
               "premium": 0.21,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -6311,7 +6311,7 @@
               "strike": 15,
               "premium": 0.33,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -6320,7 +6320,7 @@
               "strike": 16,
               "premium": 0.13,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -6347,7 +6347,7 @@
               "strike": 12.5,
               "premium": 0.11,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-1",
@@ -6356,7 +6356,7 @@
               "strike": 14,
               "premium": 0.57,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1",
@@ -6365,7 +6365,7 @@
               "strike": 14,
               "premium": 0.72,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.1",
@@ -6374,7 +6374,7 @@
               "strike": 15.5,
               "premium": 0.21,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -6401,7 +6401,7 @@
               "strike": 14,
               "premium": 0.72,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-1",
@@ -6410,7 +6410,7 @@
               "strike": 14,
               "premium": 0.57,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -6437,7 +6437,7 @@
               "strike": 15,
               "premium": 0.33,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.93",
@@ -6446,7 +6446,7 @@
               "strike": 13,
               "premium": 0.21,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -6473,7 +6473,7 @@
               "strike": 12.5,
               "premium": 0.11,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -6482,7 +6482,7 @@
               "strike": 15,
               "premium": 0.33,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -6491,7 +6491,7 @@
               "strike": 16,
               "premium": 0.13,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -6518,7 +6518,7 @@
               "strike": 14,
               "premium": 0.57,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.9",
@@ -6527,7 +6527,7 @@
               "strike": 12.5,
               "premium": 0.11,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -6554,7 +6554,7 @@
               "strike": 14,
               "premium": 0.72,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.1",
@@ -6563,7 +6563,7 @@
               "strike": 15.5,
               "premium": 0.21,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -6590,7 +6590,7 @@
               "strike": 14,
               "premium": 0.57,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.9",
@@ -6599,7 +6599,7 @@
               "strike": 12.5,
               "premium": 0.11,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -6626,7 +6626,7 @@
               "strike": 14,
               "premium": 0.72,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.1",
@@ -6635,7 +6635,7 @@
               "strike": 15.5,
               "premium": 0.21,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -6662,7 +6662,7 @@
               "strike": 14,
               "premium": 0.72,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-1",
@@ -6671,7 +6671,7 @@
               "strike": 14,
               "premium": 0.57,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -6705,7 +6705,7 @@
               "strike": 7,
               "premium": 0.55,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -6732,7 +6732,7 @@
               "strike": 6.5,
               "premium": 0.45,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -6758,7 +6758,7 @@
               "strike": 6.5,
               "premium": 0.45,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -6785,7 +6785,7 @@
               "strike": 6.5,
               "premium": 0.45,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -6794,7 +6794,7 @@
               "strike": 7,
               "premium": 0.55,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -6821,7 +6821,7 @@
               "strike": 7,
               "premium": 0.55,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.1",
@@ -6830,7 +6830,7 @@
               "strike": 7.5,
               "premium": 0.37,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -6856,7 +6856,7 @@
               "strike": 7,
               "premium": 0.71,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.9",
@@ -6865,7 +6865,7 @@
               "strike": 6,
               "premium": 0.26,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -6891,7 +6891,7 @@
               "strike": 6.5,
               "premium": 0.45,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.86",
@@ -6900,7 +6900,7 @@
               "strike": 6,
               "premium": 0.26,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -6926,7 +6926,7 @@
               "strike": 7,
               "premium": 0.55,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -6935,7 +6935,7 @@
               "strike": 7.5,
               "premium": 0.37,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -6961,7 +6961,7 @@
               "strike": 6,
               "premium": 0.26,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.93",
@@ -6970,7 +6970,7 @@
               "strike": 6.5,
               "premium": 0.45,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -6979,7 +6979,7 @@
               "strike": 7,
               "premium": 0.55,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -6988,7 +6988,7 @@
               "strike": 7.5,
               "premium": 0.37,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -7015,7 +7015,7 @@
               "strike": 6,
               "premium": 0.26,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-1",
@@ -7024,7 +7024,7 @@
               "strike": 7,
               "premium": 0.71,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1",
@@ -7033,7 +7033,7 @@
               "strike": 7,
               "premium": 0.55,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.1",
@@ -7042,7 +7042,7 @@
               "strike": 7.5,
               "premium": 0.37,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -7068,7 +7068,7 @@
               "strike": 7,
               "premium": 0.55,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-1",
@@ -7077,7 +7077,7 @@
               "strike": 7,
               "premium": 0.71,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -7104,7 +7104,7 @@
               "strike": 7,
               "premium": 0.55,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.93",
@@ -7113,7 +7113,7 @@
               "strike": 6.5,
               "premium": 0.45,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -7140,7 +7140,7 @@
               "strike": 6,
               "premium": 0.26,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -7149,7 +7149,7 @@
               "strike": 7,
               "premium": 0.55,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -7158,7 +7158,7 @@
               "strike": 7.5,
               "premium": 0.37,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -7185,7 +7185,7 @@
               "strike": 7,
               "premium": 0.71,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.9",
@@ -7194,7 +7194,7 @@
               "strike": 6,
               "premium": 0.26,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -7221,7 +7221,7 @@
               "strike": 7,
               "premium": 0.55,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.1",
@@ -7230,7 +7230,7 @@
               "strike": 7.5,
               "premium": 0.37,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -7256,7 +7256,7 @@
               "strike": 7,
               "premium": 0.71,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.9",
@@ -7265,7 +7265,7 @@
               "strike": 6,
               "premium": 0.26,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -7292,7 +7292,7 @@
               "strike": 7,
               "premium": 0.55,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.1",
@@ -7301,7 +7301,7 @@
               "strike": 7.5,
               "premium": 0.37,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -7328,7 +7328,7 @@
               "strike": 7,
               "premium": 0.55,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-1",
@@ -7337,7 +7337,7 @@
               "strike": 7,
               "premium": 0.71,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -7371,7 +7371,7 @@
               "strike": 31,
               "premium": 0.68,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -7398,7 +7398,7 @@
               "strike": 27,
               "premium": 0.44,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -7424,7 +7424,7 @@
               "strike": 27,
               "premium": 0.44,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -7451,7 +7451,7 @@
               "strike": 27,
               "premium": 0.44,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -7460,7 +7460,7 @@
               "strike": 31,
               "premium": 0.68,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -7487,7 +7487,7 @@
               "strike": 29,
               "premium": 1.47,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.1",
@@ -7496,7 +7496,7 @@
               "strike": 32,
               "premium": 0.44,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -7522,7 +7522,7 @@
               "strike": 29,
               "premium": 1.16,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.9",
@@ -7531,7 +7531,7 @@
               "strike": 26,
               "premium": 0.23,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -7557,7 +7557,7 @@
               "strike": 27,
               "premium": 0.44,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.86",
@@ -7566,7 +7566,7 @@
               "strike": 25,
               "premium": 0.11,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -7592,7 +7592,7 @@
               "strike": 31,
               "premium": 0.68,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -7601,7 +7601,7 @@
               "strike": 33,
               "premium": 0.27,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -7627,7 +7627,7 @@
               "strike": 25,
               "premium": 0.11,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.93",
@@ -7636,7 +7636,7 @@
               "strike": 27,
               "premium": 0.44,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -7645,7 +7645,7 @@
               "strike": 31,
               "premium": 0.68,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -7654,7 +7654,7 @@
               "strike": 33,
               "premium": 0.27,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -7681,7 +7681,7 @@
               "strike": 26,
               "premium": 0.23,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-1",
@@ -7690,7 +7690,7 @@
               "strike": 29,
               "premium": 1.16,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1",
@@ -7699,7 +7699,7 @@
               "strike": 29,
               "premium": 1.47,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.1",
@@ -7708,7 +7708,7 @@
               "strike": 32,
               "premium": 0.44,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -7735,7 +7735,7 @@
               "strike": 29,
               "premium": 1.47,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-1",
@@ -7744,7 +7744,7 @@
               "strike": 29,
               "premium": 1.16,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -7771,7 +7771,7 @@
               "strike": 31,
               "premium": 0.68,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.93",
@@ -7780,7 +7780,7 @@
               "strike": 27,
               "premium": 0.44,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -7807,7 +7807,7 @@
               "strike": 26,
               "premium": 0.23,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -7816,7 +7816,7 @@
               "strike": 31,
               "premium": 0.68,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -7825,7 +7825,7 @@
               "strike": 33,
               "premium": 0.27,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -7852,7 +7852,7 @@
               "strike": 29,
               "premium": 1.16,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.9",
@@ -7861,7 +7861,7 @@
               "strike": 26,
               "premium": 0.23,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -7888,7 +7888,7 @@
               "strike": 29,
               "premium": 1.47,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.1",
@@ -7897,7 +7897,7 @@
               "strike": 32,
               "premium": 0.44,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -7924,7 +7924,7 @@
               "strike": 29,
               "premium": 1.16,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.9",
@@ -7933,7 +7933,7 @@
               "strike": 26,
               "premium": 0.23,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -7960,7 +7960,7 @@
               "strike": 29,
               "premium": 1.47,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.1",
@@ -7969,7 +7969,7 @@
               "strike": 32,
               "premium": 0.44,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -7996,7 +7996,7 @@
               "strike": 29,
               "premium": 1.47,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-1",
@@ -8005,7 +8005,7 @@
               "strike": 29,
               "premium": 1.16,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -8039,7 +8039,7 @@
               "strike": 29,
               "premium": 0.61,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -8066,7 +8066,7 @@
               "strike": 25,
               "premium": 0.41,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -8092,7 +8092,7 @@
               "strike": 25,
               "premium": 0.41,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -8119,7 +8119,7 @@
               "strike": 25,
               "premium": 0.41,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -8128,7 +8128,7 @@
               "strike": 29,
               "premium": 0.61,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -8155,7 +8155,7 @@
               "strike": 27,
               "premium": 1.38,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.1",
@@ -8164,7 +8164,7 @@
               "strike": 30,
               "premium": 0.39,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -8190,7 +8190,7 @@
               "strike": 27,
               "premium": 1.14,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.9",
@@ -8199,7 +8199,7 @@
               "strike": 24,
               "premium": 0.21,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -8225,7 +8225,7 @@
               "strike": 25,
               "premium": 0.41,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.86",
@@ -8234,7 +8234,7 @@
               "strike": 23,
               "premium": 0.1,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -8260,7 +8260,7 @@
               "strike": 29,
               "premium": 0.61,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -8269,7 +8269,7 @@
               "strike": 31,
               "premium": 0.23,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -8295,7 +8295,7 @@
               "strike": 23,
               "premium": 0.1,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.93",
@@ -8304,7 +8304,7 @@
               "strike": 25,
               "premium": 0.41,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -8313,7 +8313,7 @@
               "strike": 29,
               "premium": 0.61,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -8322,7 +8322,7 @@
               "strike": 31,
               "premium": 0.23,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -8349,7 +8349,7 @@
               "strike": 24,
               "premium": 0.21,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-1",
@@ -8358,7 +8358,7 @@
               "strike": 27,
               "premium": 1.14,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1",
@@ -8367,7 +8367,7 @@
               "strike": 27,
               "premium": 1.38,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.1",
@@ -8376,7 +8376,7 @@
               "strike": 30,
               "premium": 0.39,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -8403,7 +8403,7 @@
               "strike": 27,
               "premium": 1.38,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-1",
@@ -8412,7 +8412,7 @@
               "strike": 27,
               "premium": 1.14,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -8439,7 +8439,7 @@
               "strike": 29,
               "premium": 0.61,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.93",
@@ -8448,7 +8448,7 @@
               "strike": 25,
               "premium": 0.41,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -8475,7 +8475,7 @@
               "strike": 24,
               "premium": 0.21,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -8484,7 +8484,7 @@
               "strike": 29,
               "premium": 0.61,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -8493,7 +8493,7 @@
               "strike": 31,
               "premium": 0.23,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -8520,7 +8520,7 @@
               "strike": 27,
               "premium": 1.14,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.9",
@@ -8529,7 +8529,7 @@
               "strike": 24,
               "premium": 0.21,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -8556,7 +8556,7 @@
               "strike": 27,
               "premium": 1.38,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.1",
@@ -8565,7 +8565,7 @@
               "strike": 30,
               "premium": 0.39,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -8592,7 +8592,7 @@
               "strike": 27,
               "premium": 1.14,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.9",
@@ -8601,7 +8601,7 @@
               "strike": 24,
               "premium": 0.21,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -8628,7 +8628,7 @@
               "strike": 27,
               "premium": 1.38,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.1",
@@ -8637,7 +8637,7 @@
               "strike": 30,
               "premium": 0.39,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -8664,7 +8664,7 @@
               "strike": 27,
               "premium": 1.38,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-1",
@@ -8673,7 +8673,7 @@
               "strike": 27,
               "premium": 1.14,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -8707,7 +8707,7 @@
               "strike": 32,
               "premium": 0.57,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -8734,7 +8734,7 @@
               "strike": 28,
               "premium": 0.29,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -8760,7 +8760,7 @@
               "strike": 28,
               "premium": 0.29,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -8787,7 +8787,7 @@
               "strike": 28,
               "premium": 0.29,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -8796,7 +8796,7 @@
               "strike": 32,
               "premium": 0.57,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -8823,7 +8823,7 @@
               "strike": 30,
               "premium": 1.38,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.1",
@@ -8832,7 +8832,7 @@
               "strike": 33,
               "premium": 0.34,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -8858,7 +8858,7 @@
               "strike": 30,
               "premium": 0.93,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.9",
@@ -8867,7 +8867,7 @@
               "strike": 27,
               "premium": 0.14,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -8893,7 +8893,7 @@
               "strike": 28,
               "premium": 0.29,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.86",
@@ -8902,7 +8902,7 @@
               "strike": 26,
               "premium": 0.06,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -8928,7 +8928,7 @@
               "strike": 32,
               "premium": 0.57,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -8937,7 +8937,7 @@
               "strike": 34,
               "premium": 0.19,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -8963,7 +8963,7 @@
               "strike": 26,
               "premium": 0.06,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.93",
@@ -8972,7 +8972,7 @@
               "strike": 28,
               "premium": 0.29,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -8981,7 +8981,7 @@
               "strike": 32,
               "premium": 0.57,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -8990,7 +8990,7 @@
               "strike": 34,
               "premium": 0.19,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -9017,7 +9017,7 @@
               "strike": 27,
               "premium": 0.14,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-1",
@@ -9026,7 +9026,7 @@
               "strike": 30,
               "premium": 0.93,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1",
@@ -9035,7 +9035,7 @@
               "strike": 30,
               "premium": 1.38,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.1",
@@ -9044,7 +9044,7 @@
               "strike": 33,
               "premium": 0.34,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -9071,7 +9071,7 @@
               "strike": 30,
               "premium": 1.38,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-1",
@@ -9080,7 +9080,7 @@
               "strike": 30,
               "premium": 0.93,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -9107,7 +9107,7 @@
               "strike": 32,
               "premium": 0.57,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.93",
@@ -9116,7 +9116,7 @@
               "strike": 28,
               "premium": 0.29,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -9143,7 +9143,7 @@
               "strike": 27,
               "premium": 0.14,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -9152,7 +9152,7 @@
               "strike": 32,
               "premium": 0.57,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -9161,7 +9161,7 @@
               "strike": 34,
               "premium": 0.19,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -9188,7 +9188,7 @@
               "strike": 30,
               "premium": 0.93,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.9",
@@ -9197,7 +9197,7 @@
               "strike": 27,
               "premium": 0.14,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -9224,7 +9224,7 @@
               "strike": 30,
               "premium": 1.38,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.1",
@@ -9233,7 +9233,7 @@
               "strike": 33,
               "premium": 0.34,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -9260,7 +9260,7 @@
               "strike": 30,
               "premium": 0.93,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.9",
@@ -9269,7 +9269,7 @@
               "strike": 27,
               "premium": 0.14,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -9296,7 +9296,7 @@
               "strike": 30,
               "premium": 1.38,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.1",
@@ -9305,7 +9305,7 @@
               "strike": 33,
               "premium": 0.34,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -9332,7 +9332,7 @@
               "strike": 30,
               "premium": 1.38,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-1",
@@ -9341,7 +9341,7 @@
               "strike": 30,
               "premium": 0.93,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -9375,7 +9375,7 @@
               "strike": 48,
               "premium": 1.07,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -9402,7 +9402,7 @@
               "strike": 42,
               "premium": 0.67,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -9428,7 +9428,7 @@
               "strike": 42,
               "premium": 0.67,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -9455,7 +9455,7 @@
               "strike": 42,
               "premium": 0.67,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -9464,7 +9464,7 @@
               "strike": 48,
               "premium": 1.07,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -9491,7 +9491,7 @@
               "strike": 45,
               "premium": 2.27,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.1",
@@ -9500,7 +9500,7 @@
               "strike": 50,
               "premium": 0.6,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -9526,7 +9526,7 @@
               "strike": 45,
               "premium": 1.75,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.9",
@@ -9535,7 +9535,7 @@
               "strike": 41,
               "premium": 0.45,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -9561,7 +9561,7 @@
               "strike": 42,
               "premium": 0.67,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.86",
@@ -9570,7 +9570,7 @@
               "strike": 39,
               "premium": 0.18,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -9596,7 +9596,7 @@
               "strike": 48,
               "premium": 1.07,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -9605,7 +9605,7 @@
               "strike": 51,
               "premium": 0.43,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -9631,7 +9631,7 @@
               "strike": 39,
               "premium": 0.18,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.93",
@@ -9640,7 +9640,7 @@
               "strike": 42,
               "premium": 0.67,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -9649,7 +9649,7 @@
               "strike": 48,
               "premium": 1.07,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -9658,7 +9658,7 @@
               "strike": 51,
               "premium": 0.43,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -9685,7 +9685,7 @@
               "strike": 41,
               "premium": 0.45,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-1",
@@ -9694,7 +9694,7 @@
               "strike": 45,
               "premium": 1.75,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1",
@@ -9703,7 +9703,7 @@
               "strike": 45,
               "premium": 2.27,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.1",
@@ -9712,7 +9712,7 @@
               "strike": 50,
               "premium": 0.6,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -9739,7 +9739,7 @@
               "strike": 45,
               "premium": 2.27,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-1",
@@ -9748,7 +9748,7 @@
               "strike": 45,
               "premium": 1.75,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -9775,7 +9775,7 @@
               "strike": 48,
               "premium": 1.07,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.93",
@@ -9784,7 +9784,7 @@
               "strike": 42,
               "premium": 0.67,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -9811,7 +9811,7 @@
               "strike": 41,
               "premium": 0.45,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.07",
@@ -9820,7 +9820,7 @@
               "strike": 48,
               "premium": 1.07,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.14",
@@ -9829,7 +9829,7 @@
               "strike": 51,
               "premium": 0.43,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -9856,7 +9856,7 @@
               "strike": 45,
               "premium": 1.75,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-0.9",
@@ -9865,7 +9865,7 @@
               "strike": 41,
               "premium": 0.45,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -9892,7 +9892,7 @@
               "strike": 45,
               "premium": 2.27,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-COMPRA-1.1",
@@ -9901,7 +9901,7 @@
               "strike": 50,
               "premium": 0.6,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -9928,7 +9928,7 @@
               "strike": 45,
               "premium": 1.75,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-COMPRA-0.9",
@@ -9937,7 +9937,7 @@
               "strike": 41,
               "premium": 0.45,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
@@ -9964,7 +9964,7 @@
               "strike": 45,
               "premium": 2.27,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "CALL-VENDA-1.1",
@@ -9973,7 +9973,7 @@
               "strike": 50,
               "premium": 0.6,
               "quantity": 200,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": true,
@@ -10000,7 +10000,7 @@
               "strike": 45,
               "premium": 2.27,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             },
             {
               "id": "PUT-VENDA-1",
@@ -10009,7 +10009,7 @@
               "strike": 45,
               "premium": 1.75,
               "quantity": 100,
-              "expiry": "2026-10-26"
+              "expiry": "2026-10-27"
             }
           ],
           "requiresUnderlying": false,
