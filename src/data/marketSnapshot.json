@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-25T15:48:21.534Z",
+  "generatedAt": "2026-10-26T18:28:49.210Z",
   "quotes": {
     "PETR4": {
-      "price": 58.68,
-      "priceAsOf": "2026-10-23T20:05:56.000Z",
+      "price": 53.26,
+      "priceAsOf": "2026-10-26T18:13:29.000Z",
       "pl": 5.67,
       "pvp": 1.57,
       "dy": 6.2,
@@ -11,12 +11,12 @@
       "margemLiquida": 24.4,
       "min52": 27.46,
       "max52": 59.68,
-      "fundamentalsAsOf": "2026-10-25T15:48:06.807Z",
+      "fundamentalsAsOf": "2026-10-26T18:28:32.450Z",
       "stale": false
     },
     "VALE3": {
-      "price": 61.9,
-      "priceAsOf": "2026-10-23T20:05:55.000Z",
+      "price": 64.95,
+      "priceAsOf": "2026-10-26T18:13:30.000Z",
       "pl": 26.5,
       "pvp": 1.4,
       "dy": 9.1,
@@ -24,12 +24,12 @@
       "margemLiquida": 4,
       "min52": 57.41,
       "max52": 87.97,
-      "fundamentalsAsOf": "2026-10-25T15:48:07.815Z",
+      "fundamentalsAsOf": "2026-10-26T18:28:33.538Z",
       "stale": false
     },
     "ITUB4": {
-      "price": 48.3,
-      "priceAsOf": "2026-10-23T20:09:35.000Z",
+      "price": 41.27,
+      "priceAsOf": "2026-10-26T18:13:34.000Z",
       "pl": 11.43,
       "pvp": 2.56,
       "dy": 6.4,
@@ -37,12 +37,12 @@
       "margemLiquida": 0,
       "min52": 34.48,
       "max52": 50.47,
-      "fundamentalsAsOf": "2026-10-25T15:48:08.857Z",
+      "fundamentalsAsOf": "2026-10-26T18:28:34.596Z",
       "stale": false
     },
     "WEGE3": {
-      "price": 42.73,
-      "priceAsOf": "2026-10-23T20:05:31.000Z",
+      "price": 44.73,
+      "priceAsOf": "2026-10-26T18:13:33.000Z",
       "pl": 28.61,
       "pvp": 8.99,
       "dy": 4.7,
@@ -50,12 +50,12 @@
       "margemLiquida": 16.4,
       "min52": 39.73,
       "max52": 53.74,
-      "fundamentalsAsOf": "2026-10-25T15:48:09.858Z",
+      "fundamentalsAsOf": "2026-10-26T18:28:35.702Z",
       "stale": false
     },
     "BOVA11": {
-      "price": 201.69,
-      "priceAsOf": "2026-10-23T20:18:43.000Z",
+      "price": 171.56,
+      "priceAsOf": "2026-10-26T18:13:36.000Z",
       "pl": null,
       "pvp": null,
       "dy": null,
@@ -67,8 +67,8 @@
       "stale": false
     },
     "BBAS3": {
-      "price": 24.72,
-      "priceAsOf": "2026-10-23T20:09:35.000Z",
+      "price": 17.47,
+      "priceAsOf": "2026-10-26T18:13:35.000Z",
       "pl": 9.78,
       "pvp": 0.78,
       "dy": 2.8,
@@ -76,12 +76,12 @@
       "margemLiquida": 0,
       "min52": 17.7,
       "max52": 27.21,
-      "fundamentalsAsOf": "2026-10-25T15:48:11.709Z",
+      "fundamentalsAsOf": "2026-10-26T18:28:37.637Z",
       "stale": false
     },
     "BBDC4": {
-      "price": 20.37,
-      "priceAsOf": "2026-10-23T20:05:46.000Z",
+      "price": 15.58,
+      "priceAsOf": "2026-10-26T18:13:37.000Z",
       "pl": 8.89,
       "pvp": 1.21,
       "dy": 7.5,
@@ -89,12 +89,12 @@
       "margemLiquida": 0,
       "min52": 15.51,
       "max52": 22.48,
-      "fundamentalsAsOf": "2026-10-25T15:48:12.707Z",
+      "fundamentalsAsOf": "2026-10-26T18:28:38.685Z",
       "stale": false
     },
     "B3SA3": {
-      "price": 23.65,
-      "priceAsOf": "2026-10-23T20:05:36.000Z",
+      "price": 14.73,
+      "priceAsOf": "2026-10-26T18:13:39.000Z",
       "pl": 22.39,
       "pvp": 6.38,
       "dy": 3.9,
@@ -102,12 +102,12 @@
       "margemLiquida": 44.4,
       "min52": 11.9,
       "max52": 23.71,
-      "fundamentalsAsOf": "2026-10-25T15:48:13.701Z",
+      "fundamentalsAsOf": "2026-10-26T18:28:39.757Z",
       "stale": false
     },
     "ABEV3": {
-      "price": 16.68,
-      "priceAsOf": "2026-10-23T20:09:35.000Z",
+      "price": 15.35,
+      "priceAsOf": "2026-10-26T18:13:39.000Z",
       "pl": 15.9,
       "pvp": 2.92,
       "dy": 5.2,
@@ -115,12 +115,12 @@
       "margemLiquida": 19,
       "min52": 11.37,
       "max52": 16.9,
-      "fundamentalsAsOf": "2026-10-25T15:48:14.730Z",
+      "fundamentalsAsOf": "2026-10-26T18:28:40.825Z",
       "stale": false
     },
     "ITSA4": {
-      "price": 15.31,
-      "priceAsOf": "2026-10-23T20:05:45.000Z",
+      "price": 13.16,
+      "priceAsOf": "2026-10-26T18:13:40.000Z",
       "pl": 9.45,
       "pvp": 1.83,
       "dy": 7.4,
@@ -128,12 +128,12 @@
       "margemLiquida": 215.1,
       "min52": 10.12,
       "max52": 16.54,
-      "fundamentalsAsOf": "2026-10-25T15:48:15.745Z",
+      "fundamentalsAsOf": "2026-10-26T18:28:43.128Z",
       "stale": false
     },
     "MGLU3": {
-      "price": 12.69,
-      "priceAsOf": "2026-10-23T20:05:43.000Z",
+      "price": 5.09,
+      "priceAsOf": "2026-10-26T18:13:43.000Z",
       "pl": 111.25,
       "pvp": 0.88,
       "dy": 0.6,
@@ -141,12 +141,12 @@
       "margemLiquida": 0.2,
       "min52": 3.88,
       "max52": 13.58,
-      "fundamentalsAsOf": "2026-10-25T15:48:16.752Z",
+      "fundamentalsAsOf": "2026-10-26T18:28:44.170Z",
       "stale": false
     },
     "ALOS3": {
-      "price": 35.14,
-      "priceAsOf": "2026-10-23T20:05:40.000Z",
+      "price": 25.77,
+      "priceAsOf": "2026-10-26T18:13:43.000Z",
       "pl": 18.96,
       "pvp": 1.38,
       "dy": 10,
@@ -154,12 +154,12 @@
       "margemLiquida": 35.6,
       "min52": 21.68,
       "max52": 35.53,
-      "fundamentalsAsOf": "2026-10-25T15:48:17.741Z",
+      "fundamentalsAsOf": "2026-10-26T18:28:45.247Z",
       "stale": false
     },
     "SBSP3": {
-      "price": 31.98,
-      "priceAsOf": "2026-10-23T20:05:33.000Z",
+      "price": 24.78,
+      "priceAsOf": "2026-10-26T18:13:45.000Z",
       "pl": 14.02,
       "pvp": 2.5,
       "dy": 2.1,
@@ -167,12 +167,12 @@
       "margemLiquida": 19.7,
       "min52": 23.31,
       "max52": 35.21,
-      "fundamentalsAsOf": "2026-10-25T15:48:18.736Z",
+      "fundamentalsAsOf": "2026-10-26T18:28:46.302Z",
       "stale": false
     },
     "VIVT3": {
-      "price": 32.43,
-      "priceAsOf": "2026-10-23T20:05:52.000Z",
+      "price": 30.32,
+      "priceAsOf": "2026-10-26T18:13:45.000Z",
       "pl": 15.86,
       "pvp": 1.59,
       "dy": 7.9,
@@ -180,12 +180,12 @@
       "margemLiquida": 10.7,
       "min52": 29.07,
       "max52": 40.75,
-      "fundamentalsAsOf": "2026-10-25T15:48:19.733Z",
+      "fundamentalsAsOf": "2026-10-26T18:28:47.356Z",
       "stale": false
     },
     "SUZB3": {
-      "price": 43.06,
-      "priceAsOf": "2026-10-23T20:05:55.000Z",
+      "price": 48.04,
+      "priceAsOf": "2026-10-26T18:13:46.000Z",
       "pl": 6.66,
       "pvp": 1.1,
       "dy": 0,
@@ -193,7 +193,7 @@
       "margemLiquida": 17.1,
       "min52": 39.68,
       "max52": 58.98,
-      "fundamentalsAsOf": "2026-10-25T15:48:20.733Z",
+      "fundamentalsAsOf": "2026-10-26T18:28:48.410Z",
       "stale": false
     }
   }
